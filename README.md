@@ -2,6 +2,14 @@
 
 LaTeX source and verification code for the paper of this title by Deep Bhattacharjee and Ushashi Bhattacharya, version 2 of the preprint "Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II" (doi:10.20944/preprints202602.2038.v1).
 
+## Archive
+
+| Release | Version DOI |
+|---|---|
+| v2.0.0 | [10.5281/zenodo.23815570](https://doi.org/10.5281/zenodo.23815570) |
+
+Concept DOI of all versions: [10.5281/zenodo.23815569](https://doi.org/10.5281/zenodo.23815569).
+
 ## Layout
 
 - `paper/`: the LaTeX source (`main.tex`, amsart, and one file per section), the figures in `paper/figures/`, and the compiled `paper/main.pdf`. `paper/merge.py` writes `paper/manuscript.tex`, a single file with every section inlined, for submission.
