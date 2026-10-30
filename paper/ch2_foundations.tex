@@ -1,0 +1,112 @@
+\chapter{Homotopy groups and fibrations}\label{ch:foundations}
+
+This chapter collects the facts from homotopy theory used later. Most are standard; we give proofs where the argument is short or where the precise form matters, and we prove one splitting lemma, Lemma~\ref{lem:split}, on which Chapter~\ref{ch:groups} rests.
+
+\section{Homotopy groups}
+
+Let $X$ be a space with basepoint $x_0$. For $i\ge1$ the group $\pi_i(X,x_0)$ is the set of homotopy classes of maps $f\colon(I^i,\partial I^i)\to(X,x_0)$, the homotopies being through maps of the same kind, with the product
+\[
+(f+g)(t_1,\dots,t_i)=\begin{cases}f(2t_1,t_2,\dots,t_i),&t_1\le\tfrac12,\\ g(2t_1-1,t_2,\dots,t_i),&t_1\ge\tfrac12.\end{cases}
+\]
+It is abelian for $i\ge2$.\footnote{The two halves of the cube can be shrunk and slid around one another in the second coordinate; for $i=1$ there is no second coordinate, and $\pi_1$ need not be abelian.} Collapsing $\partial I^i$ identifies $\pi_i(X,x_0)$ with the set of based homotopy classes of based maps $(S^i,s_0)\to(X,x_0)$. For a pair $(X,A)$ with $x_0\in A$ and $i\ge1$, the relative set $\pi_i(X,A,x_0)$ consists of homotopy classes of maps $(D^i,S^{i-1},s_0)\to(X,A,x_0)$; it is a group for $i\ge2$, and there is an exact sequence
+\begin{equation}\label{eq:pair-les}
+\cdots\to\pi_i(A)\to\pi_i(X)\to\pi_i(X,A)\xrightarrow{\ \partial\ }\pi_{i-1}(A)\to\cdots\to\pi_0(X),
+\end{equation}
+in which $\partial$ restricts a map of $D^i$ to its boundary \cite[Theorem~4.3]{Hat02}.
+
+A \emph{CW complex} is a space $X$ with a filtration $X^0\subset X^1\subset\cdots$ by skeleta, where $X^0$ is discrete and $X^n$ is obtained from $X^{n-1}$ by attaching $n$-cells along maps $S^{n-1}\to X^{n-1}$, and $X=\bigcup_nX^n$ has the weak topology. The closure of each cell then meets only finitely many cells.\footnote{This is the ``closure-finite'' condition that gives CW complexes the letter C. It concerns the closure of a cell, which lies in a finite subcomplex; a cell may well meet the closures of infinitely many others.} The sphere $S^n$ has a CW structure with one $0$-cell $s_0$ and one $n$-cell attached by the constant map. A map $f\colon X\to Y$ of CW complexes is \emph{cellular} if $f(X^n)\subset Y^n$ for all $n$.
+
+\begin{theorem}[Cellular approximation {\cite[Theorem~4.8]{Hat02}}]\label{thm:cellular}
+Every map of CW complexes is homotopic to a cellular map, by a homotopy that is stationary on any subcomplex on which the map is already cellular.
+\end{theorem}
+
+\begin{proposition}\label{prop:below}
+$\pi_i(S^n)=0$ for $0\le i<n$.
+\end{proposition}
+
+\begin{proof}
+Give $S^i$ and $S^n$ the CW structures with one $0$-cell each, at the basepoints. A based map $f\colon S^i\to S^n$ is cellular on the subcomplex $\{s_0\}$, so by Theorem~\ref{thm:cellular} it is homotopic relative to $s_0$ to a cellular map. A cellular map sends $S^i=(S^i)^i$ into the $i$-skeleton of $S^n$, which is the point $s_0$ because $i<n$. So $f$ is null-homotopic relative to the basepoint.
+\end{proof}
+
+\begin{proposition}\label{prop:degree}
+For $n\ge1$ the degree defines an isomorphism $\pi_n(S^n)\to\Z$ that sends the identity to $1$. Two maps $S^n\to S^n$ are freely homotopic if and only if they have the same degree.
+\end{proposition}
+
+\begin{proof}
+For $n=1$ this is the computation of $\pi_1(S^1)$ by covering space theory. For $n\ge2$ the sphere is $(n-1)$-connected by Proposition~\ref{prop:below}, and the Hurewicz homomorphism $\pi_n(S^n)\to H_n(S^n;\Z)\cong\Z$, which sends $[f]$ to $f_*[S^n]=(\deg f)[S^n]$, is an isomorphism \cite[Theorem~4.32]{Hat02}. For the second statement note that $\pi_1(S^n)$ acts trivially on $\pi_n(S^n)$ (for $n\ge2$ it is the trivial group, and for $n=1$ the group is abelian), so free homotopy classes of maps $S^n\to S^n$ coincide with based ones \cite[Section~4.A]{Hat02}.
+\end{proof}
+
+The antipodal map of $S^n$ is the composite of $n+1$ reflections, each of degree $-1$, so it has degree $(-1)^{n+1}$.
+
+\begin{lemma}\label{lem:precompose}
+Let $X$ be a space, $i\ge1$, $\alpha\in\pi_i(X)$, and let $g\colon S^i\to S^i$ be a based map of degree $m$. Then $\alpha\circ g=m\alpha$.
+\end{lemma}
+
+\begin{proof}
+For a fixed map $f\colon S^i\to X$, composition $[g]\mapsto[f\circ g]$ is a homomorphism $f_*\colon\pi_i(S^i)\to\pi_i(X)$, because the sum in $\pi_i$ is formed in the source coordinate. By Proposition~\ref{prop:degree} the class of $g$ is $m[\mathrm{id}]$, so $[f\circ g]=f_*(m[\mathrm{id}])=m[f]$.
+\end{proof}
+
+\section{Fibrations and the long exact sequence}
+
+A map $p\colon E\to B$ has the \emph{homotopy lifting property} for a space $Y$ if for every homotopy $F\colon Y\times I\to B$ and every lift $\tilde F_0\colon Y\to E$ of $F_0$ there is a homotopy $\tilde F$ lifting $F$ and starting at $\tilde F_0$. It is a \emph{Serre fibration} if it has this property for all cubes $Y=I^k$, and a \emph{Hurewicz fibration} if it has it for all spaces. Every fibre bundle is a Serre fibration, and a fibre bundle over a paracompact base is a Hurewicz fibration \cite[Proposition~4.48 and the remarks after it]{Hat02}.\footnote{Covering spaces are fibre bundles with discrete fibre; for them the lift is unique, which is the path lifting property of covering space theory. The projection $B\times F\to B$ is the trivial bundle: a lift of $F_t$ is $(F_t,\mathrm{pr}_F\circ\tilde F_0)$.}
+
+\begin{theorem}[{\cite[Theorem~4.41]{Hat02}}]\label{thm:les}
+Let $p\colon E\to B$ be a Serre fibration, $b_0\in B$, $F=p^{-1}(b_0)$ and $x_0\in F$. Then $p_*\colon\pi_i(E,F,x_0)\to\pi_i(B,b_0)$ is an isomorphism for $i\ge1$. Consequently, with $\partial$ the composite of $p_*^{-1}$ and the boundary map of \eqref{eq:pair-les}, there is an exact sequence
+\[
+\cdots\to\pi_i(F)\xrightarrow{\ i_*\ }\pi_i(E)\xrightarrow{\ p_*\ }\pi_i(B)\xrightarrow{\ \partial\ }\pi_{i-1}(F)\to\cdots\to\pi_0(E)\to\pi_0(B).
+\]
+\end{theorem}
+
+Concretely, $\partial$ is computed as follows.\footnote{This is the construction sketched in the earlier version of the work, made precise: the boundary of the lifted cube lies in the fibre, except for one face that is mapped to the basepoint.} Write $I^i=I^{i-1}\times I$ and let $f\colon(I^i,\partial I^i)\to(B,b_0)$ represent an element of $\pi_i(B)$. Regard $f$ as a homotopy $f_t=f(\cdot,t)$ of maps $I^{i-1}\to B$ and lift it, starting at the constant map with value $x_0$ and keeping the faces $\partial I^{i-1}\times I$ at $x_0$ (this is possible by the lifting property for the pair $(I^{i-1}\times I, I^{i-1}\times0\cup\partial I^{i-1}\times I)$, which is homeomorphic to $(I^{i-1}\times I,I^{i-1}\times0)$). The lift at time $1$ is a map $(I^{i-1},\partial I^{i-1})\to(F,x_0)$, and its class is $\partial[f]$.
+
+\begin{example}\label{ex:covering}
+For the universal covering $\R\to S^1$, with contractible total space and discrete fibre, the sequence gives $\pi_i(S^1)=0$ for $i\ge2$.
+\end{example}
+
+\begin{example}[The real Hopf fibration]\label{ex:realhopf}
+The map $S^1\to S^1$, $z\mapsto z^2$, is a two-sheeted covering with fibre $S^0$. In the notation \eqref{eq:intro-hk} with $\K=\R$, the circle $S^1\subset\R^2$ consists of the points $(a,b)$ with $a^2+b^2=1$, and $h_\R(a,b)=(2ab,a^2-b^2)$ is the squaring map in the coordinate $a+ib$. It is the case $d=1$ of Theorem~\ref{thm:A}.
+\end{example}
+
+The following lemma is used three times, once for each of the Hopf bundles with $d=2,4,8$.
+
+\begin{lemma}[Splitting]\label{lem:split}
+Let $p\colon E\to B$ be a Serre fibration with fibre $F=p^{-1}(b_0)$, all three spaces path connected, and suppose that the inclusion $j\colon F\to E$ is null-homotopic. Let $i\ge2$ and assume that $\pi_{i-1}(F)$ is abelian. Then
+\[
+0\to\pi_i(E)\xrightarrow{\ p_*\ }\pi_i(B)\xrightarrow{\ \partial\ }\pi_{i-1}(F)\to0
+\]
+is a split short exact sequence, so $\pi_i(B)\cong\pi_i(E)\oplus\pi_{i-1}(F)$. A splitting $\sigma\colon\pi_{i-1}(F)\to\pi_i(B)$ is given by \eqref{eq:sigma} below.
+\end{lemma}
+
+\begin{proof}
+Since $j$ is null-homotopic, $j_*=0$ on every homotopy group, and exactness of the sequence of Theorem~\ref{thm:les} at $\pi_i(E)$ and at $\pi_{i-1}(F)$ shows that $p_*$ is injective and $\partial$ is surjective. It remains to construct a homomorphism $\sigma$ with $\partial\circ\sigma=\mathrm{id}$.
+
+A null-homotopy of $j$ is the same thing as an extension $G\colon CF\to E$ of $j$ to the cone $CF=F\times I/F\times\{1\}$, where $F$ is identified with $F\times\{0\}$. The cone is contractible, so the boundary map $\partial_C\colon\pi_i(CF,F,x_0)\to\pi_{i-1}(F,x_0)$ of the pair $(CF,F)$ is an isomorphism for $i\ge2$, by \eqref{eq:pair-les}. Define
+\begin{equation}\label{eq:sigma}
+\sigma=p_*\circ G_*\circ\partial_C^{-1}\colon\ \pi_{i-1}(F)\to\pi_i(CF,F)\to\pi_i(E,F)\to\pi_i(B,b_0)=\pi_i(B).
+\end{equation}
+Each of the three maps is a homomorphism of groups for $i\ge2$, so $\sigma$ is a homomorphism. By the definition of $\partial$ in Theorem~\ref{thm:les},
+\[
+\partial\circ\sigma=\partial_{(E,F)}\circ p_*^{-1}\circ p_*\circ G_*\circ\partial_C^{-1}=\partial_{(E,F)}\circ G_*\circ\partial_C^{-1}=j_*\circ\partial_C\circ\partial_C^{-1}=\mathrm{id},
+\]
+where the third equality is the naturality of boundary maps for the map of pairs $G\colon(CF,F)\to(E,F)$, which restricts to the identity of $F$.
+\end{proof}
+
+\begin{remark}
+In words: a class $\beta\in\pi_{i-1}(F)$ is represented by $\beta\colon S^{i-1}\to F$; the cone on $\beta$ followed by $G$ is a disc in $E$ with boundary $\beta$ in $F$, and $\sigma(\beta)$ is the image of that disc in $B$, a sphere because its boundary collapses to $b_0$.
+\end{remark}
+
+\section{Suspension}
+
+The reduced suspension of a based space $(X,x_0)$ is $\Sigma X=X\times I/(X\times\partial I\cup x_0\times I)$, and $\Sigma S^n\cong S^{n+1}$. A based map $f$ induces $\Sigma f[x,t]=[f(x),t]$, and $f\mapsto\Sigma f$ induces the suspension homomorphism $E\colon\pi_i(S^n)\to\pi_{i+1}(S^{n+1})$.
+
+\begin{theorem}[Freudenthal {\cite{Fre38}}, {\cite[Corollary~4.24]{Hat02}}]\label{thm:freudenthal}
+The suspension $E\colon\pi_i(S^n)\to\pi_{i+1}(S^{n+1})$ is an isomorphism for $i<2n-1$ and is surjective for $i=2n-1$.
+\end{theorem}
+
+Equivalently, the adjoint inclusion $S^n\to\Omega S^{n+1}$ of $S^n$ into the based loop space of $S^{n+1}$ induces isomorphisms on $\pi_i$ for $i<2n-1$ and a surjection for $i=2n-1$; it is $(2n-1)$-connected.\footnote{It is this map, and not the inclusion of $S^n$ as an equator of $S^{n+1}$, that is $(2n-1)$-connected; the equatorial inclusion $S^n\to S^{n+1}$ is only $n$-connected, since $S^{n+1}$ is $n$-connected and $\pi_{n}(S^n)\to\pi_n(S^{n+1})=0$ is not injective.} Hence for fixed $k$ the groups $\pi_{n+k}(S^n)$ are independent of $n$ once $n\ge k+2$; the common value is the \emph{$k$-th stable stem} $\pi_k^s=\operatorname{colim}_n\pi_{n+k}(S^n)$. By Serre's theorem \cite{Ser53} the groups $\pi_i(S^n)$ are finite except for $\pi_n(S^n)\cong\Z$ and, for $n$ even, $\pi_{2n-1}(S^n)$, which is the direct sum of $\Z$ and a finite group. In particular $\pi_k^s$ is finite for $k\ge1$.
+
+The path fibration $\Omega X\to PX\to X$, where $PX$ is the contractible space of paths starting at $x_0$ and the map evaluates at the endpoint, gives $\pi_i(\Omega X)\cong\pi_{i+1}(X)$ by Theorem~\ref{thm:les}.
+
+\section{Whitehead products}
+
+Let $\iota_1,\iota_2\colon S^n\to S^n\vee S^n$ be the inclusions of the two wedge summands. The product $S^n\times S^n$ is obtained from $S^n\vee S^n$ by attaching one $2n$-cell along a map $w\colon S^{2n-1}\to S^n\vee S^n$, the attaching map of the top cell.\footnote{Write $S^n=D^n/\partial D^n$. Then $S^n\times S^n$ is the quotient of $D^n\times D^n$, whose boundary $\partial(D^n\times D^n)=\partial D^n\times D^n\cup D^n\times\partial D^n\cong S^{2n-1}$ is mapped onto $S^n\vee S^n$. This boundary map is $w$.} For $\alpha,\beta\in\pi_n(X)$ represented by $f,g$, the \emph{Whitehead product} $[\alpha,\beta]\in\pi_{2n-1}(X)$ is the class of $(f\vee g)\circ w$. We need only the square $[\iota_n,\iota_n]\in\pi_{2n-1}(S^n)$ of the identity, the class of $\nabla\circ w$ with $\nabla\colon S^n\vee S^n\to S^n$ the fold map.

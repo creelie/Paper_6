@@ -1,0 +1,58 @@
+\chapter{Torus fibrations, Calabi--Yau geometry and exotic spheres}\label{ch:cy}
+
+The Hopf fibration is the simplest example of several structures that appear in geometry and physics. This chapter states three of them precisely and proves what is elementary: the Clifford tori are special Lagrangian (Section~\ref{sec:syz}), the O'Neill tensor of the Hopf submersions is determined by Theorem~\ref{thm:F} (Section~\ref{sec:oneill}), and the quaternionic Hopf bundle is the first member of Milnor's family of $S^3$-bundles over $S^4$ (Section~\ref{sec:milnor}).
+
+\section{Special Lagrangian tori and the SYZ picture}\label{sec:syz}
+
+Let $X$ be a Calabi--Yau manifold of complex dimension $n$, with K\"ahler form $\omega$ and holomorphic volume form $\Omega$, with $\omega^n$ a constant multiple of $i^{n^2}\Omega\wedge\bar\Omega$. A real $n$-dimensional submanifold $L$ is \emph{special Lagrangian} of phase $\theta$ if $\omega|_L=0$ and $\Imag(e^{-i\theta}\Omega)|_L=0$. The conjecture of Strominger, Yau and Zaslow \cite{SYZ96} proposes that a Calabi--Yau manifold near a large complex structure limit admits a fibration by special Lagrangian $n$-tori, possibly with singular fibres, and that its mirror is obtained by dualising the tori. The conjecture concerns the existence of such a fibration; it does not prescribe the base.\footnote{For a simply connected Calabi--Yau threefold the base is expected to be a homology $3$-sphere, and Gross constructed topological $T^3$-fibrations of the quintic threefold and its mirror over $S^3$ \cite{Gro01}. This is a theorem about topological fibrations; the existence of special Lagrangian fibrations of compact Calabi--Yau threefolds remains open in general.}
+
+The model case is the flat Calabi--Yau surface $(\C^*)^2$ with
+\[
+\omega_0=\frac i2\Bigl(\frac{dz\wedge d\bar z}{|z|^2}+\frac{dw\wedge d\bar w}{|w|^2}\Bigr),\qquad \Omega_0=\frac{dz}{z}\wedge\frac{dw}{w},
+\]
+which in the coordinates $z=e^{s_1+i\alpha}$, $w=e^{s_2+i\beta}$ are $\omega_0=ds_1\wedge d\alpha+ds_2\wedge d\beta$ and $\Omega_0=(ds_1+i\,d\alpha)\wedge(ds_2+i\,d\beta)$. This is $(\R\times S^1)^2$ with its flat metric.
+
+\begin{proposition}\label{prop:slag}
+The fibres of $\operatorname{Log}\colon(\C^*)^2\to\R^2$, $(z,w)\mapsto(\log|z|,\log|w|)$, are special Lagrangian tori for $(\omega_0,\Omega_0)$, and also Lagrangian for the Euclidean K\"ahler form of $\C^2$. The Clifford tori $T_{a,b}\subset S^3$ of Proposition~\ref{prop:clifford} are the fibres over the arc $\{(\log a,\log b):a^2+b^2=1\}$, and each of them is a union of Hopf fibres, which are the orbits of the diagonal circle in the torus $T^2$ acting on the fibres.
+\end{proposition}
+
+\begin{proof}
+On a fibre $s_1$ and $s_2$ are constant, so $\omega_0|=0$ and $\Omega_0|=(i\,d\alpha)\wedge(i\,d\beta)=-d\alpha\wedge d\beta$, which is real; so $\Imag\Omega_0|=0$. The Euclidean K\"ahler form is $\frac i2(dz\wedge d\bar z+dw\wedge d\bar w)=\sum_j\rho_j\,d\rho_j\wedge d\phi_j$ in polar coordinates, and it vanishes on a product of circles. The remaining statements are Proposition~\ref{prop:clifford}: the Hopf fibres on $T_{a,b}$ are the orbits of $\lambda\mapsto(\lambda z,\lambda w)$.
+\end{proof}
+
+Thus the Hopf fibration restricted to $S^3\cap(\C^*)^2$ is the composite of a special Lagrangian torus fibration with the quotient of each torus by a circle. Hopf-like fibrations of Calabi--Yau manifolds in this sense are the subject of \cite{BFS26}; the results there are not used here.
+
+\section{The O'Neill tensor of the Hopf submersions}\label{sec:oneill}
+
+For a Riemannian submersion $\pi\colon M\to B$ O'Neill \cite{ONe66} defined the tensors $T$, measuring the second fundamental form of the fibres, and $A$, measuring the non-integrability of the horizontal distribution; for horizontal vector fields $X,Y$, $A_XY=\tfrac12\mathcal V[X,Y]$. For orthonormal horizontal $X,Y$ the sectional curvatures satisfy
+\begin{equation}\label{eq:oneill}
+K_B(\pi_*X,\pi_*Y)=K_M(X,Y)+3\,|A_XY|^2 .
+\end{equation}
+
+\begin{proposition}\label{prop:oneill}
+For the Hopf submersions $S^3\to S^2(\frac12)$ and $S^7\to S^4(\frac12)$ of Theorem~\ref{thm:F}, $T=0$ and $|A_XY|=1$ for all orthonormal horizontal vectors $X,Y$.
+\end{proposition}
+
+\begin{proof}
+The fibres are great spheres, which are totally geodesic, so $T=0$. The total space has curvature $1$ and the base, a round sphere of radius $\frac12$, has curvature $4$, so \eqref{eq:oneill} gives $3|A_XY|^2=3$.
+\end{proof}
+
+Bounds for the O'Neill tensors of Riemannian submersions in fibred Calabi--Yau manifolds are studied in \cite{GBN26}; Proposition~\ref{prop:oneill} is the equality case of the simplest instance, a submersion of a round sphere with totally geodesic fibres.
+
+\section{Milnor's spheres}\label{sec:milnor}
+
+For integers $h,j$ let $\xi_{h,j}$ be the real vector bundle of rank $4$ over $S^4$ obtained by clutching two trivial bundles over the hemispheres along
+\[
+f_{h,j}\colon S^3\to\SO(4),\qquad f_{h,j}(x)(v)=x^hvx^j,
+\]
+and let $M_{h,j}$ be its unit sphere bundle. Milnor \cite{Mil56} showed that $M_{h,j}$ is homeomorphic to $S^7$ when $h+j=1$, and that it is not diffeomorphic to $S^7$ when $(h-j)^2\not\equiv1\pmod 7$; these were the first exotic spheres.
+
+\begin{proposition}\label{prop:milnorhopf}
+The bundle $\xi_{1,0}$ is the quaternionic Hopf bundle $L_\Hq$ of Theorem~\ref{thm:A}, so $M_{1,0}=S^7$ with the Hopf map as projection. The maps $x\mapsto x^h$ appearing in $f_{h,j}$ have degree $h$ on $S^3$ for $h\ge1$.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{thm:A} the clutching function of $L_\Hq$ is $\tau(x)=\ell_x=f_{1,0}(x)$, and $S(L_\Hq)=S^7$ with projection $h_\Hq$. The degree statement is Proposition~\ref{prop:powerdegree}.
+\end{proof}
+
+So the Hopf fibration $S^3\to S^7\to S^4$ is the standard member $(h,j)=(1,0)$ of the family that contains Milnor's exotic spheres, for instance $(h,j)=(2,-1)$, where $(h-j)^2-1=8\not\equiv0\pmod7$. Hopf-like fibrations of exotic spheres are studied in \cite{Bha26b}.

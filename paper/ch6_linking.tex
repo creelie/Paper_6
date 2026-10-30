@@ -1,0 +1,116 @@
+\chapter{Linking and holomorphic maps}\label{ch:linking}
+
+\section{Linking numbers}\label{sec:lk}
+
+Let $K_1,K_2\subset S^3$ be disjoint oriented closed $1$-manifolds. Since $H_1(S^3)=0$, $K_1$ bounds an oriented surface $\Sigma$ (a Seifert surface, or more generally a $2$-chain), which may be chosen transverse to $K_2$, and the \emph{linking number} $\lk(K_1,K_2)$ is the algebraic intersection number $\Sigma\cdot K_2$. It does not depend on $\Sigma$, it is symmetric, and for $K_1,K_2\subset\R^3$ it is given by the Gauss integral
+\begin{equation}\label{eq:gauss}
+\lk(K_1,K_2)=\frac1{4\pi}\oint_{K_1}\oint_{K_2}\frac{(\mathbf x-\mathbf y)\cdot(d\mathbf x\times d\mathbf y)}{|\mathbf x-\mathbf y|^3}.
+\end{equation}
+The integral \eqref{eq:gauss} is used in Appendix~\ref{app:checks} to check the computations of this chapter numerically.
+
+Orient the fibres of $h\colon S^3\to S^2$ by the circle action $\lambda\mapsto(\lambda z,\lambda w)$.
+
+\begin{proposition}\label{prop:fibrelink}
+Any two distinct fibres of $h$ have linking number $\varepsilon$, where $\varepsilon\in\{\pm1\}$ depends only on the orientation of $S^3$.
+\end{proposition}
+
+\begin{proof}
+The fibre over the north pole $N_0$ is $C_\infty=\{(z,0):|z|=1\}$. It bounds the hemisphere
+\[
+\Sigma=\{(z,t)\in S^3:t\in\R,\ t\ge0\},
+\]
+a $2$-disc. By Corollary~\ref{cor:fibration} the fibre over $s(x)$, $x\in\C$, is $C_x=\{(xc,c):|c|=(1+|x|^2)^{-1/2}\}$, and it meets $\Sigma$ exactly where $c$ is real and positive, at one point. The intersection is transverse: along $C_x$, written as $c=\rho e^{i\phi}$, the function $\Imag w=\rho\sin\phi$ that cuts out $\Sigma$ near the intersection has nonzero derivative $\rho$ at $\phi=0$. So $\lk(C_\infty,C_x)=\pm1$, and the sign is constant in $x$ because $\C$ is connected and the fibres $C_x$ vary continuously. Now let $C_p,C_q$ be any two distinct fibres. The group $\U(2)$ acts on $S^3$ by orientation-preserving isometries commuting with the circle action, so it permutes the oriented fibres, and it acts transitively on $S^2$ through $\U(2)\to\SO(3)$. Choosing $g\in\U(2)$ with $gC_p=C_\infty$ gives $\lk(C_p,C_q)=\lk(C_\infty,gC_q)$, which is the constant found above.
+\end{proof}
+
+The connection with the Hopf invariant is Hopf's original definition \cite{Hop31}; see \cite[Section~17]{BT82} for a proof.
+
+\begin{theorem}[Linking formula]\label{thm:linkingformula}
+Let $f\colon S^3\to S^2$ be smooth and let $p\neq q$ be regular values. Orient $f^{-1}(p)$ and $f^{-1}(q)$ as preimages. Then $\Hopf(f)=\pm\lk(f^{-1}(p),f^{-1}(q))$, with a universal sign.
+\end{theorem}
+
+We fix the orientation of $S^3$ (the boundary orientation of the unit ball in $\C^2$ with its complex orientation) and choose the generators in Definition~\ref{def:hopfinv} so that $\Hopf(h)=1$. With these choices the universal sign is $\varepsilon$, by Proposition~\ref{prop:fibrelink} applied to $f=h$: the fibres of $h$, oriented by the circle action, are its preimages with their preimage orientation up to one fixed sign.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{fig_torus_links.png}
+\caption{Two fibres of $[z^3:w]$, with Hopf invariant $3$ (left), and of $[z^2:w^3]$, with Hopf invariant $6$ (right), after stereographic projection. Each fibre lies on a torus about the axis and is a torus link of type $(p,q)$; the Gauss integral \eqref{eq:gauss} gives linking numbers $3$ and $6$ (Appendix~\ref{app:checks}).}
+\label{fig:toruslinks}
+\end{figure}
+
+\section{Holomorphic maps}\label{sec:holomorphic}
+
+Let $P,Q\in\C[z,w]$ have no common zero on $S^3$, put $F=(P,Q)\colon\C^2\to\C^2$ and
+\[
+[P:Q]=h\circ\frac{F}{|F|}\colon S^3\to S^2 ,
+\]
+which is the map $u\mapsto[P(u):Q(u)]\in\CP^1=S^2$ in the chart \eqref{eq:stereo} with $x=P/Q$; the formula of the Introduction follows from $h(\lambda v)=\lambda^2h(v)$ for real $\lambda$. Let $Z=\{u\in\C^2:P(u)=Q(u)=0\}$.
+
+\begin{lemma}\label{lem:bounded}
+Let $C\subset\C^2$ be an irreducible affine plane curve that does not meet $S^3$. Then $C$ does not meet the closed ball $\bar B^4$.
+\end{lemma}
+
+\begin{proof}
+The closure of $C$ in $\CP^2$ is an irreducible projective curve, and $C$ is its complement of the finitely many points at infinity, so $C$ is connected in the classical topology \cite[Corollary~(4.16)]{Mum76}. As $C\cap S^3=\emptyset$, $C$ is the disjoint union of the open sets $C\cap B^4$ and $C\setminus\bar B^4$, so if $C$ meets $\bar B^4$ then $C\subset B^4$ is bounded. But no affine curve $C=\{D=0\}$, $D$ irreducible, is bounded. If $D$ has degree $k\ge1$ in $w$, with leading coefficient $a(z)$, then for every $z_1$ with $a(z_1)\neq0$ the polynomial $D(z_1,\cdot)$ has a root, so the projection of $C$ to the $z$-coordinate contains the complement of a finite set. If $D$ has degree $0$ in $w$, it is an irreducible polynomial in $z$ alone, that is $D=z-z_0$ up to a scalar, and $C=\{z_0\}\times\C$.
+\end{proof}
+
+\begin{lemma}[Finiteness]\label{lem:finite}
+Let $D=\gcd(P,Q)$ and $P=DP'$, $Q=DQ'$. Then $Z\cap\bar B^4=\{P'=Q'=0\}\cap B^4$; this set is finite, and $I_u(P,Q)=I_u(P',Q')$ at each of its points.
+\end{lemma}
+
+\begin{proof}
+$Z=\{D=0\}\cup\{P'=Q'=0\}$. Every irreducible component of $\{D=0\}$ lies in $Z$, so it does not meet $S^3$, and by Lemma~\ref{lem:bounded} it does not meet $\bar B^4$. The coprime polynomials $P',Q'$ have at most $\deg P'\cdot\deg Q'$ common zeros in $\C^2$ \cite[Section~5.3]{Ful69}, and none on $S^3$. At a point $u$ with $D(u)\neq0$, $D$ is a unit in the local ring $\mathcal O_u$, so $(P,Q)=(P',Q')$ in $\mathcal O_u$.
+\end{proof}
+
+\begin{lemma}[Degree as a sum of indices]\label{lem:indexsum}
+Let $\Phi\colon\bar B^{n}\to\R^{n}$ be smooth with finitely many zeros, all in the open ball. Then the degree of $\Phi/|\Phi|\colon S^{n-1}\to S^{n-1}$ is the sum of the local indices of $\Phi$ at its zeros, where the index at $u$ is the degree of $\Phi/|\Phi|$ on a small sphere about $u$.
+\end{lemma}
+
+\begin{proof}
+Remove disjoint small open balls $B_u$ about the zeros. On the compact oriented manifold $X=\bar B^n\setminus\bigcup B_u$ the map $\Phi/|\Phi|$ is defined, and its restriction to $\partial X=S^{n-1}\sqcup\bigsqcup(-\partial B_u)$ has degree zero, because it extends over $X$ \cite[Section~5, Lemma~1]{Mil65}. This is the statement, input (I5).
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:D}]
+Finiteness is Lemma~\ref{lem:finite}. The map $g=F/|F|\colon S^3\to S^3$ satisfies $[P:Q]=h\circ g$, so by Proposition~\ref{prop:composition}, $\Hopf([P:Q])=\deg(g)\Hopf(h)=\deg g$. By Lemma~\ref{lem:indexsum}, applied to $\Phi=F|_{\bar B^4}$, $\deg g$ is the sum of the indices of $F$ at the points of $Z\cap B^4$. At each such point the index of the holomorphic germ $F$ is the intersection multiplicity $I_u(P,Q)$, input (I5) \cite[Chapter~5]{GH78}, \cite[Chapter~5]{AGV85}.\footnote{When $u$ is a regular zero this is the observation that the real Jacobian of a holomorphic map is $|\det_\C DF|^2>0$, so the index is $+1$; in general one perturbs $F$ to $F-\epsilon$ for a small regular value $\epsilon$, whose $I_u(P,Q)$ preimages near $u$ are all regular.} This proves the formula. The sum is $\ge0$, and by Lemma~\ref{lem:finite} and the affine B\'ezout inequality \cite[Section~5.3]{Ful69},
+\[
+\sum_{u\in Z\cap B^4}I_u(P,Q)=\sum_{u\in B^4}I_u(P',Q')\le\sum_{u\in\C^2}I_u(P',Q')\le\deg P'\cdot\deg Q'\le\deg P\cdot\deg Q .
+\]
+For $[z^p:w^q]$ the only common zero is $0$, with $I_0(z^p,w^q)=\dim_\C\C[z,w]/(z^p,w^q)=pq$; for $[1:0]$, or any $[P:Q]$ with $Q$ a nonzero constant, there are none. Since $\pi_3(S^2)\cong\Z$ is detected by $\Hopf$ (Theorem~\ref{thm:C}), $[P:Q]$ is null-homotopic exactly when $Z\cap B^4=\emptyset$, every $I_u$ being at least one. Finally $[z^m:w]$ has Hopf invariant $m$, and for the map $\kappa(z,w)=(\bar z,w)$ of degree $-1$ the composite $[z^m:w]\circ\kappa$ has Hopf invariant $-m$ by Proposition~\ref{prop:composition}.
+\end{proof}
+
+The two inequalities in the proof give an exact criterion for the upper bound.
+
+\begin{proposition}[Equality]\label{prop:equality}
+Let $p=\deg P$ and $q=\deg Q$, and let $\tilde P,\tilde Q$ be the homogenisations in $\CP^2$. Then $\Hopf([P:Q])=pq$ if and only if $P$ and $Q$ have no common factor, $\tilde P$ and $\tilde Q$ have no common zero on the line at infinity, and all common zeros of $P$ and $Q$ in $\C^2$ lie in $B^4$.
+\end{proposition}
+
+\begin{proof}
+By B\'ezout's theorem in $\CP^2$ \cite[Section~5.3]{Ful69}, two curves of degrees $p$ and $q$ without common component meet in exactly $pq$ points counted with multiplicity. If $D=\gcd(P,Q)$ is not constant, the chain of inequalities above is strict at the last step. Otherwise the sum over $\C^2$ equals $pq$ minus the multiplicities at infinity, and the sum over $B^4$ equals the sum over $\C^2$ exactly when no common zero lies outside $\bar B^4$; none lies on $S^3$ by hypothesis.
+\end{proof}
+
+\begin{example}\label{ex:holoexamples}
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $[z^p:w^q]$: $\Hopf=pq$. The fibre over a point $[\alpha:\beta]$ with $\alpha\beta\neq0$ lies on the torus $|z|=r_1$, $|w|=r_2$ determined by $r_1^2+r_2^2=1$ and $r_1^p|\beta|=r_2^q|\alpha|$, and there it is the set $\{p\arg z-q\arg w\equiv\arg(\alpha/\beta)\}$, the torus link of type $(p,q)$ with $\gcd(p,q)$ components. Two such fibres have linking number $pq$, as Theorem~\ref{thm:linkingformula} requires; Figure~\ref{fig:toruslinks} shows the cases $(3,1)$ and $(2,3)$.
+\item If $P$ and $Q$ are homogeneous of the same degree $k$ with no common factor, the only common zero is $0$, and $I_0(P,Q)=k^2$ because the tangent cones $P$ and $Q$ have no common line \cite[Section~3.3]{Ful69}. So $\Hopf=k^2$, in accordance with $[P:Q]=\varphi\circ h$ for the rational map $\varphi=[P:Q]$ of $\CP^1$ of degree $k$ and Proposition~\ref{prop:composition}.
+\item $[z^2-\tfrac14:w]$ has the common zeros $(\pm\tfrac12,0)\in B^4$, each of multiplicity one, so $\Hopf=2=\deg P\cdot\deg Q$. Moving the zeros outward, $[z^2-c^2:w]$ has $\Hopf=2$ for $|c|<1$ and $\Hopf=0$ for $|c|>1$; at $|c|=1$ the hypothesis fails, and the map is not defined everywhere.
+\item $[z^2:zw+1]$: the common zeros satisfy $z=0$ and $1=0$, so there are none, and $\Hopf=0<2\cdot2$, although $P$ and $Q$ are coprime; here $\tilde P=z^2$ and $\tilde Q=zw+t^2$ meet only at $[0:1:0]$ on the line at infinity, with multiplicity four.
+\end{enumerate}
+\end{example}
+
+\begin{corollary}[Linking as intersection]\label{cor:lkint}
+Let $[P:Q]$ be as in Theorem~\ref{thm:D}, and let $[\alpha:\beta]\neq[\gamma:\delta]$ be regular values. Then the links $K_1=\{\beta P=\alpha Q\}\cap S^3$ and $K_2=\{\delta P=\gamma Q\}\cap S^3$ bound the holomorphic curves $C_1=\{\beta P=\alpha Q\}\cap\bar B^4$ and $C_2=\{\delta P=\gamma Q\}\cap\bar B^4$ in the ball, and
+\[
+\varepsilon\,\lk(K_1,K_2)=\sum_{u\in C_1\cap C_2}I_u(\beta P-\alpha Q,\ \delta P-\gamma Q)=\Hopf([P:Q]).
+\]
+\end{corollary}
+
+\begin{proof}
+The fibres of $[P:Q]$ over the two values are $K_1$ and $K_2$, so the first and last terms agree by Theorem~\ref{thm:linkingformula}. Since $\alpha\delta-\beta\gamma\neq0$, the ideal $(\beta P-\alpha Q,\delta P-\gamma Q)$ equals $(P,Q)$, so the middle term is the sum in Theorem~\ref{thm:D}.
+\end{proof}
+
+\begin{remark}
+Corollary~\ref{cor:lkint} is a special case of the general fact that the linking number of the boundaries of two complex curves in the ball, meeting $S^3$ transversally, is their intersection number in the ball, which is a sum of positive local contributions. It explains why the holomorphic Hopf invariants are non-negative: complex curves meet positively.
+\end{remark}
+
+\begin{question}\label{q:quaternionic}
+The power maps of Chapter~\ref{ch:invariant} show that $h_\Hq\circ(P,Q)/|(P,Q)|$ has Hopf invariant $m$ when $(P,Q)=(a^m,b)$. Is there an analogue of Theorem~\ref{thm:D} for maps $(P,Q)\colon\Hq^2\to\Hq^2$ given by \emph{slice regular} quaternionic polynomials, expressing $\Hopf$ as a sum of positive local contributions of the common zeros in the unit ball of $\Hq^2$? The same question can be asked for octonionic polynomials.
+\end{question}

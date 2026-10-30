@@ -1,0 +1,102 @@
+\chapter{The octonions}\label{app:octonions}
+
+We use the Cayley--Dickson model $\Oc=\Hq\oplus\Hq$ with the product \eqref{eq:cd}, and the basis $e_0=1$, $e_1=i$, $e_2=j$, $e_3=k$ of the first summand and $e_{4+m}=(0,e_m)$, $m=0,1,2,3$, of the second. Table~\ref{tab:octonions} is the resulting multiplication table, computed from \eqref{eq:cd}. Equivalently, $e_a^2=-1$ for $a\ge1$, $e_ae_b=-e_be_a$ for $a\neq b$, and $e_ae_b=e_c$ (together with its cyclic permutations) for the seven oriented triples
+\[
+(1,2,3),\ (1,4,5),\ (1,7,6),\ (2,4,6),\ (2,5,7),\ (3,4,7),\ (3,6,5),
+\]
+which are the lines of the Fano plane on the points $1,\dots,7$.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}c|ccccccc@{}}
+\toprule
+$\cdot$ & $e_1$ & $e_2$ & $e_3$ & $e_4$ & $e_5$ & $e_6$ & $e_7$\\
+\midrule
+$e_1$ & $-1$ & $e_3$ & $-e_2$ & $e_5$ & $-e_4$ & $-e_7$ & $e_6$\\
+$e_2$ & $-e_3$ & $-1$ & $e_1$ & $e_6$ & $e_7$ & $-e_4$ & $-e_5$\\
+$e_3$ & $e_2$ & $-e_1$ & $-1$ & $e_7$ & $-e_6$ & $e_5$ & $-e_4$\\
+$e_4$ & $-e_5$ & $-e_6$ & $-e_7$ & $-1$ & $e_1$ & $e_2$ & $e_3$\\
+$e_5$ & $e_4$ & $-e_7$ & $e_6$ & $-e_1$ & $-1$ & $-e_3$ & $e_2$\\
+$e_6$ & $e_7$ & $e_4$ & $-e_5$ & $-e_2$ & $e_3$ & $-1$ & $-e_1$\\
+$e_7$ & $-e_6$ & $e_5$ & $e_4$ & $-e_3$ & $-e_2$ & $e_1$ & $-1$\\
+\bottomrule
+\end{tabular}
+\caption{The product $e_ae_b$ (row $a$, column $b$) in the Cayley--Dickson basis of $\Oc$.}
+\label{tab:octonions}
+\end{table}
+
+\begin{proposition}\label{prop:composition-norm}
+Let $A$ be an associative real algebra with involution in which $x\bar x=\bar xx=|x|^2$ is a positive definite multiplicative quadratic form and $\Re(xy)=\Re(yx)$, where $\Re x=\frac12(x+\bar x)$. Then the double $A\oplus A$ with the product \eqref{eq:cd} has the same properties except possibly associativity; in particular $|xy|=|x||y|$ on $\Hq\oplus\Hq=\Oc$.
+\end{proposition}
+
+\begin{proof}
+Let $x=(a,b)$ and $y=(c,d)$. Then $xy=(ac-\bar db,\ da+b\bar c)$ and
+\[
+|xy|^2=|a|^2|c|^2+|d|^2|b|^2-2\Re\bigl(ac\,\bar b d\bigr)+|d|^2|a|^2+|b|^2|c|^2+2\Re\bigl(da\,c\bar b\bigr),
+\]
+using $\overline{\bar db}=\bar bd$ and $\overline{b\bar c}=c\bar b$. The two cross terms cancel because $\Re(d\cdot ac\bar b)=\Re(ac\bar b\cdot d)$, so $|xy|^2=(|a|^2+|b|^2)(|c|^2+|d|^2)=|x|^2|y|^2$. The remaining properties are checked in the same way.
+\end{proof}
+
+Applied to $A=\C$ and $A=\Hq$, the proposition gives \ref{D:norm} for $\Hq$ and $\Oc$. The identities \ref{D:conj} and \ref{D:inner} follow from the definitions in the same manner \cite[Chapter~III]{Sch66}. Artin's theorem \ref{D:artin} is proved in \cite[Theorem~3.1]{Sch66}; for $\Oc$ it is equivalent to the alternative laws $(xx)y=x(xy)$ and $(yx)x=y(xx)$.
+
+The octonion identities used in the text are:
+\begin{enumerate}[label=(O\arabic*)]
+\item $(xy)y^{-1}=x=(xy^{-1})y$ and $x^{-1}(xy)=y$ (Lemma~\ref{lem:artin}), used for the bundle charts in Chapter~\ref{ch:hopf};
+\item $(xc)\bar c=|c|^2x$, used to identify the bundle projection with $h_\Oc$;
+\item $\langle xa,xb\rangle=|x|^2\langle a,b\rangle$, used for the parallelisations of Proposition~\ref{prop:parallelisable} and the isometries $\Lambda_u$ of Chapter~\ref{ch:villarceau};
+\item $wx=\bar xw$ for $w\perp1$, $w\perp u$, $x\in\C_u$, used in Lemma~\ref{lem:powerderiv}.
+\end{enumerate}
+All of them involve at most two independent octonions, which is why they hold although $\Oc$ is not associative. An identity that involves three octonions can fail: $(e_1e_4)(e_2e_4)^{-1}=e_3$ but $e_1e_2^{-1}=-e_3$, which is the explicit triple of Proposition~\ref{prop:actions}.
+
+\chapter{The algebra of Villarceau's theorem}\label{app:villarceau}
+
+\section{The image of a Hopf fibre}
+
+For $d=2$, $0<a<1$, $b=\sqrt{1-a^2}$, the base fibre is $(ae^{it},be^{it})$ and its stereographic image is
+\[
+X(t)=\frac{\bigl(a\cos t,\ a\sin t,\ b\cos t\bigr)}{1-b\sin t}.
+\]
+Its third coordinate is $(b/a)$ times its first, so it lies in the plane $x_3=(b/a)x_1$. With $\varsigma=\sin t$, the vector $a(1-b\varsigma)\bigl(X(t)-(0,\tfrac ba,0)\bigr)$ is
+\[
+\bigl(a^2\cos t,\ a^2\varsigma-b(1-b\varsigma),\ ab\cos t\bigr)=\bigl(a^2\cos t,\ \varsigma-b,\ ab\cos t\bigr),
+\]
+using $a^2+b^2=1$, and its squared length minus $(1-b\varsigma)^2$ is
+\[
+a^2(a^2+b^2)\cos^2t+(\varsigma-b)^2-(1-b\varsigma)^2=a^2(1-\varsigma^2)+(1-b^2)(\varsigma^2-1)=0 .
+\]
+So $|X(t)-(0,\tfrac ba,0)|=1/a=R$. This is the case $d=2$ of Proposition~\ref{prop:basefibre}.
+
+\section{The bitangent factorisation}
+
+Let $x=(\upsilon\cos\phi,\ v,\ \upsilon\sin\phi)$ and $s=\upsilon^2+v^2=|x|^2$. Then
+\begin{align*}
+&(s+R^2-r^2)^2-4R^2(\upsilon^2\cos^2\phi+v^2)\\
+&\quad=\bigl(s+r^2-R^2\bigr)^2-4r^2v^2+4s(R^2-r^2)-4R^2\upsilon^2\cos^2\phi-4(R^2-r^2)v^2\\
+&\quad=\bigl(\upsilon^2+(v-r)^2-R^2\bigr)\bigl(\upsilon^2+(v+r)^2-R^2\bigr)+4\upsilon^2\bigl(R^2-r^2-R^2\cos^2\phi\bigr),
+\end{align*}
+where the first step uses $(s+R^2-r^2)^2-(s+r^2-R^2)^2=4s(R^2-r^2)$ and the second uses $(s+r^2-R^2)^2-4r^2v^2=\bigl(s+r^2-R^2-2rv\bigr)\bigl(s+r^2-R^2+2rv\bigr)$. Since $R^2-r^2-R^2\cos^2\phi=R^2\sin^2\phi-r^2$, this is the identity used in Proposition~\ref{prop:bitangent}.
+
+\section{The higher-dimensional factorisation}
+
+In the notation of Proposition~\ref{prop:twofamilies}, with $\mathcal A=\xi^2+(1+r^2)\eta-1$ and $G_\pm=\mathcal A\mp2r\xi$,
+\[
+(\mathcal A+2)^2-4(1+r^2)(\xi^2+\eta)=\mathcal A^2-4r^2\xi^2=G_+G_-,
+\]
+because $4\mathcal A+4-4(1+r^2)\xi^2-4(1+r^2)\eta+4r^2\xi^2=4\bigl(\mathcal A+1-\xi^2-(1+r^2)\eta\bigr)=0$. For $d=2$, $\xi=x_2$ and $\eta=x_1^2$, and the identity reduces to the previous one with $\tan\phi=r$.
+
+\chapter{Verification programs}\label{app:checks}
+
+Every statement of this monograph is proved in the text or quoted from the literature, and no proof depends on a computer. The programs described here, which accompany the monograph in the repository named in the Data availability statement, recompute independently the finite identities and the numerical values that appear in the text. The program \texttt{code/checks.py} uses NumPy and SymPy and runs in about fifteen seconds; it ends with the line \texttt{51 checks passed, 0 failed}. It checks:
+\begin{enumerate}[label=(\arabic*)]
+\item the octonion identities: non-associativity, the alternative laws, the multiplicativity of the norm, the identities of Lemma~\ref{lem:artin}, the Moufang identity $(xy)^{-1}=y^{-1}x^{-1}$, and the triple $(e_1,e_2,e_4)$ of Proposition~\ref{prop:actions};
+\item for $d=2,4,8$, that $|h_\K|=1$ on the unit sphere, that $h_\K$ is constant on each subspace $L_x$, and that $h_\K(L_x)$ is the stereographic image of $x$ (Theorem~\ref{thm:A});
+\item the identity $h(u)\cdot h(v)=2|\langle u,v\rangle|^2-1$ for $\C$ and $\Hq$ (Proposition~\ref{prop:dotproduct});
+\item for $d=4,8$ and $m=2,3,5$, the roots of $x^m=y$ and the signs of the Jacobian at them, and the derivative formula of Lemma~\ref{lem:powerderiv};
+\item Gauss integrals \eqref{eq:gauss}: two Hopf fibres link once, and two fibres of $[z^p:w^q]$ link $pq$ times for six pairs $(p,q)$;
+\item the Hopf invariants $2,0,0,4,6$ of the maps $[z^2-\tfrac14:w]$, $[z^2-4:w]$, $[z^2:zw+1]$, $[z^2+w^2:zw]$ and $[z^2:w^3]$ of Example~\ref{ex:holoexamples}, computed as degrees by integrating the pull-back of the volume form of $S^3$;
+\item the Villarceau identities of Appendix~\ref{app:villarceau}, symbolically, and Theorem~\ref{thm:E} for $d=4,8$ numerically: the images of the fibres $F_u$ are spheres of radius $R$ about $(ur\varepsilon,0)$ in $\Pi_u$, on the tube, and the mirror family gives the spheres about $(-r\varepsilon,0)$;
+\item the denominators of $B_{2k}/4k$ in Table~\ref{tab:imJ}, and the formula of Remark~\ref{rem:vonstaudt} for $k\le60$;
+\item the consistency of Table~\ref{tab:unstable} with Theorem~\ref{thm:C} and with Freudenthal's theorem, as abelian groups.
+\end{enumerate}
+The figures are produced by \texttt{figures/make\_figures.py} with Matplotlib.
