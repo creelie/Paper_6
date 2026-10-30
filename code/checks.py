@@ -480,5 +480,93 @@ okF = all(same(pi(n + k, n), pi(n + 1 + k, n + 1))
           for k in range(0, 8) for n in range(k + 2, 10))
 check("Freudenthal: pi_{n+k}(S^n) is constant for n >= k+2 in the table", okF)
 
+
+# ------------------------- Riemannian submersion for every K (Prop. 7.5)
+def tangent_svd(u, d, h=1e-6):
+    J = np.zeros((d + 1, 2 * d))
+    for k in range(2 * d):
+        e = np.zeros(2 * d)
+        e[k] = h
+        J[:, k] = (hopf((u + e)[:d], (u + e)[d:], d)
+                   - hopf((u - e)[:d], (u - e)[d:], d)) / (2 * h)
+    q, _ = np.linalg.qr(np.column_stack([u, RNG.normal(size=(2 * d, 2 * d - 1))]))
+    return np.sort(np.linalg.svd(J @ q[:, 1:], compute_uv=False))
+
+
+ok = True
+for d in (2, 4, 8):
+    for _ in range(50):
+        sv = tangent_svd(unit(2 * d), d)
+        ok &= np.allclose(sv[-d:], 2, atol=1e-6) and np.allclose(sv[:-d], 0, atol=1e-6)
+check("d=2,4,8: Dh has d singular values 2 and d-1 zeros on the tangent space", ok)
+
+ok = True
+for d in (2, 4, 8):
+    mul, conj = ALG[d]
+    for _ in range(50):
+        x, y = RNG.normal(size=d), RNG.normal(size=d)
+        u = y / (1 + x @ x)
+        c = mul(conj(x), u)
+        ok &= np.allclose(mul(x, c) + u, y) and np.allclose(
+            [(mul(x, g) @ u - g @ mul(conj(x), u)) for g in np.eye(d)], 0)
+check("Lemma 7.4: (y,0) = (x c, c) + (u, -conj(x) u), and (u, -conj(x) u) is orthogonal to L_x", ok)
+
+
+# ------------------------- split quaternionic maps (Prop. 6.10, Example 6.11)
+def q_root(c, k):
+    """The k-th roots of a non-real quaternion c: those in the slice of c."""
+    v = c[1:]
+    nv = np.linalg.norm(v)
+    roots = np.roots([1] + [0] * (k - 1) + [-complex(c[0], nv)])
+    return [np.concatenate([[z.real], z.imag * v / nv]) for z in roots]
+
+
+def q_pow(a, k):
+    r = np.array([1.0, 0, 0, 0])
+    for _ in range(k):
+        r = q_mul(r, a)
+    return r
+
+
+def split_degree(m, n, c1, c2, y):
+    """Signed count of preimages of y under F/|F|, F(a,b) = (a^m + c1, b^n + c2)."""
+    def G(v):
+        F = np.concatenate([q_pow(v[:4], m) + c1, q_pow(v[4:], n) + c2])
+        return F / np.linalg.norm(F)
+    y1, y2 = y[:4], y[4:]
+    g = lambda lam: (np.linalg.norm(lam * y1 - c1) ** (2 / m)
+                     + np.linalg.norm(lam * y2 - c2) ** (2 / n) - 1)
+    grid = np.linspace(1e-9, 50, 200001)
+    vals = np.array([g(t) for t in grid])
+    total = 0
+    for i in np.nonzero(np.sign(vals[:-1]) != np.sign(vals[1:]))[0]:
+        lo, hi = grid[i], grid[i + 1]
+        for _ in range(80):
+            mid = (lo + hi) / 2
+            lo, hi = (mid, hi) if np.sign(g(mid)) == np.sign(g(lo)) else (lo, mid)
+        lam = (lo + hi) / 2
+        for a in q_root(lam * y1 - c1, m):
+            for b in q_root(lam * y2 - c2, n):
+                v = np.concatenate([a, b])
+                v = v / np.linalg.norm(v)
+                q, _ = np.linalg.qr(np.column_stack([v, RNG.normal(size=(8, 7))]))
+                q[:, 0] = v
+                if np.linalg.det(q) < 0:
+                    q[:, 1] = -q[:, 1]
+                h = 1e-6
+                DG = np.column_stack([(G(v + h * e) - G(v - h * e)) / (2 * h)
+                                      for e in q[:, 1:].T])
+                total += int(np.sign(np.linalg.det(np.column_stack([G(v), DG]))))
+    return total
+
+
+y = unit(8)
+c_small = np.array([0.05, 0.02, -0.03, 0.04])
+c_big = np.array([3.0, 1.0, -2.0, 1.5])
+degs = (split_degree(2, 1, c_small, np.zeros(4), y),
+        split_degree(2, 3, c_small, 0.5 * c_small, y),
+        split_degree(2, 3, c_big, c_big, y))
+check("split quaternionic maps: deg F/|F| = 2, 6, 0 for zeros inside / inside / outside", degs == (2, 6, 0))
+
 print(f"\n{PASSED} checks passed, {FAILED} failed")
 sys.exit(1 if FAILED else 0)

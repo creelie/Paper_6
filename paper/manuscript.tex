@@ -154,7 +154,7 @@ Let $T$ be a ring torus with radii $R>r>0$. Every plane through the centre of $T
 \end{corollary}
 
 \begin{maintheorem}[Metric structure]\label{thm:F}
-For $\K=\C,\Hq$ the Hopf map is a Riemannian submersion from the unit sphere $S^{2d-1}$ onto the sphere $S^d(\tfrac12)$ of radius $\tfrac12$. The fibres are parallel great spheres: the distance between the fibres over $p,q\in S^d$ is half the angle between $p$ and $q$. For $\K=\C$ the fibres over a circle of latitude form a flat torus $S^1(a)\times S^1(b)$ on which they are the closed geodesics of slope $b/a$, and the unit tangent bundle of $S^2$ is the quotient of the Hopf bundle by $\pm1$, a circle bundle over $S^2$ with total space $\RP^3$.
+For $\K=\C,\Hq,\Oc$ the Hopf map is a Riemannian submersion from the unit sphere $S^{2d-1}$ onto the sphere $S^d(\tfrac12)$ of radius $\tfrac12$. The fibres are parallel great spheres: the distance between the fibres over $p,q\in S^d$ is half the angle between $p$ and $q$. For $\K=\C$ the fibres over a circle of latitude form a flat torus $S^1(a)\times S^1(b)$ on which they are the closed geodesics of slope $b/a$, and the unit tangent bundle of $S^2$ is the quotient of the Hopf bundle by $\pm1$, a circle bundle over $S^2$ with total space $\RP^3$.
 \end{maintheorem}
 
 Chapters~\ref{ch:stable} and \ref{ch:cy} place these results in their wider setting: the stable stems through dimension $19$, the image of the $J$-homomorphism and its Bernoulli denominators, the Kervaire invariant problem, and the torus fibrations of the Strominger--Yau--Zaslow picture, of which the Clifford tori of the Hopf fibration are the simplest example. We state precisely what is known there, prove what is elementary, and separate both from the conjectural.
@@ -175,7 +175,7 @@ Items (I4) and (I6) are deep, and their proofs are not reproduced. The rest of t
 
 \section{Plan}
 
-Chapter~\ref{ch:foundations} fixes conventions and proves the elementary facts about homotopy groups of spheres that are needed, together with a splitting lemma for fibrations whose fibre inclusion is null-homotopic. Chapter~\ref{ch:hopf} constructs the Hopf bundles and proves Theorem~\ref{thm:A}. Chapter~\ref{ch:invariant} treats the Hopf invariant and proves Theorem~\ref{thm:B}; Chapter~\ref{ch:groups} proves Theorem~\ref{thm:C} and derives the table of unstable groups. Chapter~\ref{ch:linking} is about linking numbers and proves Theorem~\ref{thm:D}. Chapter~\ref{ch:geometry} proves Theorem~\ref{thm:F}, and Chapter~\ref{ch:villarceau} proves Theorem~\ref{thm:E} and Villarceau's theorem. The appendices collect the octonion identities, the algebra behind Villarceau's theorem, the tables of stable stems and the numerical checks.
+Chapter~\ref{ch:foundations} fixes conventions and proves the elementary facts about homotopy groups of spheres that are needed, together with a splitting lemma for fibrations whose fibre inclusion is null-homotopic. Chapter~\ref{ch:hopf} constructs the Hopf bundles and proves Theorem~\ref{thm:A}. Chapter~\ref{ch:invariant} treats the Hopf invariant and proves Theorem~\ref{thm:B}; Chapter~\ref{ch:groups} proves Theorem~\ref{thm:C} and derives the table of unstable groups. Chapter~\ref{ch:linking} is about linking numbers and proves Theorem~\ref{thm:D}, together with its analogue for split quaternionic and octonionic maps (Proposition~\ref{prop:split}). Chapter~\ref{ch:geometry} proves Theorem~\ref{thm:F}, and Chapter~\ref{ch:villarceau} proves Theorem~\ref{thm:E} and Villarceau's theorem. The appendices collect the octonion identities, the algebra behind Villarceau's theorem, the tables of stable stems and the numerical checks.
 
 \section{Conventions}
 
@@ -772,12 +772,45 @@ The fibres of $[P:Q]$ over the two values are $K_1$ and $K_2$, so the first and 
 Corollary~\ref{cor:lkint} is a special case of the general fact that the linking number of the boundaries of two complex curves in the ball, meeting $S^3$ transversally, is their intersection number in the ball, which is a sum of positive local contributions. It explains why the holomorphic Hopf invariants are non-negative: complex curves meet positively.
 \end{remark}
 
+\section{Split quaternionic and octonionic maps}\label{sec:split}
+
+For $\K=\Hq$ or $\Oc$ there is no algebraic intersection theory, but part of Theorem~\ref{thm:D} survives. A \emph{polynomial in one variable} over $\K$ is a function $P(a)=\sum_{k=0}^ma^kp_k$ with $p_k\in\K$; powers are well defined because a single element generates an associative subalgebra (Lemma~\ref{lem:artin}). It has degree $m$ if $p_m\neq0$. For such $P$ and $Q(b)=\sum_{k=0}^nb^kq_k$ put $F(a,b)=(P(a),Q(b))$, a map $\K^2\to\K^2$ whose zero set is $Z(P)\times Z(Q)$.
+
+\begin{proposition}\label{prop:split}
+Let $\K=\Hq$ or $\Oc$, and let $P$, $Q$ be polynomials of degrees $m,n\ge1$ in one variable such that $F$ has no zero on $S^{2d-1}$. Then $f=F/|F|\colon S^{2d-1}\to S^{2d-1}$ and the map $h_\K\circ f\colon S^{2d-1}\to S^d$ satisfy:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item if every zero of $F$ lies in the open ball $B^{2d}$, then $\deg f=mn$ and $\Hopf(h_\K\circ f)=mn\,\Hopf(h_\K)=\pm mn$;
+\item if no zero of $F$ lies in the closed ball $\bar B^{2d}$, then $\deg f=0$ and $\Hopf(h_\K\circ f)=0$;
+\item in all cases $\Hopf(h_\K\circ f)=\deg(f)\,\Hopf(h_\K)$, and $\deg f$ depends only on $P$, $Q$ and the set of zeros of $F$ in $B^{2d}$: it is unchanged by any deformation of $(P,Q)$ through such pairs during which no zero of $F$ crosses $S^{2d-1}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:composition}, $\Hopf(h_\K\circ f)=\deg(f)\Hopf(h_\K)$, and $\Hopf(h_\K)=\pm1$ by Theorem~\ref{thm:B}. A deformation of the kind in (iii) is a homotopy of maps $S^{2d-1}\to S^{2d-1}$, which proves (iii). If $F$ has no zero in $\bar B^{2d}$, then $F/|F|$ extends to $\bar B^{2d}$, so $f$ is null-homotopic and (ii) follows.
+
+For (i), let $R\ge1$. If $F$ has no zero with $1\le|(a,b)|\le R$, then $(r,v)\mapsto F(rv)/|F(rv)|$ for $r\in[1,R]$ is a homotopy from $f$ to the map $f_R(v)=F(Rv)/|F(Rv)|$, so $\deg f=\deg f_R$. Under the hypothesis of (i) this holds for every $R\ge1$. For $t\in[0,1]$ put $P_t(a)=a^mp_m+t\sum_{k<m}a^kp_k$ and similarly $Q_t$. By \ref{D:norm}, $|a^kp_k|=|a|^k|p_k|$, so
+\[
+|P_t(a)|\ge|a|^m|p_m|-\sum_{k<m}|a|^k|p_k|,
+\]
+which is positive for $|a|\ge R/\sqrt2$ once $R$ is large; the same holds for $Q_t$. Every point of the sphere of radius $R$ has $|a|\ge R/\sqrt2$ or $|b|\ge R/\sqrt2$, so $(P_t,Q_t)$ has no zero on it, and $\deg f_R$ equals the degree of $v\mapsto(a^mp_m,b^nq_n)/|(a^mp_m,b^nq_n)|$ on the sphere of radius $R$, which after the radial homotopy is the same on $S^{2d-1}$. Joining $p_m/|p_m|$ to $1$ and $|p_m|$ to $1$ by paths in $S^{d-1}$ and $(0,\infty)$, and likewise for $q_n$, does not create zeros on $S^{2d-1}$, since $a^mc=0$ forces $a=0$ for $c\neq0$. So $\deg f=\deg e_{m,n}$ with $e_{m,n}(a,b)=(a^m,b^n)/|(a^m,b^n)|$.
+
+It remains to show $\deg e_{m,n}=mn$. By Proposition~\ref{prop:gm} the map $g_m(a,b)=(a^m,b)/|(a^m,b)|$ has degree $m$. The swap $\sigma(a,b)=(b,a)$ is a linear map of $\R^{2d}$ of determinant $(-1)^{d^2}=1$, and $\sigma\circ g_n\circ\sigma(a,b)=(a,b^n)/|(a,b^n)|$, so this map has degree $n$. Its composite with $g_m$ is
+\[
+g_m\Bigl(\frac{(a,b^n)}{N}\Bigr)=\frac{(a^m,\;N^{m-1}b^n)}{|(a^m,\;N^{m-1}b^n)|},\qquad N=|(a,b^n)|>0,
+\]
+using $(a/N)^m=a^m/N^m$. The maps $(a^m,N^{(m-1)s}b^n)/|(a^m,N^{(m-1)s}b^n)|$, $s\in[0,1]$, have no zero denominators, since $a^m=0=b^n$ only at $a=b=0$, and they join $e_{m,n}$ to this composite. Hence $\deg e_{m,n}=mn$.
+\end{proof}
+
+\begin{example}\label{ex:split}
+For $\K=\Hq$, $P(a)=a^2+\tfrac14$ vanishes exactly on the sphere $\{a:\ \Re a=0,\ |a|=\tfrac12\}$ of imaginary quaternions of length $\frac12$, so its zero set is not finite. With $Q(b)=b$, the zero set of $F$ is this $2$-sphere times $\{0\}$, which lies in $B^8$, and Proposition~\ref{prop:split}(i) gives $\Hopf=2\,\Hopf(h_\Hq)$. With $P(a)=a^2+4$ the zeros lie outside $\bar B^8$ and $\Hopf=0$. In the first case the zero set is a $2$-sphere, while Theorem~\ref{thm:D} counts points; a local count for quaternionic maps therefore has to assign multiplicities to such spheres.
+\end{example}
+
 \begin{question}\label{q:quaternionic}
-The power maps of Chapter~\ref{ch:invariant} show that $h_\Hq\circ(P,Q)/|(P,Q)|$ has Hopf invariant $m$ when $(P,Q)=(a^m,b)$. Is there an analogue of Theorem~\ref{thm:D} for maps $(P,Q)\colon\Hq^2\to\Hq^2$ given by \emph{slice regular} quaternionic polynomials, expressing $\Hopf$ as a sum of positive local contributions of the common zeros in the unit ball of $\Hq^2$? The same question can be asked for octonionic polynomials.
+Proposition~\ref{prop:split} treats split maps $F(a,b)=(P(a),Q(b))$ and the two extreme positions of the zeros. Is there a version of Theorem~\ref{thm:D} for general maps $F=(P,Q)\colon\K^2\to\K^2$, $\K=\Hq,\Oc$, given by polynomials in two non-commuting variables (for instance slice regular ones), expressing $\deg(F/|F|)$, and hence $\Hopf(h_\K\circ F/|F|)$, as a sum of positive local contributions of the components of the zero set in $B^{2d}$? Already for split maps this asks whether the local degree of a one-variable quaternionic polynomial at an isolated zero, or at a spherical zero as in Example~\ref{ex:split}, is positive.
 \end{question}
 \chapter{The metric geometry of the Hopf fibrations}\label{ch:geometry}
 
-This chapter proves Theorem~\ref{thm:F}. Throughout, $\K=\C$ or $\Hq$, $d=\dim_\R\K\in\{2,4\}$, and $S^{2d-1}$ carries the round metric of radius one. For $u=(a,b)$ and $v=(a',b')$ in $\K^2$ we write $\langle u,v\rangle=\bar aa'+\bar bb'\in\K$, so that $\Re\langle u,v\rangle$ is the Euclidean inner product and $\langle u,u\rangle=|u|^2$.
+This chapter proves Theorem~\ref{thm:F}. In Sections~\ref{sec:matrices} and \ref{sec:submersion}, $\K=\C$ or $\Hq$, $d=\dim_\R\K\in\{2,4\}$; Section~\ref{sec:octsubmersion} treats all four algebras, including $\Oc$. Throughout, $S^{2d-1}$ carries the round metric of radius one. For $u=(a,b)$ and $v=(a',b')$ in $\K^2$ we write $\langle u,v\rangle=\bar aa'+\bar bb'\in\K$, so that $\Re\langle u,v\rangle$ is the Euclidean inner product and $\langle u,u\rangle=|u|^2$.
 
 \section{The Hopf map as a map of matrices}\label{sec:matrices}
 
@@ -824,12 +857,57 @@ Let $u,v\in S^{2d-1}$ and let $\psi\in[0,\pi]$ be the angle between $h_\K(u)$ an
 The fibre through $v$ is $\{vq:|q|=1\}$ (Proposition~\ref{prop:actions}). The spherical distance from $u$ to $vq$ is $\arccos\Re\langle u,vq\rangle=\arccos\Re(\langle u,v\rangle q)$, and the maximum of $\Re(\langle u,v\rangle q)$ over unit $q$ is $|\langle u,v\rangle|$. So the distance from $u$ to the fibre is $\theta=\arccos|\langle u,v\rangle|\in[0,\pi/2]$, which depends only on the fibres. By Proposition~\ref{prop:dotproduct}, $\cos\psi=2\cos^2\theta-1=\cos2\theta$, so $\theta=\psi/2$, which is the distance in the sphere of radius $\frac12$.
 \end{proof}
 
+\section{The octonionic Hopf map}\label{sec:octsubmersion}
+
+The proof above uses the transitive groups $\U(2)$ and $\Sp(2)$, which have no octonionic analogue: there is no group of $\Oc$-linear maps of $\Oc^2$, since $\Oc$ is not associative. The following argument uses only the lines $L_x$ of Proposition~\ref{prop:lines} and Lemma~\ref{lem:artin}, and it applies to all four algebras.
+
+\begin{lemma}\label{lem:lineperp}
+Let $x\in\K$. The orthogonal complement of the line $L_x=\{(xc,c):c\in\K\}$ in $\K^2$ is $L_x^\perp=\{(u,-\bar xu):u\in\K\}$, and the orthogonal projection of $(y,0)$ onto $L_x^\perp$ is $(u,-\bar xu)$ with $u=y/(1+|x|^2)$; its length is $|y|/\sqrt{1+|x|^2}$.
+\end{lemma}
+
+\begin{proof}
+By \ref{D:inner}, $\langle(u,w),(xc,c)\rangle=\langle u,xc\rangle+\langle w,c\rangle=\langle\bar xu+w,c\rangle$, which vanishes for all $c$ exactly when $w=-\bar xu$. Both $L_x$ and the space $\{(u,-\bar xu)\}$ have real dimension $d$, so the second is $L_x^\perp$. For $u=y/(1+|x|^2)$ and $c=\bar xu$,
+\[
+(xc,c)+(u,-\bar xu)=\bigl(x(\bar xu)+u,\;0\bigr)=\bigl((|x|^2+1)u,0\bigr)=(y,0)
+\]
+by Lemma~\ref{lem:artin}, which is the orthogonal decomposition of $(y,0)$. Finally $|(u,-\bar xu)|^2=|u|^2(1+|x|^2)=|y|^2/(1+|x|^2)$ by \ref{D:norm}.
+\end{proof}
+
+\begin{proposition}\label{prop:octsubmersion}
+For each of $\K=\R,\C,\Hq,\Oc$ the map $\tfrac12h_\K\colon S^{2d-1}\to S^d(\tfrac12)$ is a Riemannian submersion whose fibres are great $(d-1)$-spheres. In particular the octonionic Hopf map $S^{15}\to S^8(\tfrac12)$ is a Riemannian submersion with totally geodesic fibres $S^7$.
+\end{proposition}
+
+\begin{proof}
+Let $p\in S^{2d-1}$ with second coordinate nonzero, so that $p\in L_x$ for $x\in\K$ (Proposition~\ref{prop:lines}). The fibre through $p$ is $L_x\cap S^{2d-1}$, so the vertical space is $V_p=L_x\cap p^\perp$, and since $L_x=V_p\oplus\R p$ the horizontal space is $H_p=V_p^\perp\cap p^\perp=L_x^\perp$. The derivative $Dh_\K(p)$ vanishes on $V_p$, because $h_\K$ is constant on the fibre.
+
+Consider $F\colon\K\times S^{d-1}\to S^{2d-1}$, $F(x,c)=(xc,c)/\rho$ with $\rho=\sqrt{1+|x|^2}$, so that $p=F(x,c)$ for some unit $c$ and, by the computation in the proof of Theorem~\ref{thm:A}, $h_\K\circ F(x,c)=s(x)$. For $\xi\in\K$,
+\[
+DF(x,c)(\xi,0)=\frac{(\xi c,0)}{\rho}-\frac{\langle x,\xi\rangle}{\rho^3}(xc,c)\in\frac{(\xi c,0)}{\rho}+L_x .
+\]
+This vector is tangent to $S^{2d-1}$ at $p$, and so are its components in $L_x$ and in $L_x^\perp\subset p^\perp$; the first lies in $V_p$. By Lemma~\ref{lem:lineperp} its horizontal component $w(\xi)$ has length $|\xi c|/(\rho\cdot\rho)=|\xi|/(1+|x|^2)$, and $Dh_\K(p)\,w(\xi)=D(h_\K\circ F)(x,c)(\xi,0)=Ds(x)\xi$. The map $\xi\mapsto w(\xi)$ is linear and injective, hence onto the $d$-dimensional space $H_p$. Differentiating \eqref{eq:stereo},
+\begin{align*}
+Ds(x)\xi&=\frac{2}{1+|x|^2}\Bigl(\xi-\frac{2\langle x,\xi\rangle}{1+|x|^2}\,x,\;\frac{2\langle x,\xi\rangle}{1+|x|^2}\Bigr),\\
+|Ds(x)\xi|^2&=\frac{4}{(1+|x|^2)^2}\Bigl(|\xi|^2-\frac{4\langle x,\xi\rangle^2}{1+|x|^2}+\frac{4\langle x,\xi\rangle^2(|x|^2+1)}{(1+|x|^2)^2}\Bigr),
+\end{align*}
+that is, $|Ds(x)\xi|=2|\xi|/(1+|x|^2)=2|w(\xi)|$. So $Dh_\K(p)$ multiplies the length of every horizontal vector by $2$, and $\tfrac12h_\K$ restricted to $H_p$ is a linear isometry onto the tangent space of $S^d(\tfrac12)$.
+
+For $p=(a,0)$ use the isometry $\sigma(a,b)=(b,a)$ of $S^{2d-1}$: by \ref{D:conj}, $h_\K\circ\sigma=r\circ h_\K$ with the isometry $r(y,t)=(\bar y,-t)$ of $S^d$, and $\sigma(p)$ has nonzero second coordinate. The fibres are great spheres by Theorem~\ref{thm:A}, and great spheres are totally geodesic.
+\end{proof}
+
+\begin{proposition}\label{prop:octparallel}
+For $\K=\Oc$, and in fact for each $\K$, every point of the fibre over $p\in S^d$ has distance exactly $\psi/2$ from the fibre over $q$, where $\psi$ is the angle between $p$ and $q$.
+\end{proposition}
+
+\begin{proof}
+Write $\pi=\tfrac12h_\K$ and $d_B$ for the distance on $S^d(\tfrac12)$, so $d_B(\pi(u),\pi(v))=\psi/2$. Since $|D\pi(w)|\le|w|$ for every tangent vector $w$ (the vertical part of $w$ is killed and the horizontal part is preserved), $\pi$ does not increase the lengths of curves, and every curve from $u$ to the fibre over $q$ has length at least $\psi/2$. Conversely let $\gamma$ be a minimising geodesic of $S^d(\tfrac12)$ from $\pi(u)$ to $\pi(v)$. Because the fibres are compact, $\gamma$ has a horizontal lift starting at $u$: the horizontal lift of the velocity field is a smooth vector field along the fibres over $\gamma$, whose integral curves exist for all times. The lift has the length $\psi/2$ of $\gamma$ and ends on the fibre over $q$.
+\end{proof}
+
 \begin{remark}[Volumes]
 For a Riemannian submersion with fibres of constant volume, the volume of the total space is the product of the volumes of base and fibre. The identities
 \[
 2\pi^2=2\pi\cdot\pi,\qquad \frac{\pi^4}{3}=2\pi^2\cdot\frac{\pi^2}{6}
 \]
-are $\operatorname{vol}S^3=\operatorname{vol}S^1\cdot\operatorname{vol}S^2(\tfrac12)$ and $\operatorname{vol}S^7=\operatorname{vol}S^3\cdot\operatorname{vol}S^4(\tfrac12)$. The octonionic analogue $\frac{\pi^8}{2520}=\frac{\pi^4}{3}\cdot\frac{\pi^4}{840}$, that is $\operatorname{vol}S^{15}=\operatorname{vol}S^7\cdot\operatorname{vol}S^8(\tfrac12)$, also holds. The proof above does not apply to $\Oc$, because there is no group of $\Oc$-linear isometries acting transitively; the corresponding symmetry group is $\mathrm{Spin}(9)$, and we do not treat that case here.
+are $\operatorname{vol}S^3=\operatorname{vol}S^1\cdot\operatorname{vol}S^2(\tfrac12)$ and $\operatorname{vol}S^7=\operatorname{vol}S^3\cdot\operatorname{vol}S^4(\tfrac12)$. By Proposition~\ref{prop:octsubmersion} the octonionic identity $\frac{\pi^8}{2520}=\frac{\pi^4}{3}\cdot\frac{\pi^4}{840}$, that is $\operatorname{vol}S^{15}=\operatorname{vol}S^7\cdot\operatorname{vol}S^8(\tfrac12)$, has the same meaning. The full symmetry group of the octonionic Hopf fibration is $\mathrm{Spin}(9)$ \cite{GWZ86}, which acts transitively on $S^{15}$ but not through $\Oc$-linear maps; Proposition~\ref{prop:octsubmersion} does not need it.
 \end{remark}
 
 \section{Clifford tori}\label{sec:clifford}
@@ -877,7 +955,7 @@ which is $h(z,\bar w)=(2zw,|z|^2-|w|^2)$ followed by a linear isometry of $\R^3$
 \end{proof}
 
 \begin{remark}
-The Euler number of the Hopf bundle is $\pm1$ and that of $T^1S^2\to S^2$ is $\chi(S^2)=2$, in accordance with the quotient by $\pm1$, which doubles the Euler class of an oriented circle bundle. The total space of $T^1S^2$ is $\RP^3$, not $S^3$; its fundamental group is $\Z/2$, while $S^3$ is simply connected. Theorem~\ref{thm:F} follows from Propositions~\ref{prop:parallel}, \ref{prop:clifford} and \ref{prop:unittangent}.
+The Euler number of the Hopf bundle is $\pm1$ and that of $T^1S^2\to S^2$ is $\chi(S^2)=2$, in accordance with the quotient by $\pm1$, which doubles the Euler class of an oriented circle bundle. The total space of $T^1S^2$ is $\RP^3$, not $S^3$; its fundamental group is $\Z/2$, while $S^3$ is simply connected. Theorem~\ref{thm:F} follows from Propositions~\ref{prop:parallel}, \ref{prop:octsubmersion}, \ref{prop:octparallel}, \ref{prop:clifford} and \ref{prop:unittangent}.
 \end{remark}
 \chapter{Villarceau circles and Villarceau spheres}\label{ch:villarceau}
 
@@ -1176,7 +1254,7 @@ K_B(\pi_*X,\pi_*Y)=K_M(X,Y)+3\,|A_XY|^2 .
 \end{equation}
 
 \begin{proposition}\label{prop:oneill}
-For the Hopf submersions $S^3\to S^2(\frac12)$ and $S^7\to S^4(\frac12)$ of Theorem~\ref{thm:F}, $T=0$ and $|A_XY|=1$ for all orthonormal horizontal vectors $X,Y$.
+For the Hopf submersions $S^3\to S^2(\frac12)$, $S^7\to S^4(\frac12)$ and $S^{15}\to S^8(\frac12)$ of Theorem~\ref{thm:F}, $T=0$ and $|A_XY|=1$ for all orthonormal horizontal vectors $X,Y$.
 \end{proposition}
 
 \begin{proof}
@@ -1292,14 +1370,16 @@ because $4\mathcal A+4-4(1+r^2)\xi^2-4(1+r^2)\eta+4r^2\xi^2=4\bigl(\mathcal A+1-
 
 \chapter{Verification programs}\label{app:checks}
 
-Every statement of this monograph is proved in the text or quoted from the literature, and no proof depends on a computer. The programs described here, which accompany the monograph in the repository named in the Data availability statement, recompute independently the finite identities and the numerical values that appear in the text. The program \texttt{code/checks.py} uses NumPy and SymPy and runs in about fifteen seconds; it ends with the line \texttt{51 checks passed, 0 failed}. It checks:
+Every statement of this monograph is proved in the text or quoted from the literature, and no proof depends on a computer. The programs described here, which accompany the monograph in the repository named in the Data availability statement, recompute independently the finite identities and the numerical values that appear in the text. The program \texttt{code/checks.py} uses NumPy and SymPy and runs in about twenty seconds; it ends with the line \texttt{54 checks passed, 0 failed}. It checks:
 \begin{enumerate}[label=(\arabic*)]
 \item the octonion identities: non-associativity, the alternative laws, the multiplicativity of the norm, the identities of Lemma~\ref{lem:artin}, the Moufang identity $(xy)^{-1}=y^{-1}x^{-1}$, and the triple $(e_1,e_2,e_4)$ of Proposition~\ref{prop:actions};
 \item for $d=2,4,8$, that $|h_\K|=1$ on the unit sphere, that $h_\K$ is constant on each subspace $L_x$, and that $h_\K(L_x)$ is the stereographic image of $x$ (Theorem~\ref{thm:A});
 \item the identity $h(u)\cdot h(v)=2|\langle u,v\rangle|^2-1$ for $\C$ and $\Hq$ (Proposition~\ref{prop:dotproduct});
+\item for $d=2,4,8$, that $Dh_\K$ has $d$ singular values $2$ and $d-1$ zeros on the tangent space of $S^{2d-1}$, at random points (Proposition~\ref{prop:octsubmersion}), and the decomposition of Lemma~\ref{lem:lineperp};
 \item for $d=4,8$ and $m=2,3,5$, the roots of $x^m=y$ and the signs of the Jacobian at them, and the derivative formula of Lemma~\ref{lem:powerderiv};
 \item Gauss integrals \eqref{eq:gauss}: two Hopf fibres link once, and two fibres of $[z^p:w^q]$ link $pq$ times for six pairs $(p,q)$;
 \item the Hopf invariants $2,0,0,4,6$ of the maps $[z^2-\tfrac14:w]$, $[z^2-4:w]$, $[z^2:zw+1]$, $[z^2+w^2:zw]$ and $[z^2:w^3]$ of Example~\ref{ex:holoexamples}, computed as degrees by integrating the pull-back of the volume form of $S^3$;
+\item the degrees $2$, $6$, $0$ of $F/|F|$ for the split quaternionic maps $(a^2+c,b)$ and $(a^2+c,b^3+c/2)$ with a small non-real $c$, and $(a^2+c',b^3+c')$ with a large one (Proposition~\ref{prop:split}), as signed counts of the preimages of a regular value;
 \item the Villarceau identities of Appendix~\ref{app:villarceau}, symbolically, and Theorem~\ref{thm:E} for $d=4,8$ numerically: the images of the fibres $F_u$ are spheres of radius $R$ about $(ur\varepsilon,0)$ in $\Pi_u$, on the tube, and the mirror family gives the spheres about $(-r\varepsilon,0)$;
 \item the denominators of $B_{2k}/4k$ in Table~\ref{tab:imJ}, and the formula of Remark~\ref{rem:vonstaudt} for $k\le60$;
 \item the consistency of Table~\ref{tab:unstable} with Theorem~\ref{thm:C} and with Freudenthal's theorem, as abelian groups.
@@ -1364,6 +1444,8 @@ The author thanks Sanjeevan Singha Roy and Riddhima Sadhu, coauthors of the firs
 \bibitem[GH78]{GH78} P.~Griffiths and J.~Harris, \emph{Principles of Algebraic Geometry}, Wiley, New York, 1978.
 
 \bibitem[Gro01]{Gro01} M.~Gross, \emph{Topological mirror symmetry}, Invent. Math. \textbf{144} (2001), 75--137, \href{https://doi.org/10.1007/s002220000119}{doi:10.1007/s002220000119}.
+
+\bibitem[GWZ86]{GWZ86} H.~Gluck, F.~Warner and W.~Ziller, \emph{The geometry of the Hopf fibrations}, Enseign. Math. (2) \textbf{32} (1986), 173--198.
 
 \bibitem[Hat02]{Hat02} A.~Hatcher, \emph{Algebraic Topology}, Cambridge University Press, Cambridge, 2002.
 

@@ -1,6 +1,6 @@
 \chapter{The metric geometry of the Hopf fibrations}\label{ch:geometry}
 
-This chapter proves Theorem~\ref{thm:F}. Throughout, $\K=\C$ or $\Hq$, $d=\dim_\R\K\in\{2,4\}$, and $S^{2d-1}$ carries the round metric of radius one. For $u=(a,b)$ and $v=(a',b')$ in $\K^2$ we write $\langle u,v\rangle=\bar aa'+\bar bb'\in\K$, so that $\Re\langle u,v\rangle$ is the Euclidean inner product and $\langle u,u\rangle=|u|^2$.
+This chapter proves Theorem~\ref{thm:F}. In Sections~\ref{sec:matrices} and \ref{sec:submersion}, $\K=\C$ or $\Hq$, $d=\dim_\R\K\in\{2,4\}$; Section~\ref{sec:octsubmersion} treats all four algebras, including $\Oc$. Throughout, $S^{2d-1}$ carries the round metric of radius one. For $u=(a,b)$ and $v=(a',b')$ in $\K^2$ we write $\langle u,v\rangle=\bar aa'+\bar bb'\in\K$, so that $\Re\langle u,v\rangle$ is the Euclidean inner product and $\langle u,u\rangle=|u|^2$.
 
 \section{The Hopf map as a map of matrices}\label{sec:matrices}
 
@@ -47,12 +47,57 @@ Let $u,v\in S^{2d-1}$ and let $\psi\in[0,\pi]$ be the angle between $h_\K(u)$ an
 The fibre through $v$ is $\{vq:|q|=1\}$ (Proposition~\ref{prop:actions}). The spherical distance from $u$ to $vq$ is $\arccos\Re\langle u,vq\rangle=\arccos\Re(\langle u,v\rangle q)$, and the maximum of $\Re(\langle u,v\rangle q)$ over unit $q$ is $|\langle u,v\rangle|$. So the distance from $u$ to the fibre is $\theta=\arccos|\langle u,v\rangle|\in[0,\pi/2]$, which depends only on the fibres. By Proposition~\ref{prop:dotproduct}, $\cos\psi=2\cos^2\theta-1=\cos2\theta$, so $\theta=\psi/2$, which is the distance in the sphere of radius $\frac12$.
 \end{proof}
 
+\section{The octonionic Hopf map}\label{sec:octsubmersion}
+
+The proof above uses the transitive groups $\U(2)$ and $\Sp(2)$, which have no octonionic analogue: there is no group of $\Oc$-linear maps of $\Oc^2$, since $\Oc$ is not associative. The following argument uses only the lines $L_x$ of Proposition~\ref{prop:lines} and Lemma~\ref{lem:artin}, and it applies to all four algebras.
+
+\begin{lemma}\label{lem:lineperp}
+Let $x\in\K$. The orthogonal complement of the line $L_x=\{(xc,c):c\in\K\}$ in $\K^2$ is $L_x^\perp=\{(u,-\bar xu):u\in\K\}$, and the orthogonal projection of $(y,0)$ onto $L_x^\perp$ is $(u,-\bar xu)$ with $u=y/(1+|x|^2)$; its length is $|y|/\sqrt{1+|x|^2}$.
+\end{lemma}
+
+\begin{proof}
+By \ref{D:inner}, $\langle(u,w),(xc,c)\rangle=\langle u,xc\rangle+\langle w,c\rangle=\langle\bar xu+w,c\rangle$, which vanishes for all $c$ exactly when $w=-\bar xu$. Both $L_x$ and the space $\{(u,-\bar xu)\}$ have real dimension $d$, so the second is $L_x^\perp$. For $u=y/(1+|x|^2)$ and $c=\bar xu$,
+\[
+(xc,c)+(u,-\bar xu)=\bigl(x(\bar xu)+u,\;0\bigr)=\bigl((|x|^2+1)u,0\bigr)=(y,0)
+\]
+by Lemma~\ref{lem:artin}, which is the orthogonal decomposition of $(y,0)$. Finally $|(u,-\bar xu)|^2=|u|^2(1+|x|^2)=|y|^2/(1+|x|^2)$ by \ref{D:norm}.
+\end{proof}
+
+\begin{proposition}\label{prop:octsubmersion}
+For each of $\K=\R,\C,\Hq,\Oc$ the map $\tfrac12h_\K\colon S^{2d-1}\to S^d(\tfrac12)$ is a Riemannian submersion whose fibres are great $(d-1)$-spheres. In particular the octonionic Hopf map $S^{15}\to S^8(\tfrac12)$ is a Riemannian submersion with totally geodesic fibres $S^7$.
+\end{proposition}
+
+\begin{proof}
+Let $p\in S^{2d-1}$ with second coordinate nonzero, so that $p\in L_x$ for $x\in\K$ (Proposition~\ref{prop:lines}). The fibre through $p$ is $L_x\cap S^{2d-1}$, so the vertical space is $V_p=L_x\cap p^\perp$, and since $L_x=V_p\oplus\R p$ the horizontal space is $H_p=V_p^\perp\cap p^\perp=L_x^\perp$. The derivative $Dh_\K(p)$ vanishes on $V_p$, because $h_\K$ is constant on the fibre.
+
+Consider $F\colon\K\times S^{d-1}\to S^{2d-1}$, $F(x,c)=(xc,c)/\rho$ with $\rho=\sqrt{1+|x|^2}$, so that $p=F(x,c)$ for some unit $c$ and, by the computation in the proof of Theorem~\ref{thm:A}, $h_\K\circ F(x,c)=s(x)$. For $\xi\in\K$,
+\[
+DF(x,c)(\xi,0)=\frac{(\xi c,0)}{\rho}-\frac{\langle x,\xi\rangle}{\rho^3}(xc,c)\in\frac{(\xi c,0)}{\rho}+L_x .
+\]
+This vector is tangent to $S^{2d-1}$ at $p$, and so are its components in $L_x$ and in $L_x^\perp\subset p^\perp$; the first lies in $V_p$. By Lemma~\ref{lem:lineperp} its horizontal component $w(\xi)$ has length $|\xi c|/(\rho\cdot\rho)=|\xi|/(1+|x|^2)$, and $Dh_\K(p)\,w(\xi)=D(h_\K\circ F)(x,c)(\xi,0)=Ds(x)\xi$. The map $\xi\mapsto w(\xi)$ is linear and injective, hence onto the $d$-dimensional space $H_p$. Differentiating \eqref{eq:stereo},
+\begin{align*}
+Ds(x)\xi&=\frac{2}{1+|x|^2}\Bigl(\xi-\frac{2\langle x,\xi\rangle}{1+|x|^2}\,x,\;\frac{2\langle x,\xi\rangle}{1+|x|^2}\Bigr),\\
+|Ds(x)\xi|^2&=\frac{4}{(1+|x|^2)^2}\Bigl(|\xi|^2-\frac{4\langle x,\xi\rangle^2}{1+|x|^2}+\frac{4\langle x,\xi\rangle^2(|x|^2+1)}{(1+|x|^2)^2}\Bigr),
+\end{align*}
+that is, $|Ds(x)\xi|=2|\xi|/(1+|x|^2)=2|w(\xi)|$. So $Dh_\K(p)$ multiplies the length of every horizontal vector by $2$, and $\tfrac12h_\K$ restricted to $H_p$ is a linear isometry onto the tangent space of $S^d(\tfrac12)$.
+
+For $p=(a,0)$ use the isometry $\sigma(a,b)=(b,a)$ of $S^{2d-1}$: by \ref{D:conj}, $h_\K\circ\sigma=r\circ h_\K$ with the isometry $r(y,t)=(\bar y,-t)$ of $S^d$, and $\sigma(p)$ has nonzero second coordinate. The fibres are great spheres by Theorem~\ref{thm:A}, and great spheres are totally geodesic.
+\end{proof}
+
+\begin{proposition}\label{prop:octparallel}
+For $\K=\Oc$, and in fact for each $\K$, every point of the fibre over $p\in S^d$ has distance exactly $\psi/2$ from the fibre over $q$, where $\psi$ is the angle between $p$ and $q$.
+\end{proposition}
+
+\begin{proof}
+Write $\pi=\tfrac12h_\K$ and $d_B$ for the distance on $S^d(\tfrac12)$, so $d_B(\pi(u),\pi(v))=\psi/2$. Since $|D\pi(w)|\le|w|$ for every tangent vector $w$ (the vertical part of $w$ is killed and the horizontal part is preserved), $\pi$ does not increase the lengths of curves, and every curve from $u$ to the fibre over $q$ has length at least $\psi/2$. Conversely let $\gamma$ be a minimising geodesic of $S^d(\tfrac12)$ from $\pi(u)$ to $\pi(v)$. Because the fibres are compact, $\gamma$ has a horizontal lift starting at $u$: the horizontal lift of the velocity field is a smooth vector field along the fibres over $\gamma$, whose integral curves exist for all times. The lift has the length $\psi/2$ of $\gamma$ and ends on the fibre over $q$.
+\end{proof}
+
 \begin{remark}[Volumes]
 For a Riemannian submersion with fibres of constant volume, the volume of the total space is the product of the volumes of base and fibre. The identities
 \[
 2\pi^2=2\pi\cdot\pi,\qquad \frac{\pi^4}{3}=2\pi^2\cdot\frac{\pi^2}{6}
 \]
-are $\operatorname{vol}S^3=\operatorname{vol}S^1\cdot\operatorname{vol}S^2(\tfrac12)$ and $\operatorname{vol}S^7=\operatorname{vol}S^3\cdot\operatorname{vol}S^4(\tfrac12)$. The octonionic analogue $\frac{\pi^8}{2520}=\frac{\pi^4}{3}\cdot\frac{\pi^4}{840}$, that is $\operatorname{vol}S^{15}=\operatorname{vol}S^7\cdot\operatorname{vol}S^8(\tfrac12)$, also holds. The proof above does not apply to $\Oc$, because there is no group of $\Oc$-linear isometries acting transitively; the corresponding symmetry group is $\mathrm{Spin}(9)$, and we do not treat that case here.
+are $\operatorname{vol}S^3=\operatorname{vol}S^1\cdot\operatorname{vol}S^2(\tfrac12)$ and $\operatorname{vol}S^7=\operatorname{vol}S^3\cdot\operatorname{vol}S^4(\tfrac12)$. By Proposition~\ref{prop:octsubmersion} the octonionic identity $\frac{\pi^8}{2520}=\frac{\pi^4}{3}\cdot\frac{\pi^4}{840}$, that is $\operatorname{vol}S^{15}=\operatorname{vol}S^7\cdot\operatorname{vol}S^8(\tfrac12)$, has the same meaning. The full symmetry group of the octonionic Hopf fibration is $\mathrm{Spin}(9)$ \cite{GWZ86}, which acts transitively on $S^{15}$ but not through $\Oc$-linear maps; Proposition~\ref{prop:octsubmersion} does not need it.
 \end{remark}
 
 \section{Clifford tori}\label{sec:clifford}
@@ -100,5 +145,5 @@ which is $h(z,\bar w)=(2zw,|z|^2-|w|^2)$ followed by a linear isometry of $\R^3$
 \end{proof}
 
 \begin{remark}
-The Euler number of the Hopf bundle is $\pm1$ and that of $T^1S^2\to S^2$ is $\chi(S^2)=2$, in accordance with the quotient by $\pm1$, which doubles the Euler class of an oriented circle bundle. The total space of $T^1S^2$ is $\RP^3$, not $S^3$; its fundamental group is $\Z/2$, while $S^3$ is simply connected. Theorem~\ref{thm:F} follows from Propositions~\ref{prop:parallel}, \ref{prop:clifford} and \ref{prop:unittangent}.
+The Euler number of the Hopf bundle is $\pm1$ and that of $T^1S^2\to S^2$ is $\chi(S^2)=2$, in accordance with the quotient by $\pm1$, which doubles the Euler class of an oriented circle bundle. The total space of $T^1S^2$ is $\RP^3$, not $S^3$; its fundamental group is $\Z/2$, while $S^3$ is simply connected. Theorem~\ref{thm:F} follows from Propositions~\ref{prop:parallel}, \ref{prop:octsubmersion}, \ref{prop:octparallel}, \ref{prop:clifford} and \ref{prop:unittangent}.
 \end{remark}
