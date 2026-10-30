@@ -1,5 +1,5 @@
 """Independent numerical and symbolic checks of the finite identities used in
-"Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II".
+"Hopf Invariants of Polynomial Maps and Villarceau Spheres".
 
 No statement of the paper rests on this program: every identity checked here
 is proved by hand in the text.  Run:  python3 checks.py
@@ -481,7 +481,7 @@ okF = all(same(pi(n + k, n), pi(n + 1 + k, n + 1))
 check("Freudenthal: pi_{n+k}(S^n) is constant for n >= k+2 in the table", okF)
 
 
-# ------------------------- Riemannian submersion for every K (Prop. 7.5)
+# ------------------------- Riemannian submersion for every K (Proposition octsubmersion)
 def tangent_svd(u, d, h=1e-6):
     J = np.zeros((d + 1, 2 * d))
     for k in range(2 * d):
@@ -509,10 +509,10 @@ for d in (2, 4, 8):
         c = mul(conj(x), u)
         ok &= np.allclose(mul(x, c) + u, y) and np.allclose(
             [(mul(x, g) @ u - g @ mul(conj(x), u)) for g in np.eye(d)], 0)
-check("Lemma 7.4: (y,0) = (x c, c) + (u, -conj(x) u), and (u, -conj(x) u) is orthogonal to L_x", ok)
+check("Lemma lineperp: (y,0) = (x c, c) + (u, -conj(x) u), and (u, -conj(x) u) is orthogonal to L_x", ok)
 
 
-# ------------------------- split quaternionic maps (Prop. 6.10, Example 6.11)
+# ------------------------- split quaternionic maps (Theorem split)
 def q_root(c, k):
     """The k-th roots of a non-real quaternion c: those in the slice of c."""
     v = c[1:]
@@ -567,6 +567,99 @@ degs = (split_degree(2, 1, c_small, np.zeros(4), y),
         split_degree(2, 3, c_small, 0.5 * c_small, y),
         split_degree(2, 3, c_big, c_big, y))
 check("split quaternionic maps: deg F/|F| = 2, 6, 0 for zeros inside / inside / outside", degs == (2, 6, 0))
+
+
+# ------------------ one-sided polynomials (Lemma qdiff, Props. qjac, normmult)
+def a_pow(a, k, d):
+    mul = ALG[d][0]
+    r = np.zeros(d); r[0] = 1
+    for _ in range(k):
+        r = mul(r, a)
+    return r
+
+
+def onesided(coef, d):
+    mul = ALG[d][0]
+    return lambda q: sum(mul(a_pow(q, k, d), p) for k, p in enumerate(coef))
+
+
+ok = True
+for d in (4, 8):
+    mul = ALG[d][0]
+    for _ in range(40):
+        coef = [RNG.normal(size=d) for _ in range(4)]
+        P = onesided(coef, d)
+        q = RNG.normal(size=d)
+        x, y = q[0], np.linalg.norm(q[1:])
+        I = np.concatenate([[0], q[1:] / y])
+        A = sum(k * mul(a_pow(q, k - 1, d), p) for k, p in enumerate(coef) if k)
+        B = sum(((x + 1j * y) ** k).imag / y * p for k, p in enumerate(coef))
+        s, t = A @ B, mul(I, A) @ B
+        h = 1e-6
+        J = np.column_stack([(P(q + h * e) - P(q - h * e)) / (2 * h) for e in np.eye(d)])
+        ok &= abs(np.linalg.det(J) - np.linalg.norm(B) ** (d - 4) * (s * s + t * t)) < 1e-4 * (1 + abs(np.linalg.det(J)))
+check("d=4,8: det DP = |B|^(d-4) (<A,B>^2 + <IA,B>^2) for random one-sided cubics", ok)
+
+ok = True
+for d in (4, 8):
+    mul = ALG[d][0]
+    for _ in range(20):
+        coef = [RNG.normal(size=d) for _ in range(4)]
+        S = np.zeros(7)
+        for i, pi in enumerate(coef):
+            for j, pj in enumerate(coef):
+                S[i + j] += pi @ pj
+        P = onesided(coef, d)
+        roots = [z for z in np.roots(S[::-1]) if z.imag > 1e-9]
+        for z in roots:
+            U = sum((z ** k).real * p for k, p in enumerate(coef))
+            V = sum((z ** k).imag * p for k, p in enumerate(coef))
+            J = -mul(U, ALG[d][1](V)) / (V @ V)
+            ok &= abs(J[0]) < 1e-8 and abs(np.linalg.norm(J) - 1) < 1e-8
+            ok &= np.linalg.norm(P(np.concatenate([[z.real], z.imag * J[1:]]))) < 1e-8
+        ok &= len(roots) == 3
+check("d=4,8: the roots of S_P in the upper half-plane give the zeros x + yJ, J = -U V^-1", ok)
+
+
+def regular_preimages(w1, w2, d):
+    """Preimages of (w1, w2) under F = (a^2 + 1/4, b^2 - 9/4 b + 1/2) in the unit ball."""
+    out = []
+    for c, poly in ((w1 - np.eye(d)[0] / 4, [1, 0]), (w2, [1, -9 / 4, 1 / 2])):
+        v = c[1:] / np.linalg.norm(c[1:])
+        zs = np.roots([1, poly[1], poly[2] - complex(c[0], np.linalg.norm(c[1:]))]
+                      if len(poly) == 3 else [1, 0, -complex(c[0], np.linalg.norm(c[1:]))])
+        out.append([np.concatenate([[z.real], z.imag * v]) for z in zs])
+    return [(a, b) for a in out[0] for b in out[1] if a @ a + b @ b < 1]
+
+
+ok = True
+for d in (4, 8):
+    mul = ALG[d][0]
+    F = lambda v: np.concatenate([mul(v[:d], v[:d]) + np.eye(d)[0] / 4,
+                                  mul(v[d:], v[d:]) - 9 / 4 * v[d:] + np.eye(d)[0] / 2])
+    w1, w2 = 1e-3 * unit(d), 1e-3 * unit(d)
+    pre = regular_preimages(w1, w2, d)
+    ok &= len(pre) == 2
+    for a, b in pre:
+        v = np.concatenate([a, b]); h = 1e-6
+        ok &= np.linalg.norm(F(v) - np.concatenate([w1, w2])) < 1e-9
+        J = np.column_stack([(F(v + h * e) - F(v - h * e)) / (2 * h) for e in np.eye(2 * d)])
+        ok &= np.linalg.det(J) > 0
+check("Example split, d=4,8: a regular value near 0 has 2 preimages in the ball, both positive", ok)
+
+ok = True
+for d in (4, 8):
+    mul, conj = ALG[d]
+    E = np.eye(d)
+    for _ in range(20):
+        a = RNG.normal(size=d)
+        word = a + sum(mul(mul(E[j], a), E[j]) for j in range(1, d))
+        ok &= np.allclose(-word / (d - 2), conj(a))
+        ok &= np.isclose(((d - 3) * a - (word - a))[0] / (2 * (d - 2)), a[0]) and np.allclose(
+            ((d - 3) * a - (word - a))[1:] / (2 * (d - 2)), 0)
+    M = np.column_stack([conj(e) for e in E])
+    ok &= np.isclose(np.linalg.det(M), -1)
+check("d=4,8: conj(a) = -(a + sum (e_j a) e_j)/(d-2), and conjugation has determinant -1", ok)
 
 print(f"\n{PASSED} checks passed, {FAILED} failed")
 sys.exit(1 if FAILED else 0)

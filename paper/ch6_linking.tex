@@ -1,12 +1,12 @@
-\chapter{Linking and holomorphic maps}\label{ch:linking}
+\section{Linking and holomorphic maps}\label{ch:linking}
 
-\section{Linking numbers}\label{sec:lk}
+\subsection{Linking numbers}\label{sec:lk}
 
 Let $K_1,K_2\subset S^3$ be disjoint oriented closed $1$-manifolds. Since $H_1(S^3)=0$, $K_1$ bounds an oriented surface $\Sigma$ (a Seifert surface, or more generally a $2$-chain), which may be chosen transverse to $K_2$, and the \emph{linking number} $\lk(K_1,K_2)$ is the algebraic intersection number $\Sigma\cdot K_2$. It does not depend on $\Sigma$, it is symmetric, and for $K_1,K_2\subset\R^3$ it is given by the Gauss integral
 \begin{equation}\label{eq:gauss}
 \lk(K_1,K_2)=\frac1{4\pi}\oint_{K_1}\oint_{K_2}\frac{(\mathbf x-\mathbf y)\cdot(d\mathbf x\times d\mathbf y)}{|\mathbf x-\mathbf y|^3}.
 \end{equation}
-The integral \eqref{eq:gauss} is used in Appendix~\ref{app:checks} to check the computations of this chapter numerically.
+The integral \eqref{eq:gauss} is used in Appendix~\ref{app:checks} to check the computations of this section numerically.
 
 Orient the fibres of $h\colon S^3\to S^2$ by the circle action $\lambda\mapsto(\lambda z,\lambda w)$.
 
@@ -37,7 +37,7 @@ We fix the orientation of $S^3$ (the boundary orientation of the unit ball in $\
 \label{fig:toruslinks}
 \end{figure}
 
-\section{Holomorphic maps}\label{sec:holomorphic}
+\subsection{Holomorphic maps}\label{sec:holomorphic}
 
 Let $P,Q\in\C[z,w]$ have no common zero on $S^3$, put $F=(P,Q)\colon\C^2\to\C^2$ and
 \[
@@ -111,39 +111,142 @@ The fibres of $[P:Q]$ over the two values are $K_1$ and $K_2$, so the first and 
 Corollary~\ref{cor:lkint} is a special case of the general fact that the linking number of the boundaries of two complex curves in the ball, meeting $S^3$ transversally, is their intersection number in the ball, which is a sum of positive local contributions. It explains why the holomorphic Hopf invariants are non-negative: complex curves meet positively.
 \end{remark}
 
-\section{Split quaternionic and octonionic maps}\label{sec:split}
+\subsection{Quaternionic and octonionic polynomial maps}\label{sec:split}
 
-For $\K=\Hq$ or $\Oc$ there is no algebraic intersection theory, but part of Theorem~\ref{thm:D} survives. A \emph{polynomial in one variable} over $\K$ is a function $P(a)=\sum_{k=0}^ma^kp_k$ with $p_k\in\K$; powers are well defined because a single element generates an associative subalgebra (Lemma~\ref{lem:artin}). It has degree $m$ if $p_m\neq0$. For such $P$ and $Q(b)=\sum_{k=0}^nb^kq_k$ put $F(a,b)=(P(a),Q(b))$, a map $\K^2\to\K^2$ whose zero set is $Z(P)\times Z(Q)$.
+For $\K=\Hq$ or $\Oc$ there is no algebraic intersection theory, but Theorem~\ref{thm:D} has an exact analogue for split maps, and it fails for general polynomial maps; this section proves Theorem~\ref{thm:G}. Throughout this section $\K=\Hq$ or $\Oc$, $d=4$ or $8$, and $\langle u,v\rangle=\Re(u\bar v)$.
 
-\begin{proposition}\label{prop:split}
-Let $\K=\Hq$ or $\Oc$, and let $P$, $Q$ be polynomials of degrees $m,n\ge1$ in one variable such that $F$ has no zero on $S^{2d-1}$. Then $f=F/|F|\colon S^{2d-1}\to S^{2d-1}$ and the map $h_\K\circ f\colon S^{2d-1}\to S^d$ satisfy:
-\begin{enumerate}[label=\textup{(\roman*)}]
-\item if every zero of $F$ lies in the open ball $B^{2d}$, then $\deg f=mn$ and $\Hopf(h_\K\circ f)=mn\,\Hopf(h_\K)=\pm mn$;
-\item if no zero of $F$ lies in the closed ball $\bar B^{2d}$, then $\deg f=0$ and $\Hopf(h_\K\circ f)=0$;
-\item in all cases $\Hopf(h_\K\circ f)=\deg(f)\,\Hopf(h_\K)$, and $\deg f$ depends only on $P$, $Q$ and the set of zeros of $F$ in $B^{2d}$: it is unchanged by any deformation of $(P,Q)$ through such pairs during which no zero of $F$ crosses $S^{2d-1}$.
-\end{enumerate}
+A \emph{one-sided polynomial} over $\K$ is a function
+\begin{equation}\label{eq:onesided}
+P(q)=\sum_{k=0}^mq^kp_k,\qquad p_k\in\K,\quad p_m\neq0,
+\end{equation}
+of degree $m$; the powers are well defined because a single element generates an associative subalgebra (Lemma~\ref{lem:artin}). For a map $\Phi\colon\R^N\to\R^N$ and a compact component $C$ of $\Phi^{-1}(0)$ that is open in $\Phi^{-1}(0)$, the \emph{index} $\operatorname{ind}_C\Phi=\deg(\Phi,U,0)$ is the degree of $\Phi/|\Phi|$ on the boundary of a bounded neighbourhood $U$ of $C$ whose closure meets no other zero; it does not depend on $U$. The proof of Lemma~\ref{lem:indexsum} applies verbatim with such neighbourhoods in place of small balls: if $\Phi^{-1}(0)\cap\bar B^N$ has finitely many components, none meeting $S^{N-1}$, then $\deg(\Phi/|\Phi|)$ on $S^{N-1}$ is the sum of the indices of the components in $B^N$. For a regular value $w$ near $0$, the index is the number of preimages of $w$ in $U$ counted with the sign of the Jacobian \cite[Section~5]{Mil65}.
+
+\subsubsection{The Jacobian of a one-sided polynomial}
+
+Write a non-real point as $q=x+yI$ with $y>0$ and $I$ a unit imaginary element, put $L_I=\R1+\R I$, and write $h=h_\parallel+h_\perp$ for the orthogonal decomposition of $h\in\K$ along $L_I\oplus L_I^\perp$. Let $\alpha_k+i\beta_k=(x+iy)^k$ with $\alpha_k,\beta_k\in\R$, and
+\begin{equation}\label{eq:AB}
+A(q)=\sum_{k=1}^mk\,q^{k-1}p_k,\qquad B(q)=\sum_{k=0}^m\frac{\beta_k}{y}\,p_k .
+\end{equation}
+
+\begin{lemma}\label{lem:qdiff}
+At a non-real point $q$, $DP_q(h)=h_\parallel A(q)+h_\perp B(q)$. At a real point $x$, $DP_x(h)=hA(x)$.
+\end{lemma}
+
+\begin{proof}
+For $h\in L_I$ the variation stays in the commutative subalgebra $L_I$, so $D(q^k)h=k\,hq^{k-1}$, and $(hq^{k-1})p_k=h(q^{k-1}p_k)$ because $h$, $q^{k-1}$ and $p_k$ lie in the subalgebra generated by $I$ and $p_k$, which is associative by Artin's theorem \ref{D:artin}. For $h\perp L_I$ the real part $x$ and the length $y$ of the imaginary part of $q+th$ have zero first variation,\footnote{Since $h$ is imaginary and orthogonal to $I$, $\Re(q+th)=x$ and $|yI+th|^2=y^2+t^2|h|^2$, whose derivative at $t=0$ vanishes.} while $I$ varies with velocity $h/y$. Since $q^k=\alpha_k+I\beta_k$, this gives $D(q^k)h=(\beta_k/y)h$, and multiplying on the right by $p_k$ and summing gives the formula. At a real point every factor commutes with $x$, and $D(x^k)h=kx^{k-1}h$.
+\end{proof}
+
+\begin{proposition}\label{prop:qjac}
+At a non-real point with $B\neq0$, put $s=\langle A,B\rangle$ and $t=\langle IA,B\rangle$. Then
+\begin{equation}\label{eq:qjac}
+\det DP_q=|B|^{d-4}\,(s^2+t^2)\ \ge0 .
+\end{equation}
+If $B=0$ the determinant vanishes, and at a real point it is $|A(x)|^d$. Consequently $\det DP\ge0$ everywhere, and $\det DP>0$ on a dense open set.
 \end{proposition}
 
 \begin{proof}
-By Proposition~\ref{prop:composition}, $\Hopf(h_\K\circ f)=\deg(f)\Hopf(h_\K)$, and $\Hopf(h_\K)=\pm1$ by Theorem~\ref{thm:B}. A deformation of the kind in (iii) is a homotopy of maps $S^{2d-1}\to S^{2d-1}$, which proves (iii). If $F$ has no zero in $\bar B^{2d}$, then $F/|F|$ extends to $\bar B^{2d}$, so $f$ is null-homotopic and (ii) follows.
-
-For (i), let $R\ge1$. If $F$ has no zero with $1\le|(a,b)|\le R$, then $(r,v)\mapsto F(rv)/|F(rv)|$ for $r\in[1,R]$ is a homotopy from $f$ to the map $f_R(v)=F(Rv)/|F(Rv)|$, so $\deg f=\deg f_R$. Under the hypothesis of (i) this holds for every $R\ge1$. For $t\in[0,1]$ put $P_t(a)=a^mp_m+t\sum_{k<m}a^kp_k$ and similarly $Q_t$. By \ref{D:norm}, $|a^kp_k|=|a|^k|p_k|$, so
-\[
-|P_t(a)|\ge|a|^m|p_m|-\sum_{k<m}|a|^k|p_k|,
-\]
-which is positive for $|a|\ge R/\sqrt2$ once $R$ is large; the same holds for $Q_t$. Every point of the sphere of radius $R$ has $|a|\ge R/\sqrt2$ or $|b|\ge R/\sqrt2$, so $(P_t,Q_t)$ has no zero on it, and $\deg f_R$ equals the degree of $v\mapsto(a^mp_m,b^nq_n)/|(a^mp_m,b^nq_n)|$ on the sphere of radius $R$, which after the radial homotopy is the same on $S^{2d-1}$. Joining $p_m/|p_m|$ to $1$ and $|p_m|$ to $1$ by paths in $S^{d-1}$ and $(0,\infty)$, and likewise for $q_n$, does not create zeros on $S^{2d-1}$, since $a^mc=0$ forces $a=0$ for $c\neq0$. So $\deg f=\deg e_{m,n}$ with $e_{m,n}(a,b)=(a^m,b^n)/|(a^m,b^n)|$.
-
-It remains to show $\deg e_{m,n}=mn$. By Proposition~\ref{prop:gm} the map $g_m(a,b)=(a^m,b)/|(a^m,b)|$ has degree $m$. The swap $\sigma(a,b)=(b,a)$ is a linear map of $\R^{2d}$ of determinant $(-1)^{d^2}=1$, and $\sigma\circ g_n\circ\sigma(a,b)=(a,b^n)/|(a,b^n)|$, so this map has degree $n$. Its composite with $g_m$ is
-\[
-g_m\Bigl(\frac{(a,b^n)}{N}\Bigr)=\frac{(a^m,\;N^{m-1}b^n)}{|(a^m,\;N^{m-1}b^n)|},\qquad N=|(a,b^n)|>0,
-\]
-using $(a/N)^m=a^m/N^m$. The maps $(a^m,N^{(m-1)s}b^n)/|(a^m,N^{(m-1)s}b^n)|$, $s\in[0,1]$, have no zero denominators, since $a^m=0=b^n$ only at $a=b=0$, and they join $e_{m,n}$ to this composite. Hence $\deg e_{m,n}=mn$.
+Right multiplication $r_B$ by $B\neq0$ multiplies lengths by $|B|$ (by \ref{D:norm}) and preserves orientation, since its determinant does not vanish on the connected set $\K\setminus\{0\}$ and is $1$ at $B=1$. So if $(1,I,e_2,\dots,e_{d-1})$ is a positive orthonormal basis, $(B,IB,e_2B,\dots,e_{d-1}B)/|B|$ is a positive orthonormal basis of the target. By \ref{D:inner} and Lemma~\ref{lem:artin}, $\langle xB,yB\rangle=|B|^2\langle x,y\rangle$. By Lemma~\ref{lem:qdiff}, $DP_q(e_j)=e_jB$ for $j\ge2$, which has coordinates $|B|\delta_{jk}$ in this basis, while $DP_q(1)=A$ and $DP_q(I)=IA$. Left multiplication by $I$ is orthogonal and satisfies $I(IX)=-X$ (Lemma~\ref{lem:artin}), so it is skew-adjoint: $\langle IA,IB\rangle=s$ and $\langle A,IB\rangle=-t$. The matrix of $DP_q$ is therefore block triangular, with the block $\frac1{|B|}\left(\begin{smallmatrix}s&t\\-t&s\end{smallmatrix}\right)$ and the block $|B|\cdot\mathrm{Id}_{d-2}$ on the diagonal, which gives \eqref{eq:qjac}. If $B=0$ the image of $DP_q$ has dimension at most two. At a real point $DP_x=r_{A(x)}$ has determinant $|A(x)|^d$. Finally $\det DP$ is a real polynomial in the coordinates of $q$, and it is positive at large real $x$, where $A(x)\approx mx^{m-1}p_m\neq0$; a non-zero polynomial does not vanish on an open set.
 \end{proof}
 
+\subsubsection{The zero components}
+
+For $z=x+iy\in\C$ let $U(z)=\sum_k\Re(z^k)p_k$ and $V(z)=\sum_k\Imag(z^k)p_k$ in $\K$, so that $P(x+yI)=U+IV$ for every unit imaginary $I$. The \emph{norm polynomial} of $P$ is the real polynomial of degree $2m$
+\begin{equation}\label{eq:normpoly}
+S_P(z)=\sum_{i,j=0}^m\langle p_i,p_j\rangle z^{i+j}=|U|^2-|V|^2+2i\langle U,V\rangle .
+\end{equation}
+On the real axis $S_P(x)=|P(x)|^2$.
+
+\begin{lemma}\label{lem:components}
+The zeros of $P$ form finitely many components, which correspond bijectively to the roots of $S_P$ in the closed upper half-plane: a real root $x$ corresponds to the real zero $x$; a root $z=x+iy$ with $y>0$ corresponds either to the single zero $x+yJ$, $J=-UV^{-1}$, if $V(z)\neq0$, or to the whole sphere $\{x+yI:I\in S^{d-2}\}$ of radius $|z|$ if $V(z)=0$.
+\end{lemma}
+
+\begin{proof}
+If $P(x+yI)=0$ with $y>0$ then $U=-IV$, so $|U|=|V|$ and $\langle U,V\rangle=-\langle IV,V\rangle=0$, and $S_P(z)=0$. Conversely let $S_P(z)=0$ with $y>0$, so $|U|=|V|$ and $\langle U,V\rangle=0$. If $V\neq0$, the equation $IV=-U$ has the unique solution $I=J=-UV^{-1}$ by Lemma~\ref{lem:artin}, with $|J|=1$ and $\Re J=-\langle U,\overline{V^{-1}}\rangle=-\langle U,V\rangle/|V|^2=0$ by \ref{D:inner}; so $J$ is a unit imaginary element and $x+yJ$ is the only zero of the form $x+yI$. If $V=0$ then $U=0$ and every $x+yI$ is a zero. The real case is $S_P(x)=|P(x)|^2$. Since $S_P$ has finitely many roots, there are finitely many components, which are points or $(d-2)$-spheres.
+\end{proof}
+
+\begin{lemma}\label{lem:positiveindex}
+Let $G\colon\R^N\to\R^N$ be a polynomial map with $\det DG\ge0$, not identically zero. Then every compact component of $G^{-1}(0)$ that is open in $G^{-1}(0)$ has strictly positive index.
+\end{lemma}
+
+\begin{proof}
+Let $U$ isolate the component $C$ and put $\delta=\min_{\partial U}|G|>0$. The zero set of the non-zero polynomial $\det DG$ has empty interior, so there is a point $x\in U$ near $C$ with $\det DG_x>0$ and $|G(x)|<\delta/2$. By the inverse function theorem $G$ maps a small neighbourhood of $x$ in $U$ onto an open set $W\subset B_\delta(0)$, and by Sard's theorem $W$ contains a regular value $w$. Its preimages in $U$ are finitely many, there is at least one, and each has $\det DG>0$. Since the segment from $0$ to $w$ avoids $G(\partial U)$, $\operatorname{ind}_CG=\deg(G,U,w)\ge1$.
+\end{proof}
+
+\begin{proposition}\label{prop:normmult}
+Every zero component $C$ of $P$ has positive index, and $\sum_C\operatorname{ind}_CP=m$. If $C$ corresponds to the root $z_0=x_0+iy_0$ of $S_P$ of multiplicity $\ell$, then $\operatorname{ind}_CP=\ell$ if $y_0>0$ and $\operatorname{ind}_CP=\ell/2$ if $y_0=0$; in the second case $\ell$ is even, and for a spherical component $\ell\ge2$.
+\end{proposition}
+
+\begin{proof}
+Positivity follows from Lemma~\ref{lem:positiveindex} and Proposition~\ref{prop:qjac}. By the multiplicativity \ref{D:norm} of the norm, $|P(q)|\ge|q|^m|p_m|-\sum_{k<m}|q|^k|p_k|$, so on a large sphere the maps $q^mp_m+u\sum_{k<m}q^kp_k$, $0\le u\le1$, have no zero; with Proposition~\ref{prop:powerdegree} and the orientation-preserving map $r_{p_m}$ this gives total degree $m$, which is the sum of the indices.
+
+For the multiplicities, let $w\in\K$ be a small regular value of $P$. The coefficients of $S_{P-w}$ are close to those of $S_P$, so by the argument principle a small disc about $z_0$ contains exactly $\ell$ roots of $S_{P-w}$, counted with multiplicity. At a non-real preimage $x+yJ$ of $w$ write $A=U_x+JV_x$, $B=V/y$, where $U$, $V$ are formed for $P-w$; differentiating \eqref{eq:normpoly} with $U=-JV$ gives
+\begin{equation}\label{eq:normderiv}
+S_{P-w}'(x+iy)=2y\bigl(\langle JA,B\rangle+i\langle A,B\rangle\bigr),
+\end{equation}
+which is non-zero by \eqref{eq:qjac}, since $w$ is regular. At a real preimage $x$, $S_{P-w}(z)=|A(x)|^2(z-x)^2+O((z-x)^3)$ with $A(x)\neq0$. So each regular preimage gives a simple root of $S_{P-w}$ in the upper half-plane, or a double real root, and by Lemma~\ref{lem:components} applied to $P-w$ each such root comes from exactly one preimage (a regular value has no spherical preimage). The preimages near $C$ are those whose roots lie in the disc: their parameters $(x,y)$ are close to $z_0$, and conversely a preimage with parameters near $z_0$ but far from $C$ would, in the limit, give a second zero in the conjugacy class of $z_0$, which does not exist when $C$ is a point and is excluded when $C$ is the whole sphere. For $y_0>0$ take the disc in the upper half-plane: the $\ell$ simple roots are the $\ell$ preimages, all of index $+1$. For $y_0=0$ take a disc symmetric about the real axis: non-real roots come in conjugate pairs, each pair giving one preimage, and each real root is double, so $\ell$ is twice the number of preimages. At a spherical component $U=V=0$ at $z_0$, and the derivative of \eqref{eq:normpoly} vanishes there, so $\ell\ge2$.
+\end{proof}
+
+\subsubsection{Split maps}
+
+\begin{theorem}\label{thm:split}
+Let $P$, $Q$ be one-sided polynomials over $\K$ of degrees $m,n\ge1$, with zero components $C_\alpha$ of radius $r_\alpha$ and index $\mu_\alpha$, and $D_\beta$ of radius $s_\beta$ and index $\nu_\beta$, as in Proposition~\ref{prop:normmult}. If $F(a,b)=(P(a),Q(b))$ has no zero on $S^{2d-1}$, then
+\begin{equation}\label{eq:splitformula}
+\deg\frac F{|F|}=\sum_{r_\alpha^2+s_\beta^2<1}\mu_\alpha\nu_\beta,\qquad \Hopf\Bigl(h_\K\circ\frac F{|F|}\Bigr)=\Hopf(h_\K)\sum_{r_\alpha^2+s_\beta^2<1}\mu_\alpha\nu_\beta .
+\end{equation}
+In particular $0\le\deg(F/|F|)\le mn$; the degree is $mn$ exactly when all zeros of $F$ lie in $B^{2d}$ and $0$ exactly when none does.
+\end{theorem}
+
+\begin{proof}
+The zero components of $F$ are the products $C_\alpha\times D_\beta$, on which $|(a,b)|^2=r_\alpha^2+s_\beta^2$ is constant, so each lies inside or outside the unit ball. If $w$, $w'$ are small regular values of $P$ and $Q$, the preimages of $(w,w')$ near $C_\alpha\times D_\beta$ are the products of the preimages, and $DF$ is block diagonal, so $\operatorname{ind}_{C_\alpha\times D_\beta}F=\mu_\alpha\nu_\beta$. Summing over the components in the ball gives the degree, and Proposition~\ref{prop:composition} gives the Hopf invariant. The last assertions follow from $\mu_\alpha,\nu_\beta\ge1$ and $\sum\mu_\alpha\sum\nu_\beta=mn$.
+\end{proof}
+
+All the data in \eqref{eq:splitformula} are read off from the real polynomials $S_P$ and $S_Q$: their roots in the closed upper half-plane, the multiplicities, and the moduli of the roots. For rational coefficients this is a finite exact computation.
+
 \begin{example}\label{ex:split}
-For $\K=\Hq$, $P(a)=a^2+\tfrac14$ vanishes exactly on the sphere $\{a:\ \Re a=0,\ |a|=\tfrac12\}$ of imaginary quaternions of length $\frac12$, so its zero set is not finite. With $Q(b)=b$, the zero set of $F$ is this $2$-sphere times $\{0\}$, which lies in $B^8$, and Proposition~\ref{prop:split}(i) gives $\Hopf=2\,\Hopf(h_\Hq)$. With $P(a)=a^2+4$ the zeros lie outside $\bar B^8$ and $\Hopf=0$. In the first case the zero set is a $2$-sphere, while Theorem~\ref{thm:D} counts points; a local count for quaternionic maps therefore has to assign multiplicities to such spheres.
+Let $P(a)=a^2+\frac14$ and $Q(b)=b^2-\frac94b+\frac12=(b-\frac14)(b-2)$, over $\Hq$ or $\Oc$. Then $S_P(z)=(z^2+\frac14)^2$ has the double root $\frac i2$, and $V(\frac i2)=0$, so the zero set of $P$ is the sphere of imaginary elements of length $\frac12$, of index $2$.\footnote{Every unit imaginary $I$ satisfies $I^2=-1$, so $(\tfrac12I)^2=-\tfrac14$; over $\C$ the same polynomial has the two simple zeros $\pm\tfrac i2$, which the sphere joins together. A small perturbation $a^2+\tfrac14-w$ with $w$ non-real has exactly two zeros, the square roots of $w-\tfrac14$ in the slice of $w$, which is how the index $2$ of Proposition~\ref{prop:normmult} appears.} The norm polynomial $S_Q=Q^2$ has the double real roots $\frac14$ and $2$, of index $1$ each. The two components of the zero set of $F$ have $r^2+s^2=\frac5{16}<1$ and $\frac{17}4>1$, so $\deg(F/|F|)=2$ while $mn=4$. With $P(a)=a^2+4$ the degree is $0$.
 \end{example}
 
+\begin{corollary}\label{cor:splitrange}
+For $\K=\Hq$ or $\Oc$ and $m,n\ge1$, the degrees $\deg(F/|F|)$ of the split maps $F=(P,Q)$ with $\deg P=m$, $\deg Q=n$ and no zero on $S^{2d-1}$ are exactly the integers $0,1,\dots,mn$, and the Hopf invariants of the maps $h_\K\circ F/|F|\colon S^{4d-1}\to S^{2d}$ obtained in this way are exactly $0,\Hopf(h_\K),\dots,mn\,\Hopf(h_\K)$.\footnote{For $\K=\C$ the same set of values is attained by holomorphic maps, by Theorem~\ref{thm:D}; the corollary shows that splitting the variables over $\Hq$ or $\Oc$ loses nothing in the range, although it loses the negative values that the general maps of Proposition~\ref{prop:negative} attain.}
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:split} only the values $0,\dots,mn$ occur. Given $0\le k\le mn$, write $k=c_1+\dots+c_m$ with $n\ge c_1\ge\dots\ge c_m\ge0$. Put $s_\beta=\beta/(n+1)$ for $\beta=1,\dots,n$, and choose real numbers $0<r_1\le\dots\le r_m<1$ with $s_{c_\alpha}^2<1-r_\alpha^2<s_{c_\alpha+1}^2$, where $s_0=0$ and $s_{n+1}=1$; this is possible because $1-r^2$ decreases from $1$ to $0$ as $r$ increases from $0$ to $1$, and the intervals are taken in decreasing order as $\alpha$ increases. Let $P(a)=\prod_\alpha(a-r_\alpha)$ and $Q(b)=\prod_\beta(b-s_\beta)$, with real coefficients. Their norm polynomials are $P(z)^2$ and $Q(z)^2$, whose roots in the closed upper half-plane are the real numbers $r_\alpha$ and $s_\beta$, of multiplicity twice the multiplicity in $P$ or $Q$; by Proposition~\ref{prop:normmult} the zero components are the points $r_\alpha$ and $s_\beta$, of index equal to their multiplicity. The pairs with $r_\alpha^2+s_\beta^2<1$ are those with $\beta\le c_\alpha$, and no pair has $r_\alpha^2+s_\beta^2=1$, so \eqref{eq:splitformula} gives $\deg(F/|F|)=\sum_\alpha c_\alpha=k$. The Hopf invariants follow from Proposition~\ref{prop:composition}.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_split.png}
+\caption{Left: the zero set of $a^2+\frac14$ over $\Hq$, drawn in $\Imag\Hq=\R^3$, is the sphere of imaginary quaternions of length $\frac12$ (Example~\ref{ex:split}); the imaginary parts of the two preimages of a small regular value $w$ are marked, on the line through the unit $J$ of the slice of $w$. Right: the construction in the proof of Corollary~\ref{cor:splitrange} for $m=n=3$ and $(c_1,c_2,c_3)=(3,2,0)$; each point is a zero component $\{r_\alpha\}\times\{s_\beta\}$ of $F=(P,Q)$, and the five inside the unit quarter-circle give $\deg(F/|F|)=5$.}
+\label{fig:split}
+\end{figure}
+
+\begin{theorem}\label{thm:triangular}
+Let $P$, $Q$ be as in Theorem~\ref{thm:split} and let $R\colon\K\to\K$ be any polynomial map in the real coordinates. The map $T(a,b)=(P(a),\,Q(b)+R(a))$ is proper of degree $mn$, its zero set has finitely many components, each of positive index, and if none of them meets $S^{2d-1}$ then $\deg(T/|T|)$ is the sum of the indices of the components in $B^{2d}$, so that $0\le\deg(T/|T|)\le mn$, with equality on the left exactly when $T$ has no zero in the ball.
+\end{theorem}
+
+\begin{proof}
+The differential is block triangular, $\det DT=\det DP\cdot\det DQ\ge0$, and it is not identically zero by Proposition~\ref{prop:qjac}. If $T(a,b)$ is bounded then $a$ is bounded since $P$ is proper, so $R(a)$ is bounded and $b$ is bounded since $Q$ is proper. The zeros of $T_u=(P,Q+uR)$, $0\le u\le1$, have $a$ in the compact set $P^{-1}(0)$ and $b$ bounded uniformly in $u$, so on a large sphere $T$ is homotopic to $P\times Q$, of degree $mn$ by Theorem~\ref{thm:split}. The zero set is real algebraic and compact, so it has finitely many connected components by (I8) \cite[Theorem~2.4.4]{BCR98}, and Lemma~\ref{lem:positiveindex} gives positive indices.
+\end{proof}
+
+\subsubsection{General polynomial maps}
+
+Polynomials with constants between the variable factors are much more general, since they include conjugation. Let $e_1,\dots,e_{d-1}$ be an orthonormal basis of $\Imag\K$ as in Appendix~\ref{app:octonions}. Then
+\begin{equation}\label{eq:conjword}
+\bar a=-\frac1{d-2}\Bigl(a+\sum_{j=1}^{d-1}(e_ja)e_j\Bigr),\qquad \Re a=\frac{(d-3)a-\sum_{j}(e_ja)e_j}{2(d-2)} .
+\end{equation}
+Both sides are real linear in $a$, so it suffices to check them at $a=1$, where $\sum_j(e_j1)e_j=-(d-1)$, and at $a=e_k$, where the term $j=k$ is $-e_k$ and the other $d-2$ terms are $(e_je_k)e_j=e_k$, computed in the associative subalgebra generated by $e_j$ and $e_k$.
+
+\begin{proposition}\label{prop:negative}
+For every integer $k$ there is a polynomial map $G\colon\K^2\to\K^2$, with constants between the variable factors, whose only zero is the origin and with $\deg(G/|G|)=k$. For $k=-1$ one can take $G(a,b)=(\bar a,b)$ or the coupled map $(\bar a+ba,b)$.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:conjword}, $\bar a$ and the real coordinates $x_0=\Re a$, $x_j=\Re(-e_ja)$ of $a$ are polynomials in this sense. The map $(\bar a,b)$ is linear with determinant $(-1)^{d-1}=-1$;\footnote{Conjugation fixes the real axis and reverses the $d-1$ imaginary directions; the second factor is the identity.} for $(\bar a+uba,b)$ the second coordinate forces $b=0$ and then $a=0$, so the degree stays $-1$ for $0\le u\le1$. For $k\ge1$ put $z=x_0+x_1e_1$ and $G^\pm_k(a,b)=(z^k+\sum_{j\ge2}x_je_j,\,b)$, respectively with $\bar z^k$: in real coordinates these are the complex maps $z^k$ and $\bar z^k$ times the identity, of degrees $k$ and $-k$. Finally $G_0(a,b)=(x_0^2+\sum_{j\ge1}x_je_j,\,b)$ has only the zero $0$, and values with negative real part near $0$ are not attained, so its degree is $0$.
+\end{proof}
+
+So there is no formula of the type of Theorem~\ref{thm:D} with positive contributions for general polynomial maps over $\Hq$ or $\Oc$; the positive results above use that each coordinate is a one-sided polynomial in one variable, with at most a triangular coupling. The one-variable results have a long history. That the zeros of a one-sided quaternionic polynomial are isolated points and spheres of imaginary elements is due to Niven \cite{Niv41} and to Gordon and Motzkin \cite{GM65}, and the octonionic case to Ser\^odio \cite{Ser07}; that a polynomial with a single leading term has a zero is the fundamental theorem of algebra of Eilenberg and Niven \cite{EN44}, proved there by the degree argument used in Proposition~\ref{prop:normmult}. One-sided polynomials are the slice regular polynomials of Gentili, Stoppato and Struppa \cite{GSS13}, and the spherical zeros are the phenomenon studied by Ghiloni and Perotti \cite{GP11}; Sakkalis \cite{Sak20} relates the degrees of polynomial maps of normed algebras to their leading terms. In that literature $S_P$ appears as the companion, or symmetrised, polynomial $P*P^c$. The proofs above do not depend on these sources; what the Hopf invariant needs from them is the topological index of each component, the sign of the Jacobian \eqref{eq:qjac}, and the formula \eqref{eq:splitformula} with its triangular extension, and we have not found these stated in the references cited.
+
 \begin{question}\label{q:quaternionic}
-Proposition~\ref{prop:split} treats split maps $F(a,b)=(P(a),Q(b))$ and the two extreme positions of the zeros. Is there a version of Theorem~\ref{thm:D} for general maps $F=(P,Q)\colon\K^2\to\K^2$, $\K=\Hq,\Oc$, given by polynomials in two non-commuting variables (for instance slice regular ones), expressing $\deg(F/|F|)$, and hence $\Hopf(h_\K\circ F/|F|)$, as a sum of positive local contributions of the components of the zero set in $B^{2d}$? Already for split maps this asks whether the local degree of a one-variable quaternionic polynomial at an isolated zero, or at a spherical zero as in Example~\ref{ex:split}, is positive.
+For which classes of polynomial maps $F=(P,Q)\colon\K^2\to\K^2$ in two variables, beyond the triangular maps of Theorem~\ref{thm:triangular} (for instance for a fixed notion of slice regularity in several variables), is $\det DF\ge0$, so that every zero component has positive index and $\deg(F/|F|)$ is a positive count of the zeros in $B^{2d}$?
 \end{question}

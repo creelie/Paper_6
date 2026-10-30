@@ -1,8 +1,8 @@
-\chapter{Villarceau circles and Villarceau spheres}\label{ch:villarceau}
+\section{Villarceau circles and Villarceau spheres}\label{ch:villarceau}
 
-This chapter proves Theorem~\ref{thm:E} and Villarceau's theorem. The argument is the same for $d=2,4,8$: one fibre is computed explicitly, and the others are obtained from it by isometries that commute with stereographic projection. For octonions the only point that needs comment is that these isometries are left multiplications, which are orthogonal by \ref{D:norm}.
+This section proves Theorem~\ref{thm:E} and Villarceau's theorem. The argument is the same for $d=2,4,8$: one fibre is computed explicitly, and the others are obtained from it by isometries that commute with stereographic projection. For octonions the only point that needs comment is that these isometries are left multiplications, which are orthogonal by \ref{D:norm}.
 
-\section{Stereographic projection}\label{sec:stereo}
+\subsection{Stereographic projection}\label{sec:stereo}
 
 Fix $d\in\{2,4,8\}$ and a unit vector $\varepsilon\in\K$ with $\varepsilon\perp1$. For $v\in\K$ write $v_\varepsilon=\langle v,\varepsilon\rangle=\Re(v\bar\varepsilon)$ and $\pi(v)=v-v_\varepsilon\varepsilon\in\varepsilon^\perp$, the orthogonal projection onto the hyperplane $\varepsilon^\perp\subset\K$. Stereographic projection from the point $N=(0,\varepsilon)$ of $S^{2d-1}$ onto its tangent hyperplane at the antipode, translated to the origin, is
 \begin{equation}\label{eq:sigmaN}
@@ -33,7 +33,7 @@ using $a^2-1=-b^2$ and $a^2+b^2=1$. So $(|x|-R)^2+|y|^2=b^2/a^2=r^2$. The restri
 
 For $d=2$, $T_{R,r}$ is the torus obtained by rotating the circle $(x_1-R)^2+x_3^2=r^2$ of the $(x_1,x_3)$-plane about the $x_3$-axis, a ring torus because $R>r$. For $d=4,8$ it is the boundary of the tubular neighbourhood of radius $r$ of the round sphere $S^{d-1}(R)\subset\R^d\times0$, diffeomorphic to $S^{d-1}\times S^{d-1}$.
 
-\section{The fibres on a product of spheres}\label{sec:villfibres}
+\subsection{The fibres on a product of spheres}\label{sec:villfibres}
 
 By Corollary~\ref{cor:fibration} the fibres of $h_\K$ contained in $\Sigma_a$ are those over the points $s(x)$ with $|x|=a/b$. Writing $x=(a/b)u$ with $|u|=1$ and $c=bc'$, the fibre over $s(x)$ is
 \begin{equation}\label{eq:Fu}
@@ -91,7 +91,7 @@ Expanding, $(\mathcal A+2)^2-4(1+r^2)(\xi^2+\eta)=\mathcal A^2-4r^2\xi^2+4\bigl(
 
 For $d=2$ the reflection $\rho_\varepsilon$ with $\varepsilon=i$ is complex conjugation, and the second family consists of the fibres of $(z,w)\mapsto h(\bar z,w)$. For $d=4,8$ the two families are the fibres of $h_\K$ and of $h_\K\circ(\rho_\varepsilon\times\mathrm{id})$ on $\Sigma_a$; the subspaces $\Pi_u$ play the role of the bitangent planes, being tangent to the tube along a unit $(d-2)$-sphere.
 
-\section{Villarceau's theorem}\label{sec:villarceau2}
+\subsection{Villarceau's theorem}\label{sec:villarceau2}
 
 Now let $d=2$, $\varepsilon=i$, and coordinates $(x_1,x_2,x_3)$ on $\R^3=\C\times\R$. Then $\pi(x)=x_1$, the plane $\Pi_1$ is $\{x_3=r\,x_1\}$, and the circles $S_1^\pm$ have centres $(0,\pm r,0)$ and radius $R$.
 
@@ -119,17 +119,17 @@ Let $T$ be a ring torus with radii $R>r>0$, and let $\mu=\sqrt{R^2-r^2}$. The si
 \end{proof}
 
 \begin{remark}
-Villarceau's original statement \cite{Vil48} is that the bitangent plane cuts the torus in two circles. Proposition~\ref{prop:bitangent} proves it directly, and the Hopf fibration explains it: each circle is a great circle of $S^3$ lying on a flat torus $T_{a,b}$, and stereographic projection maps circles to circles. The geodesics of slope $\pm b/a$ on $T_{a,b}$ (Proposition~\ref{prop:clifford}) become the two families of Villarceau circles; the meridians and parallels are the images of the coordinate circles $\alpha=\mathrm{const}$ and $\beta=\mathrm{const}$. The Villarceau circles are not the curves $\theta\pm\varphi=\mathrm{const}$ in the usual angular coordinates $(R+r\cos\theta)(\cos\varphi,\sin\varphi)$, $r\sin\theta$ of the torus, which are not circles; they are the curves $\beta\mp\alpha=\mathrm{const}$ in the coordinates of $T_{a,b}$, which differ from the usual angles by a conformal reparametrisation of the meridian.\footnote{Stereographic projection maps the meridian circle $\{\alpha=\alpha_0\}$ of $T_{a,b}$ onto the meridian of the image torus, but not with constant speed: the angle $\beta$ on $T_{a,b}$ and the angle $\theta$ about the centre of the meridian are related by a M\"obius transformation of the circle.}
+Villarceau's original statement \cite{Vil48} is that the bitangent plane cuts the torus in two circles. Proposition~\ref{prop:bitangent} proves it directly, and the Hopf fibration explains it: each circle is a great circle of $S^3$ lying on a flat torus $T_{a,b}$, and stereographic projection maps circles to circles. The geodesics of slope $\pm b/a$ on $T_{a,b}$ (Proposition~\ref{prop:clifford}) become the two families of Villarceau circles; the meridians and parallels are the images of the coordinate circles $\alpha=\mathrm{const}$ and $\beta=\mathrm{const}$. The Villarceau circles are not the curves $\theta\pm\varphi=\mathrm{const}$ in the usual angular coordinates $(R+r\cos\theta)(\cos\varphi,\sin\varphi)$, $r\sin\theta$ of the torus, which are not circles; they are the curves $\beta\mp\alpha=\mathrm{const}$ in the coordinates of $T_{a,b}$, which differ from the usual angles by a conformal reparametrisation of the meridian.\footnote{Stereographic projection maps the meridian circle $\{\alpha=\alpha_0\}$ of $T_{a,b}$ onto the meridian of the image torus, but not with constant speed; the two angles differ by a M\"obius transformation of the circle.}
 \end{remark}
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.92\textwidth]{fig_villarceau.png}
+\includegraphics[width=0.84\textwidth]{fig_villarceau.png}
 \caption{A ring torus with $R^2-r^2=1$, the bitangent plane $\Pi$ through its centre, the two Villarceau circles $\sigma(F_1)$ and its mirror image, of radius $R$ and centres $(0,\pm r,0)$, and the two points of tangency at distance $1$ from the centre.}
 \label{fig:villarceau}
 \end{figure}
 
-\section{The meridians are Apollonian circles}\label{sec:apollonius}
+\subsection{The meridians are Apollonian circles}\label{sec:apollonius}
 
 As $a$ varies in $(0,1)$ the tori $T_{R,r}=\sigma(\Sigma_a)$ fill $\R^3$ minus the $x_3$-axis and the unit circle of the horizontal plane, which are the images of the fibres over the two poles. Their meridians in the half-plane $\{x_2=0,\ x_1>0\}$ are the circles
 \[
@@ -146,9 +146,9 @@ On $M_R$ we have $x_1^2+x_3^2=2Rx_1-1$, so $|P-(1,0)|^2=2(R-1)x_1$ and $|P-(-1,0
 
 The limit point $(1,0)$ is the point of the meridian half-plane on the unit circle, the image of the fibre over one pole, and the tori shrink to it as $a\to1$; as $a\to0$ they grow towards the axis. Figure~\ref{fig:meridians} shows the pencil together with the bitangent lines of one meridian.
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.8\textwidth]{fig_meridians.png}
+\includegraphics[width=0.74\textwidth]{fig_meridians.png}
 \caption{Meridians of the tori $\sigma(\Sigma_a)$ in the half-plane $x_2=0$: the Apollonian circles with limit points $(\pm1,0)$. The line through the origin tangent to one meridian is the trace of a bitangent plane, and its point of tangency lies on the unit circle.}
 \label{fig:meridians}
 \end{figure}

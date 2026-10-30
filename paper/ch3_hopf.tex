@@ -1,8 +1,8 @@
-\chapter{The Hopf bundles}\label{ch:hopf}
+\section{The Hopf bundles}\label{ch:hopf}
 
-This chapter proves Theorem~\ref{thm:A}. The four cases are treated at once; the only place where the octonions need care is Lemma~\ref{lem:artin}.
+This section proves Theorem~\ref{thm:A}. The four cases are treated at once; the only place where the octonions need care is Lemma~\ref{lem:artin}.
 
-\section{The normed division algebras}\label{sec:algebras}
+\subsection{The normed division algebras}\label{sec:algebras}
 
 The algebras $\R\subset\C\subset\Hq\subset\Oc$ are obtained by the Cayley--Dickson construction. If $A$ is a real algebra with unit and an involution $x\mapsto\bar x$, then $A\oplus A$ with
 \begin{equation}\label{eq:cd}
@@ -38,7 +38,7 @@ For $x\in\K$ let $\ell_x\colon\K\to\K$, $\ell_x(c)=xc$, be left multiplication. 
 For $\K=\R,\C,\Hq$ the unit sphere $S^{d-1}$ is a group and $\tau$ is a homomorphism, $\ell_x\ell_y=\ell_{xy}$. For $\Oc$ this fails: $\ell_x\ell_y=\ell_{xy}$ for all $x,y$ would make $\Oc$ associative. The unit sphere $S^7$ is not a group, and no Lie group structure on $S^7$ exists at all, since the only spheres that are Lie groups are $S^0$, $S^1$ and $S^3$.\footnote{A compact connected Lie group $G$ of positive dimension has $H^3(G;\R)\neq0$, since the bi-invariant $3$-form $(X,Y,Z)\mapsto\langle[X,Y],Z\rangle$ is closed and not exact when $G$ is not a torus; a torus that is a sphere is $S^1$. So a sphere $S^n$ that is a Lie group has $n=1$ or $n=3$.} The construction below uses only the maps $\ell_x$ and Lemma~\ref{lem:artin}, and it works uniformly.
 \end{remark}
 
-\section{The tautological bundle}\label{sec:taut}
+\subsection{The tautological bundle}\label{sec:taut}
 
 For $x\in\K$ let $L_x=\{(xc,c):c\in\K\}$ and $L_\infty=\K\times\{0\}$, as in the Introduction. These are $d$-dimensional real subspaces of $\K^2$; $L_x$ is the graph of $\ell_x$ over the second factor.
 
@@ -116,7 +116,7 @@ For $\K$ associative, $h(aq,bq)=(2aq\bar q\bar b,|a|^2-|b|^2)=h(a,b)$ for $|q|=1
 \label{fig:basefibres}
 \end{figure}
 
-\section{The projective plane of the bundle}\label{sec:projplane}
+\subsection{The projective plane of the bundle}\label{sec:projplane}
 
 For $d\ge2$ let $D(L_\K)$ be the unit disc bundle. It is a compact $2d$-manifold with boundary $S(L_\K)=S^{2d-1}$, and we put
 \begin{equation}\label{eq:KP2}

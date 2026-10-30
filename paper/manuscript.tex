@@ -1,4 +1,4 @@
-\documentclass[11pt]{amsbook}
+\documentclass[11pt]{amsart}
 \usepackage[margin=1.1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{graphicx}
@@ -9,12 +9,11 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{url}
 
-\setcounter{tocdepth}{1}
-\numberwithin{equation}{chapter}
+\numberwithin{equation}{section}
 \allowdisplaybreaks
 
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -50,31 +49,34 @@
 \raggedbottom
 \begin{document}
 
-\frontmatter
-\title[Homotopy groups of spheres, Hopf fibrations and Villarceau circles II]{Homotopy Groups of Spheres, Hopf Fibrations\\ and Villarceau Circles II}
+\title[Hopf invariants of polynomial maps and Villarceau spheres]{Hopf Invariants of Polynomial Maps\\ and Villarceau Spheres}
+
 \author{Deep Bhattacharjee}
-\address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India}
-\address{Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India}
-\email{d.bhattacharjee@erl-forschung.de}
-\email{itsdeep@live.com}
-\email{egspl@proton.me}
+\address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India\\
+Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India}
+\email{d.bhattacharjee@erl-forschung.de, itsdeep@live.com, egspl@proton.me}
 \urladdr{https://orcid.org/0000-0003-0466-750X}
-\thanks{This is version 2 of the preprint ``Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II'', Preprints.org, 28 February 2026, \texttt{doi:10.20944/preprints202602.2038.v1}, which it revises and replaces. An earlier version of the work appeared as D.~Bhattacharjee, S.~Singha Roy and R.~Sadhu, ``Homotopy group of spheres, Hopf fibrations and Villarceau circles'', EPRA International Journal of Research \& Development (IJRD) \textbf{7} (2022), no.~9, \texttt{doi:10.36713/epra11212}. Corresponding author: Deep Bhattacharjee, \texttt{d.bhattacharjee@erl-forschung.de}; contact for the accompanying repository \url{https://github.com/creelie/Paper_6}: \texttt{egspl@proton.me}.}
-\subjclass[2020]{55Q05, 55Q25, 55R10, 53A05}
-\keywords{Hopf fibration, Hopf invariant, Villarceau circles, homotopy groups of spheres}
+
+\author{Ushashi Bhattacharya}
+\address{National Taiwan University, Taipei, Taiwan}
+\email{rai.bhattacharya.in@gmail.com}
+\urladdr{https://orcid.org/0009-0002-2254-3914}
+
+\thanks{This is version 2 of the preprint ``Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II'' by D.~Bhattacharjee, Preprints.org, 28 February 2026, \texttt{doi:10.20944/preprints202602.2038.v1}, which it revises and replaces under a new title and with a second author. An earlier version of the work appeared as D.~Bhattacharjee, S.~Singha Roy and R.~Sadhu, ``Homotopy group of spheres, Hopf fibrations and Villarceau circles'', EPRA International Journal of Research \& Development (IJRD) \textbf{7} (2022), no.~9, \texttt{doi:10.36713/epra11212}. Corresponding author: Deep Bhattacharjee, \texttt{d.bhattacharjee@erl-forschung.de}. Contact for the accompanying repository \url{https://github.com/creelie/Paper_6} (GitHub account \texttt{creelie}): \texttt{egspl@proton.me}.}
+
+\subjclass[2020]{55Q25, 55R10, 53A05, 30G35}
+\keywords{Hopf fibration, Hopf invariant, Villarceau circles, quaternionic polynomials}
 \date{}
 
 \begin{abstract}
-We prove that the stereographic images of the fibres of the complex, quaternionic and octonionic Hopf fibrations lying on a product of two round spheres are the Villarceau spheres of a tube, which gives Villarceau's theorem for every ring torus, and that the Hopf invariant of a holomorphic polynomial map $[P:Q]\colon S^3\to S^2$ is the number of common zeros of $P$ and $Q$ in the open four-ball, hence at most $\deg P\cdot\deg Q$. Along the way we give complete proofs that the three Hopf maps are sphere bundles of vector bundles with Hopf invariant one, realise every Hopf invariant by explicit polynomial maps, and derive the homotopy groups of $S^2$, $S^4$ and $S^8$ from those of $S^3$ and $S^7$.
+We prove that the stereographic images of the fibres of the complex, quaternionic and octonionic Hopf fibrations that lie on a product of two round spheres are the Villarceau spheres of a tube, which gives Villarceau's theorem for every ring torus and its analogues in dimensions four and eight. We prove that the Hopf invariant of a holomorphic polynomial map from the three-sphere to the two-sphere is the number of common zeros of its two coordinates in the open four-ball, counted with multiplicity. For quaternionic and octonionic maps whose coordinates are one-sided polynomials in separate variables, we prove that the Hopf invariant is a sum of positive contributions of the zero points and zero spheres in the ball, read off from two real polynomials; every value from zero to the product of the degrees occurs, the formula extends to triangular maps, and positivity fails for general polynomial maps, which realise every integer. Along the way we prove that the three Hopf maps are Riemannian submersions and sphere bundles of vector bundles with Hopf invariant one, and we derive the homotopy groups of the spheres of dimensions two, four and eight from those of the spheres of dimensions three and seven.
 \end{abstract}
 
 \maketitle
-\tableofcontents
 
-\mainmatter
-\chapter{Introduction}\label{ch:intro}
+\section{Introduction}\label{ch:intro}
 
-\section{The objects}
+\subsection{The objects}
 
 A continuous map between spheres is determined up to homotopy by remarkably little, and yet the groups $\pi_i(S^n)$ of such maps are among the hardest invariants in mathematics to compute. Below the dimension of the target nothing happens: $\pi_i(S^n)=0$ for $i<n$. In the dimension of the target the degree is a complete invariant, $\pi_n(S^n)\cong\Z$. The first surprise is $\pi_3(S^2)\cong\Z$, found by Hopf in 1931 \cite{Hop31}: a map from a three-sphere onto a two-sphere can wrap in infinitely many essentially different ways, and the generator is the map
 \begin{equation}\label{eq:intro-hopf}
@@ -84,9 +86,9 @@ whose fibres are the great circles $\{(\lambda z,\lambda w):|\lambda|=1\}$. Any 
 
 Hopf's construction has exactly two more analogues, built from the quaternions and the octonions, with fibres $S^3$ and $S^7$ \cite{Hop35}. Adams' theorem on the Hopf invariant \cite{Ada60} says that there are no others, and that no sphere bundle $S^{d-1}\to S^{2d-1}\to S^d$ exists unless $d\in\{1,2,4,8\}$.
 
-This monograph gives a complete account of these objects with proofs, and it adds results that make the connection between homotopy and geometry precise. We have aimed at a text in which every statement is either proved here or is a published theorem quoted with its source; the deep inputs that are quoted, and not reproved, are listed in Section~\ref{sec:inputs}. Nothing below depends on a conjecture. The text replaces the earlier versions \cite{BSS22}, \cite{Bha26a} of this work, which were expository, corrects their errors, and adds Theorems~\ref{thm:D} and \ref{thm:E}, Proposition~\ref{prop:twofamilies} and the results of Chapter~\ref{ch:villarceau} on Villarceau spheres.
+This paper gives a complete account of these objects with proofs, and it adds results that make the connection between homotopy and geometry precise. We have aimed at a text in which every statement is either proved here or is a published theorem quoted with its source; the deep inputs that are quoted, and not reproved, are listed in Section~\ref{sec:inputs}. Nothing below depends on a conjecture. The text replaces the earlier versions \cite{BSS22}, \cite{Bha26a} of this work, which were expository, corrects their errors, and adds Theorems~\ref{thm:D} and \ref{thm:E}, Proposition~\ref{prop:twofamilies}, the results of Section~\ref{ch:villarceau} on Villarceau spheres, the Riemannian submersion of Proposition~\ref{prop:octsubmersion} for every division algebra, and the local formula for the Hopf invariant of split and triangular quaternionic and octonionic polynomial maps in Section~\ref{sec:split} (Theorems~\ref{thm:split}, \ref{thm:triangular} and Corollary~\ref{cor:splitrange}).
 
-\section{Results}
+\subsection{Results}
 
 Throughout, $\K$ is one of the four normed division algebras $\R,\C,\Hq,\Oc$ and $d=\dim_\R\K\in\{1,2,4,8\}$. We write $\bar x$ for the conjugate of $x\in\K$ and $|x|^2=x\bar x$. The \emph{Hopf map} of $\K$ is
 \begin{equation}\label{eq:intro-hk}
@@ -139,7 +141,7 @@ where $I_u(P,Q)=\dim_\C\mathcal O_u/(P,Q)$ is the intersection multiplicity. Bot
 
 Theorem~\ref{thm:D} turns the Hopf invariant, a homotopy invariant, into an algebraic count, and turns the linking of fibres into an intersection number of plane curves inside the ball.
 
-The last two results are geometric. Let $0<a<1$ and $b=\sqrt{1-a^2}$, and let $\varepsilon\in\K$ be a unit with $\varepsilon\perp1$. Stereographic projection from $N=(0,\varepsilon)$ identifies $S^{2d-1}\setminus\{N\}$ with $\K\times\varepsilon^\perp=\R^d\times\R^{d-1}$.
+The next two results are geometric. Let $0<a<1$ and $b=\sqrt{1-a^2}$, and let $\varepsilon\in\K$ be a unit with $\varepsilon\perp1$. Stereographic projection from $N=(0,\varepsilon)$ identifies $S^{2d-1}\setminus\{N\}$ with $\K\times\varepsilon^\perp=\R^d\times\R^{d-1}$.
 
 \begin{maintheorem}[Villarceau spheres]\label{thm:E}
 Let $d\in\{2,4,8\}$ and put $R=1/a$, $r=b/a$, so that $R^2-r^2=1$. Stereographic projection maps the product $S^{d-1}(a)\times S^{d-1}(b)$ onto the tube
@@ -157,9 +159,23 @@ Let $T$ be a ring torus with radii $R>r>0$. Every plane through the centre of $T
 For $\K=\C,\Hq,\Oc$ the Hopf map is a Riemannian submersion from the unit sphere $S^{2d-1}$ onto the sphere $S^d(\tfrac12)$ of radius $\tfrac12$. The fibres are parallel great spheres: the distance between the fibres over $p,q\in S^d$ is half the angle between $p$ and $q$. For $\K=\C$ the fibres over a circle of latitude form a flat torus $S^1(a)\times S^1(b)$ on which they are the closed geodesics of slope $b/a$, and the unit tangent bundle of $S^2$ is the quotient of the Hopf bundle by $\pm1$, a circle bundle over $S^2$ with total space $\RP^3$.
 \end{maintheorem}
 
-Chapters~\ref{ch:stable} and \ref{ch:cy} place these results in their wider setting: the stable stems through dimension $19$, the image of the $J$-homomorphism and its Bernoulli denominators, the Kervaire invariant problem, and the torus fibrations of the Strominger--Yau--Zaslow picture, of which the Clifford tori of the Hopf fibration are the simplest example. We state precisely what is known there, prove what is elementary, and separate both from the conjectural.
+We return to polynomial maps. Over $\Hq$ and $\Oc$ there is no intersection theory, and Theorem~\ref{thm:D} survives only in a restricted form. A \emph{one-sided polynomial} of degree $m$ over $\K$ is $P(q)=\sum_{k=0}^mq^kp_k$ with $p_k\in\K$, $p_m\neq0$; its \emph{norm polynomial} is the real polynomial $S_P(z)=\sum_{i,j}\langle p_i,p_j\rangle z^{i+j}$ of degree $2m$.
 
-\section{Inputs taken from the literature}\label{sec:inputs}
+\begin{maintheorem}[Quaternionic and octonionic maps]\label{thm:G}
+Let $\K=\Hq$ or $\Oc$, let $P$, $Q$ be one-sided polynomials of degrees $m,n\ge1$, and suppose that $F(a,b)=(P(a),Q(b))$ has no zero on $S^{2d-1}$.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The zero set of $P$ consists of finitely many points and round $(d-2)$-spheres, one for each root of $S_P$ in the closed upper half-plane; the component of a root of multiplicity $\ell$ has index $\ell$, or $\ell/2$ if the root is real, and the indices add up to $m$.
+\item $\Hopf(h_\K\circ F/|F|)=\Hopf(h_\K)\sum\mu_\alpha\nu_\beta$, the sum over the pairs of zero components of $P$ and $Q$, of radii $r_\alpha$, $s_\beta$ and indices $\mu_\alpha$, $\nu_\beta$, with $r_\alpha^2+s_\beta^2<1$. Every value $0,1,\dots,mn$ of the sum occurs.
+\item The same bounds $0\le\deg(F/|F|)\le mn$ hold for the triangular maps $(P(a),Q(b)+R(a))$ with $R$ an arbitrary polynomial, while polynomial maps with constants between the variable factors attain every integer degree.
+\end{enumerate}
+\end{maintheorem}
+
+The proofs are in Section~\ref{sec:split}. The positivity behind (i) and (ii) is a Jacobian identity, $\det DP=|B|^{d-4}(s^2+t^2)\ge0$ (Proposition~\ref{prop:qjac}), which replaces the complex identity $\det_\R DF=|\det_\C DF|^2$.
+
+
+Sections~\ref{ch:stable} and \ref{ch:cy} place these results in their wider setting: the stable stems through dimension $19$, the image of the $J$-homomorphism and its Bernoulli denominators, the Kervaire invariant problem, and the torus fibrations of the Strominger--Yau--Zaslow picture, of which the Clifford tori of the Hopf fibration are the simplest example. We state precisely what is known there, prove what is elementary, and separate both from the conjectural.
+
+\subsection{Inputs taken from the literature}\label{sec:inputs}
 
 The following theorems are used without proof. Each is a published result with a complete proof in the cited source.
 \begin{enumerate}[label=(I\arabic*)]
@@ -170,21 +186,22 @@ The following theorems are used without proof. Each is a published result with a
 \item The degree of the boundary map of a vector field with isolated zeros equals the sum of their indices \cite[Section~6]{Mil65}; the index of an isolated zero of a holomorphic map germ $(\C^2,u)\to(\C^2,0)$ is its intersection multiplicity \cite[Chapter~5]{GH78}, \cite[Chapter~5]{AGV85}; B\'ezout's theorem \cite[Chapter~5]{Ful69}; an irreducible complex algebraic curve is connected in the classical topology \cite[Corollary~(4.16)]{Mum76}.
 \item The values of $\pi_{n+k}(S^n)$ for $k\le 7$ and of the stable stems for $k\le19$ \cite{Tod62}, \cite{Rav86}, \cite{IWX23}; the image of $J$ \cite{Ada66}, \cite{Qui71}, \cite{Sul74}, \cite{BG75}; the Kervaire invariant results \cite{Bro69}, \cite{HHR16}.
 \item Hopf's description of the Hopf invariant of a map $S^3\to S^2$ as the linking number of two fibres \cite{Hop31}, \cite[Section~17]{BT82}.
+\item A real algebraic subset of $\R^N$ has finitely many connected components \cite[Theorem~2.4.4]{BCR98}.
 \end{enumerate}
 Items (I4) and (I6) are deep, and their proofs are not reproduced. The rest of the text is self-contained modulo standard algebraic topology.
 
-\section{Plan}
+\subsection{Plan}
 
-Chapter~\ref{ch:foundations} fixes conventions and proves the elementary facts about homotopy groups of spheres that are needed, together with a splitting lemma for fibrations whose fibre inclusion is null-homotopic. Chapter~\ref{ch:hopf} constructs the Hopf bundles and proves Theorem~\ref{thm:A}. Chapter~\ref{ch:invariant} treats the Hopf invariant and proves Theorem~\ref{thm:B}; Chapter~\ref{ch:groups} proves Theorem~\ref{thm:C} and derives the table of unstable groups. Chapter~\ref{ch:linking} is about linking numbers and proves Theorem~\ref{thm:D}, together with its analogue for split quaternionic and octonionic maps (Proposition~\ref{prop:split}). Chapter~\ref{ch:geometry} proves Theorem~\ref{thm:F}, and Chapter~\ref{ch:villarceau} proves Theorem~\ref{thm:E} and Villarceau's theorem. The appendices collect the octonion identities, the algebra behind Villarceau's theorem, the tables of stable stems and the numerical checks.
+Section~\ref{ch:foundations} fixes conventions and proves the elementary facts about homotopy groups of spheres that are needed, together with a splitting lemma for fibrations whose fibre inclusion is null-homotopic. Section~\ref{ch:hopf} constructs the Hopf bundles and proves Theorem~\ref{thm:A}. Section~\ref{ch:invariant} treats the Hopf invariant and proves Theorem~\ref{thm:B}; Section~\ref{ch:groups} proves Theorem~\ref{thm:C} and derives the table of unstable groups. Section~\ref{ch:linking} is about linking numbers and proves Theorem~\ref{thm:D}, together with its analogues for split and triangular quaternionic and octonionic maps (Theorem~\ref{thm:G}), and the failure of positivity for general ones. Section~\ref{ch:geometry} proves Theorem~\ref{thm:F}, and Section~\ref{ch:villarceau} proves Theorem~\ref{thm:E} and Villarceau's theorem. The appendices collect the octonion identities, the algebra behind Villarceau's theorem, the tables of stable stems and the numerical checks.
 
-\section{Conventions}
+\subsection{Conventions}
 
 Spheres are $S^n=\{x\in\R^{n+1}:|x|=1\}$ and $S^n(\rho)$ is the sphere of radius $\rho$. Homotopy groups are based, and we drop basepoints from the notation when the space is path connected. A map $f\colon S^n\to S^n$ has a degree $\deg f\in\Z$, defined by $f_*[S^n]=(\deg f)[S^n]$ in $H_n(S^n;\Z)$. We write $\Z/m$ for the cyclic group of order $m$, and in tables a cyclic group is denoted by its order. The words \emph{fibration} and \emph{fibre bundle} are used in their standard senses \cite[Section~4.2]{Hat02}; all fibre bundles below are locally trivial over spheres and therefore Hurewicz fibrations.
-\chapter{Homotopy groups and fibrations}\label{ch:foundations}
+\section{Homotopy groups and fibrations}\label{ch:foundations}
 
-This chapter collects the facts from homotopy theory used later. Most are standard; we give proofs where the argument is short or where the precise form matters, and we prove one splitting lemma, Lemma~\ref{lem:split}, on which Chapter~\ref{ch:groups} rests.
+This section collects the facts from homotopy theory used later. Most are standard; we give proofs where the argument is short or where the precise form matters, and we prove one splitting lemma, Lemma~\ref{lem:split}, on which Section~\ref{ch:groups} rests.
 
-\section{Homotopy groups}
+\subsection{Homotopy groups}
 
 Let $X$ be a space with basepoint $x_0$. For $i\ge1$ the group $\pi_i(X,x_0)$ is the set of homotopy classes of maps $f\colon(I^i,\partial I^i)\to(X,x_0)$, the homotopies being through maps of the same kind, with the product
 \[
@@ -228,7 +245,7 @@ Let $X$ be a space, $i\ge1$, $\alpha\in\pi_i(X)$, and let $g\colon S^i\to S^i$ b
 For a fixed map $f\colon S^i\to X$, composition $[g]\mapsto[f\circ g]$ is a homomorphism $f_*\colon\pi_i(S^i)\to\pi_i(X)$, because the sum in $\pi_i$ is formed in the source coordinate. By Proposition~\ref{prop:degree} the class of $g$ is $m[\mathrm{id}]$, so $[f\circ g]=f_*(m[\mathrm{id}])=m[f]$.
 \end{proof}
 
-\section{Fibrations and the long exact sequence}
+\subsection{Fibrations and the long exact sequence}
 
 A map $p\colon E\to B$ has the \emph{homotopy lifting property} for a space $Y$ if for every homotopy $F\colon Y\times I\to B$ and every lift $\tilde F_0\colon Y\to E$ of $F_0$ there is a homotopy $\tilde F$ lifting $F$ and starting at $\tilde F_0$. It is a \emph{Serre fibration} if it has this property for all cubes $Y=I^k$, and a \emph{Hurewicz fibration} if it has it for all spaces. Every fibre bundle is a Serre fibration, and a fibre bundle over a paracompact base is a Hurewicz fibration \cite[Proposition~4.48 and the remarks after it]{Hat02}.\footnote{Covering spaces are fibre bundles with discrete fibre; for them the lift is unique, which is the path lifting property of covering space theory. The projection $B\times F\to B$ is the trivial bundle: a lift of $F_t$ is $(F_t,\mathrm{pr}_F\circ\tilde F_0)$.}
 
@@ -277,7 +294,7 @@ where the third equality is the naturality of boundary maps for the map of pairs
 In words: a class $\beta\in\pi_{i-1}(F)$ is represented by $\beta\colon S^{i-1}\to F$; the cone on $\beta$ followed by $G$ is a disc in $E$ with boundary $\beta$ in $F$, and $\sigma(\beta)$ is the image of that disc in $B$, a sphere because its boundary collapses to $b_0$.
 \end{remark}
 
-\section{Suspension}
+\subsection{Suspension}
 
 The reduced suspension of a based space $(X,x_0)$ is $\Sigma X=X\times I/(X\times\partial I\cup x_0\times I)$, and $\Sigma S^n\cong S^{n+1}$. A based map $f$ induces $\Sigma f[x,t]=[f(x),t]$, and $f\mapsto\Sigma f$ induces the suspension homomorphism $E\colon\pi_i(S^n)\to\pi_{i+1}(S^{n+1})$.
 
@@ -289,14 +306,14 @@ Equivalently, the adjoint inclusion $S^n\to\Omega S^{n+1}$ of $S^n$ into the bas
 
 The path fibration $\Omega X\to PX\to X$, where $PX$ is the contractible space of paths starting at $x_0$ and the map evaluates at the endpoint, gives $\pi_i(\Omega X)\cong\pi_{i+1}(X)$ by Theorem~\ref{thm:les}.
 
-\section{Whitehead products}
+\subsection{Whitehead products}
 
 Let $\iota_1,\iota_2\colon S^n\to S^n\vee S^n$ be the inclusions of the two wedge summands. The product $S^n\times S^n$ is obtained from $S^n\vee S^n$ by attaching one $2n$-cell along a map $w\colon S^{2n-1}\to S^n\vee S^n$, the attaching map of the top cell.\footnote{Write $S^n=D^n/\partial D^n$. Then $S^n\times S^n$ is the quotient of $D^n\times D^n$, whose boundary $\partial(D^n\times D^n)=\partial D^n\times D^n\cup D^n\times\partial D^n\cong S^{2n-1}$ is mapped onto $S^n\vee S^n$. This boundary map is $w$.} For $\alpha,\beta\in\pi_n(X)$ represented by $f,g$, the \emph{Whitehead product} $[\alpha,\beta]\in\pi_{2n-1}(X)$ is the class of $(f\vee g)\circ w$. We need only the square $[\iota_n,\iota_n]\in\pi_{2n-1}(S^n)$ of the identity, the class of $\nabla\circ w$ with $\nabla\colon S^n\vee S^n\to S^n$ the fold map.
-\chapter{The Hopf bundles}\label{ch:hopf}
+\section{The Hopf bundles}\label{ch:hopf}
 
-This chapter proves Theorem~\ref{thm:A}. The four cases are treated at once; the only place where the octonions need care is Lemma~\ref{lem:artin}.
+This section proves Theorem~\ref{thm:A}. The four cases are treated at once; the only place where the octonions need care is Lemma~\ref{lem:artin}.
 
-\section{The normed division algebras}\label{sec:algebras}
+\subsection{The normed division algebras}\label{sec:algebras}
 
 The algebras $\R\subset\C\subset\Hq\subset\Oc$ are obtained by the Cayley--Dickson construction. If $A$ is a real algebra with unit and an involution $x\mapsto\bar x$, then $A\oplus A$ with
 \begin{equation}\label{eq:cd}
@@ -332,7 +349,7 @@ For $x\in\K$ let $\ell_x\colon\K\to\K$, $\ell_x(c)=xc$, be left multiplication. 
 For $\K=\R,\C,\Hq$ the unit sphere $S^{d-1}$ is a group and $\tau$ is a homomorphism, $\ell_x\ell_y=\ell_{xy}$. For $\Oc$ this fails: $\ell_x\ell_y=\ell_{xy}$ for all $x,y$ would make $\Oc$ associative. The unit sphere $S^7$ is not a group, and no Lie group structure on $S^7$ exists at all, since the only spheres that are Lie groups are $S^0$, $S^1$ and $S^3$.\footnote{A compact connected Lie group $G$ of positive dimension has $H^3(G;\R)\neq0$, since the bi-invariant $3$-form $(X,Y,Z)\mapsto\langle[X,Y],Z\rangle$ is closed and not exact when $G$ is not a torus; a torus that is a sphere is $S^1$. So a sphere $S^n$ that is a Lie group has $n=1$ or $n=3$.} The construction below uses only the maps $\ell_x$ and Lemma~\ref{lem:artin}, and it works uniformly.
 \end{remark}
 
-\section{The tautological bundle}\label{sec:taut}
+\subsection{The tautological bundle}\label{sec:taut}
 
 For $x\in\K$ let $L_x=\{(xc,c):c\in\K\}$ and $L_\infty=\K\times\{0\}$, as in the Introduction. These are $d$-dimensional real subspaces of $\K^2$; $L_x$ is the graph of $\ell_x$ over the second factor.
 
@@ -410,7 +427,7 @@ For $\K$ associative, $h(aq,bq)=(2aq\bar q\bar b,|a|^2-|b|^2)=h(a,b)$ for $|q|=1
 \label{fig:basefibres}
 \end{figure}
 
-\section{The projective plane of the bundle}\label{sec:projplane}
+\subsection{The projective plane of the bundle}\label{sec:projplane}
 
 For $d\ge2$ let $D(L_\K)$ be the unit disc bundle. It is a compact $2d$-manifold with boundary $S(L_\K)=S^{2d-1}$, and we put
 \begin{equation}\label{eq:KP2}
@@ -432,11 +449,11 @@ Let $d\in\{2,4,8\}$.
 (i) A manifold with boundary glued to another along a homeomorphism of their boundaries is a manifold, since boundaries have collar neighbourhoods. The space is compact and has no boundary. By (ii) it is a CW complex with one cell in each of the dimensions $0$, $d$ and $2d$; as $d\ge2$ there are no $1$-cells, so it is simply connected, and a simply connected manifold is orientable.
 (iii) The cellular cochain complex has one generator in each of the degrees $0,d,2d$ and all differentials zero, because no two cells have adjacent dimensions.
 \end{proof}
-\chapter{The Hopf invariant}\label{ch:invariant}
+\section{The Hopf invariant}\label{ch:invariant}
 
-This chapter proves Theorem~\ref{thm:B}. Section~\ref{sec:hdef} defines the invariant and proves the rules for composition that are used throughout; Section~\ref{sec:powers} computes the degree of the octonionic power maps.
+This section proves Theorem~\ref{thm:B}. Section~\ref{sec:hdef} defines the invariant and proves the rules for composition that are used throughout; Section~\ref{sec:powers} computes the degree of the octonionic power maps.
 
-\section{Definition and composition rules}\label{sec:hdef}
+\subsection{Definition and composition rules}\label{sec:hdef}
 
 Let $n\ge2$ and $f\colon S^{2n-1}\to S^n$. The mapping cone $C_f=S^n\cup_fD^{2n}$ is a CW complex with cells in dimensions $0$, $n$ and $2n$, so
 \[
@@ -448,7 +465,7 @@ where $\alpha_f$ restricts to the chosen generator of $H^n(S^n)$ and $\beta_f$ c
 The \emph{Hopf invariant} $\Hopf(f)\in\Z$ is defined by $\alpha_f\smile\alpha_f=\Hopf(f)\,\beta_f$.
 \end{definition}
 
-If $f\simeq f'$, then $C_f$ and $C_{f'}$ are homotopy equivalent by a map that is the identity on $S^n$ and of degree one on the top cell, so $\Hopf(f)$ depends only on the homotopy class of $f$. Changing the orientation of $S^{2n-1}$ changes the sign of $\Hopf$, and changing that of $S^n$ does not. The function $\Hopf\colon\pi_{2n-1}(S^n)\to\Z$ is a homomorphism \cite[Proposition~4B.1]{Hat02}; we use this only in Corollary~\ref{cor:image} and in Chapter~\ref{ch:stable}.
+If $f\simeq f'$, then $C_f$ and $C_{f'}$ are homotopy equivalent by a map that is the identity on $S^n$ and of degree one on the top cell, so $\Hopf(f)$ depends only on the homotopy class of $f$. Changing the orientation of $S^{2n-1}$ changes the sign of $\Hopf$, and changing that of $S^n$ does not. The function $\Hopf\colon\pi_{2n-1}(S^n)\to\Z$ is a homomorphism \cite[Proposition~4B.1]{Hat02}; we use this only in Corollary~\ref{cor:image} and in Section~\ref{ch:stable}.
 
 \begin{proposition}\label{prop:hodd}
 If $n$ is odd then $\Hopf(f)=0$ for every $f\colon S^{2n-1}\to S^n$.
@@ -483,14 +500,14 @@ If $n$ is even, then $\Hopf([\iota_n,\iota_n])=\pm2$.
 \end{proposition}
 
 \begin{proof}
-Write $S^n\times S^n=(S^n\vee S^n)\cup_wD^{2n}$ as in Chapter~\ref{ch:foundations}, and let $q\colon S^n\times S^n\to C=C_{\nabla\circ w}$ be the fold map $\nabla$ on $S^n\vee S^n$ and the identity on the top cell; it is well defined for the same reason as $\Phi$ above. Let $a,b\in H^n(S^n\times S^n)$ be the pull-backs of the generator along the two projections. Restriction to the $n$-skeleton is an isomorphism on $H^n$ for both spaces, and $\nabla^*$ sends the generator to $a+b$; hence $q^*\alpha=a+b$, where $\alpha=\alpha_{\nabla w}$. On the top cell $q$ is the identity, so $q^*\beta=\pm ab$, since $ab$ generates $H^{2n}(S^n\times S^n)$ by the K\"unneth theorem. Now $a^2=b^2=0$, as they are pulled back from $H^{2n}(S^n)=0$, and $ba=(-1)^{n^2}ab=ab$ since $n$ is even, so
+Write $S^n\times S^n=(S^n\vee S^n)\cup_wD^{2n}$ as in Section~\ref{ch:foundations}, and let $q\colon S^n\times S^n\to C=C_{\nabla\circ w}$ be the fold map $\nabla$ on $S^n\vee S^n$ and the identity on the top cell; it is well defined for the same reason as $\Phi$ above. Let $a,b\in H^n(S^n\times S^n)$ be the pull-backs of the generator along the two projections. Restriction to the $n$-skeleton is an isomorphism on $H^n$ for both spaces, and $\nabla^*$ sends the generator to $a+b$; hence $q^*\alpha=a+b$, where $\alpha=\alpha_{\nabla w}$. On the top cell $q$ is the identity, so $q^*\beta=\pm ab$, since $ab$ generates $H^{2n}(S^n\times S^n)$ by the K\"unneth theorem. Now $a^2=b^2=0$, as they are pulled back from $H^{2n}(S^n)=0$, and $ba=(-1)^{n^2}ab=ab$ since $n$ is even, so
 \[
 q^*(\alpha^2)=(a+b)^2=ab+ba=2ab=\pm2\,q^*\beta .
 \]
 As $q^*$ is an isomorphism on $H^{2n}$, $\alpha^2=\pm2\beta$.
 \end{proof}
 
-\section{Hopf invariant one}\label{sec:hone}
+\subsection{Hopf invariant one}\label{sec:hone}
 
 \begin{proof}[Proof of Theorem~\ref{thm:B}\textup{(i)}]
 By Proposition~\ref{prop:cone}(ii) the mapping cone of $h_\K$ is homeomorphic to $\KP^2$, a closed simply connected $2d$-manifold, by a homeomorphism that is the identity on $S^d$ and of degree $\pm1$ on the top cell. Its cohomology is free, and by Poincar\'e duality (input (I2), in the form \cite[Proposition~3.38]{Hat02}) the cup product pairing $H^d(\KP^2)\times H^d(\KP^2)\to H^{2d}(\KP^2)\cong\Z$ is nonsingular. Since $H^d$ is generated by $\alpha$, this says $\alpha^2=\pm\beta$.
@@ -504,7 +521,7 @@ The proof uses that $C_{h}$ is a manifold, and so it applies to any fibre bundle
 If $S^{d-1}\to S^{2d-1}\xrightarrow{\,p\,}S^d$ is a fibre bundle with $d\ge2$, then $\Hopf(p)=\pm1$ and $d\in\{2,4,8\}$.
 \end{corollary}
 
-\section{Power maps}\label{sec:powers}
+\subsection{Power maps}\label{sec:powers}
 
 By Artin's theorem the powers $x^m$ of an octonion are well defined, since $x$ generates an associative subalgebra. For $d\in\{2,4,8\}$ let
 \[
@@ -572,11 +589,11 @@ The first case is Proposition~\ref{prop:hodd}. For $n$ even the image is a subgr
 \end{proof}
 
 \begin{remark}\label{rem:whitehead-hopf}
-For $n=2$ the group $\pi_3(S^2)\cong\Z$ (Theorem~\ref{thm:C}) is detected by $\Hopf$, so Proposition~\ref{prop:whiteheadH} gives $[\iota_2,\iota_2]=\pm2[h]$. For $n=4$ it gives $[\iota_4,\iota_4]\equiv\pm2[h_\Hq]$ modulo the torsion subgroup $\Z/12$ of $\pi_7(S^4)$; the exact formula $[\iota_4,\iota_4]=2\nu_4-E\nu'$ in Toda's notation is \cite[Chapter~V]{Tod62}. Proposition~\ref{prop:composition} also shows that $\Hopf(h\circ\varphi)=k$ for a self-map $\varphi$ of $S^3$ of degree $k$, while $\Hopf(\varphi'\circ h)=k^2$ for a self-map $\varphi'$ of $S^2$ of degree $k$; both appear again in Chapter~\ref{ch:linking}, as $[z^k:w]$ and $[z^k:w^k]$.
+For $n=2$ the group $\pi_3(S^2)\cong\Z$ (Theorem~\ref{thm:C}) is detected by $\Hopf$, so Proposition~\ref{prop:whiteheadH} gives $[\iota_2,\iota_2]=\pm2[h]$. For $n=4$ it gives $[\iota_4,\iota_4]\equiv\pm2[h_\Hq]$ modulo the torsion subgroup $\Z/12$ of $\pi_7(S^4)$; the exact formula $[\iota_4,\iota_4]=2\nu_4-E\nu'$ in Toda's notation is \cite[Chapter~V]{Tod62}. Proposition~\ref{prop:composition} also shows that $\Hopf(h\circ\varphi)=k$ for a self-map $\varphi$ of $S^3$ of degree $k$, while $\Hopf(\varphi'\circ h)=k^2$ for a self-map $\varphi'$ of $S^2$ of degree $k$; both appear again in Section~\ref{ch:linking}, as $[z^k:w]$ and $[z^k:w^k]$.
 \end{remark}
-\chapter{Homotopy groups from the Hopf bundles}\label{ch:groups}
+\section{Homotopy groups from the Hopf bundles}\label{ch:groups}
 
-\section{The splitting}
+\subsection{The splitting}
 
 \begin{proof}[Proof of Theorem~\ref{thm:C}]
 Let $d\in\{2,4,8\}$ and let $F=h_\K^{-1}(N_0)=\{(a,0):|a|=1\}\cong S^{d-1}$ be the fibre over the north pole. By Corollary~\ref{cor:fibration}, $h_\K$ is a fibration. The inclusion $j\colon F\to S^{2d-1}$ is null-homotopic, because $\pi_{d-1}(S^{2d-1})=0$ by Proposition~\ref{prop:below}; explicitly,
@@ -612,7 +629,7 @@ which, as $s$ runs from $0$ to $\pi/2$, moves the point $a$ of the fibre along t
 For $d=2$ and $i=2$ the proposition gives $\pi_2(S^2)=E\pi_1(S^1)\cong\Z$, generated by $E[\mathrm{id}_{S^1}]=[\mathrm{id}_{S^2}]$, in accordance with Proposition~\ref{prop:degree}. For $d=4$ it recovers the classical decomposition $\pi_i(S^4)\cong\pi_i(S^7)\oplus\pi_{i-1}(S^3)$ with the second summand embedded by suspension \cite[Chapter~V]{Tod62}.
 \end{remark}
 
-\section{The table of unstable groups}\label{sec:table}
+\subsection{The table of unstable groups}\label{sec:table}
 
 Table~\ref{tab:unstable} lists $\pi_{n+k}(S^n)$ for $k\le7$ and $n\le9$, with the stable value in the last column. All entries are taken from Toda \cite{Tod62}, but the entries in the columns $n=2,4,8$ are also consequences of Theorem~\ref{thm:C} and the entries in the columns $n=3$, $n=7$; the columns $n\ge k+2$ are constant by Freudenthal's theorem. Figure~\ref{fig:table} shows the same table with the three kinds of entries distinguished. That the table is consistent with Theorem~\ref{thm:C} and with Theorem~\ref{thm:freudenthal}, as abelian groups, is checked by the program of Appendix~\ref{app:checks}.
 
@@ -656,18 +673,18 @@ Reading the table through Theorem~\ref{thm:C}:
 In each case the summand $\pi_i(S^{2d-1})$ is the image of composition with the Hopf map, and the summand $\pi_{i-1}(S^{d-1})$ is the image of the suspension.
 \end{example}
 
-\section{Generators}\label{sec:generators}
+\subsection{Generators}\label{sec:generators}
 
-In Toda's notation \cite{Tod62} the Hopf maps are $\eta_2=[h_\C]$, $\nu_4=[h_\Hq]$ and $\sigma_8=[h_\Oc]$, and $\eta_n$, $\nu_n$, $\sigma_n$ denote their iterated suspensions. The stable stems in degrees $1$, $3$ and $7$ are cyclic of orders $2$, $24$ and $240$, generated by $\eta$, $\nu$ and $\sigma$ \cite[Chapters~V and XIV]{Tod62}. Before suspension the Hopf maps have infinite order, since their Hopf invariant is $\pm1$ (Theorem~\ref{thm:B}); after suspension they have finite order and generate the image of the $J$-homomorphism in these degrees (Chapter~\ref{ch:stable}). For instance, $E^2\nu'=2\nu_5$ for the generator $\nu'$ of $\pi_6(S^3)\cong\Z/12$ \cite[Chapter~V]{Tod62}, so the summand $E\pi_6(S^3)$ of $\pi_7(S^4)$ maps onto the subgroup of index two of $\pi_8(S^5)\cong\Z/24$, and the summand $\Z\nu_4$ maps onto the whole group.
-\chapter{Linking and holomorphic maps}\label{ch:linking}
+In Toda's notation \cite{Tod62} the Hopf maps are $\eta_2=[h_\C]$, $\nu_4=[h_\Hq]$ and $\sigma_8=[h_\Oc]$, and $\eta_n$, $\nu_n$, $\sigma_n$ denote their iterated suspensions. The stable stems in degrees $1$, $3$ and $7$ are cyclic of orders $2$, $24$ and $240$, generated by $\eta$, $\nu$ and $\sigma$ \cite[Chapters~V and XIV]{Tod62}. Before suspension the Hopf maps have infinite order, since their Hopf invariant is $\pm1$ (Theorem~\ref{thm:B}); after suspension they have finite order and generate the image of the $J$-homomorphism in these degrees (Section~\ref{ch:stable}). For instance, $E^2\nu'=2\nu_5$ for the generator $\nu'$ of $\pi_6(S^3)\cong\Z/12$ \cite[Chapter~V]{Tod62}, so the summand $E\pi_6(S^3)$ of $\pi_7(S^4)$ maps onto the subgroup of index two of $\pi_8(S^5)\cong\Z/24$, and the summand $\Z\nu_4$ maps onto the whole group.
+\section{Linking and holomorphic maps}\label{ch:linking}
 
-\section{Linking numbers}\label{sec:lk}
+\subsection{Linking numbers}\label{sec:lk}
 
 Let $K_1,K_2\subset S^3$ be disjoint oriented closed $1$-manifolds. Since $H_1(S^3)=0$, $K_1$ bounds an oriented surface $\Sigma$ (a Seifert surface, or more generally a $2$-chain), which may be chosen transverse to $K_2$, and the \emph{linking number} $\lk(K_1,K_2)$ is the algebraic intersection number $\Sigma\cdot K_2$. It does not depend on $\Sigma$, it is symmetric, and for $K_1,K_2\subset\R^3$ it is given by the Gauss integral
 \begin{equation}\label{eq:gauss}
 \lk(K_1,K_2)=\frac1{4\pi}\oint_{K_1}\oint_{K_2}\frac{(\mathbf x-\mathbf y)\cdot(d\mathbf x\times d\mathbf y)}{|\mathbf x-\mathbf y|^3}.
 \end{equation}
-The integral \eqref{eq:gauss} is used in Appendix~\ref{app:checks} to check the computations of this chapter numerically.
+The integral \eqref{eq:gauss} is used in Appendix~\ref{app:checks} to check the computations of this section numerically.
 
 Orient the fibres of $h\colon S^3\to S^2$ by the circle action $\lambda\mapsto(\lambda z,\lambda w)$.
 
@@ -698,7 +715,7 @@ We fix the orientation of $S^3$ (the boundary orientation of the unit ball in $\
 \label{fig:toruslinks}
 \end{figure}
 
-\section{Holomorphic maps}\label{sec:holomorphic}
+\subsection{Holomorphic maps}\label{sec:holomorphic}
 
 Let $P,Q\in\C[z,w]$ have no common zero on $S^3$, put $F=(P,Q)\colon\C^2\to\C^2$ and
 \[
@@ -772,47 +789,150 @@ The fibres of $[P:Q]$ over the two values are $K_1$ and $K_2$, so the first and 
 Corollary~\ref{cor:lkint} is a special case of the general fact that the linking number of the boundaries of two complex curves in the ball, meeting $S^3$ transversally, is their intersection number in the ball, which is a sum of positive local contributions. It explains why the holomorphic Hopf invariants are non-negative: complex curves meet positively.
 \end{remark}
 
-\section{Split quaternionic and octonionic maps}\label{sec:split}
+\subsection{Quaternionic and octonionic polynomial maps}\label{sec:split}
 
-For $\K=\Hq$ or $\Oc$ there is no algebraic intersection theory, but part of Theorem~\ref{thm:D} survives. A \emph{polynomial in one variable} over $\K$ is a function $P(a)=\sum_{k=0}^ma^kp_k$ with $p_k\in\K$; powers are well defined because a single element generates an associative subalgebra (Lemma~\ref{lem:artin}). It has degree $m$ if $p_m\neq0$. For such $P$ and $Q(b)=\sum_{k=0}^nb^kq_k$ put $F(a,b)=(P(a),Q(b))$, a map $\K^2\to\K^2$ whose zero set is $Z(P)\times Z(Q)$.
+For $\K=\Hq$ or $\Oc$ there is no algebraic intersection theory, but Theorem~\ref{thm:D} has an exact analogue for split maps, and it fails for general polynomial maps; this section proves Theorem~\ref{thm:G}. Throughout this section $\K=\Hq$ or $\Oc$, $d=4$ or $8$, and $\langle u,v\rangle=\Re(u\bar v)$.
 
-\begin{proposition}\label{prop:split}
-Let $\K=\Hq$ or $\Oc$, and let $P$, $Q$ be polynomials of degrees $m,n\ge1$ in one variable such that $F$ has no zero on $S^{2d-1}$. Then $f=F/|F|\colon S^{2d-1}\to S^{2d-1}$ and the map $h_\K\circ f\colon S^{2d-1}\to S^d$ satisfy:
-\begin{enumerate}[label=\textup{(\roman*)}]
-\item if every zero of $F$ lies in the open ball $B^{2d}$, then $\deg f=mn$ and $\Hopf(h_\K\circ f)=mn\,\Hopf(h_\K)=\pm mn$;
-\item if no zero of $F$ lies in the closed ball $\bar B^{2d}$, then $\deg f=0$ and $\Hopf(h_\K\circ f)=0$;
-\item in all cases $\Hopf(h_\K\circ f)=\deg(f)\,\Hopf(h_\K)$, and $\deg f$ depends only on $P$, $Q$ and the set of zeros of $F$ in $B^{2d}$: it is unchanged by any deformation of $(P,Q)$ through such pairs during which no zero of $F$ crosses $S^{2d-1}$.
-\end{enumerate}
+A \emph{one-sided polynomial} over $\K$ is a function
+\begin{equation}\label{eq:onesided}
+P(q)=\sum_{k=0}^mq^kp_k,\qquad p_k\in\K,\quad p_m\neq0,
+\end{equation}
+of degree $m$; the powers are well defined because a single element generates an associative subalgebra (Lemma~\ref{lem:artin}). For a map $\Phi\colon\R^N\to\R^N$ and a compact component $C$ of $\Phi^{-1}(0)$ that is open in $\Phi^{-1}(0)$, the \emph{index} $\operatorname{ind}_C\Phi=\deg(\Phi,U,0)$ is the degree of $\Phi/|\Phi|$ on the boundary of a bounded neighbourhood $U$ of $C$ whose closure meets no other zero; it does not depend on $U$. The proof of Lemma~\ref{lem:indexsum} applies verbatim with such neighbourhoods in place of small balls: if $\Phi^{-1}(0)\cap\bar B^N$ has finitely many components, none meeting $S^{N-1}$, then $\deg(\Phi/|\Phi|)$ on $S^{N-1}$ is the sum of the indices of the components in $B^N$. For a regular value $w$ near $0$, the index is the number of preimages of $w$ in $U$ counted with the sign of the Jacobian \cite[Section~5]{Mil65}.
+
+\subsubsection{The Jacobian of a one-sided polynomial}
+
+Write a non-real point as $q=x+yI$ with $y>0$ and $I$ a unit imaginary element, put $L_I=\R1+\R I$, and write $h=h_\parallel+h_\perp$ for the orthogonal decomposition of $h\in\K$ along $L_I\oplus L_I^\perp$. Let $\alpha_k+i\beta_k=(x+iy)^k$ with $\alpha_k,\beta_k\in\R$, and
+\begin{equation}\label{eq:AB}
+A(q)=\sum_{k=1}^mk\,q^{k-1}p_k,\qquad B(q)=\sum_{k=0}^m\frac{\beta_k}{y}\,p_k .
+\end{equation}
+
+\begin{lemma}\label{lem:qdiff}
+At a non-real point $q$, $DP_q(h)=h_\parallel A(q)+h_\perp B(q)$. At a real point $x$, $DP_x(h)=hA(x)$.
+\end{lemma}
+
+\begin{proof}
+For $h\in L_I$ the variation stays in the commutative subalgebra $L_I$, so $D(q^k)h=k\,hq^{k-1}$, and $(hq^{k-1})p_k=h(q^{k-1}p_k)$ because $h$, $q^{k-1}$ and $p_k$ lie in the subalgebra generated by $I$ and $p_k$, which is associative by Artin's theorem \ref{D:artin}. For $h\perp L_I$ the real part $x$ and the length $y$ of the imaginary part of $q+th$ have zero first variation,\footnote{Since $h$ is imaginary and orthogonal to $I$, $\Re(q+th)=x$ and $|yI+th|^2=y^2+t^2|h|^2$, whose derivative at $t=0$ vanishes.} while $I$ varies with velocity $h/y$. Since $q^k=\alpha_k+I\beta_k$, this gives $D(q^k)h=(\beta_k/y)h$, and multiplying on the right by $p_k$ and summing gives the formula. At a real point every factor commutes with $x$, and $D(x^k)h=kx^{k-1}h$.
+\end{proof}
+
+\begin{proposition}\label{prop:qjac}
+At a non-real point with $B\neq0$, put $s=\langle A,B\rangle$ and $t=\langle IA,B\rangle$. Then
+\begin{equation}\label{eq:qjac}
+\det DP_q=|B|^{d-4}\,(s^2+t^2)\ \ge0 .
+\end{equation}
+If $B=0$ the determinant vanishes, and at a real point it is $|A(x)|^d$. Consequently $\det DP\ge0$ everywhere, and $\det DP>0$ on a dense open set.
 \end{proposition}
 
 \begin{proof}
-By Proposition~\ref{prop:composition}, $\Hopf(h_\K\circ f)=\deg(f)\Hopf(h_\K)$, and $\Hopf(h_\K)=\pm1$ by Theorem~\ref{thm:B}. A deformation of the kind in (iii) is a homotopy of maps $S^{2d-1}\to S^{2d-1}$, which proves (iii). If $F$ has no zero in $\bar B^{2d}$, then $F/|F|$ extends to $\bar B^{2d}$, so $f$ is null-homotopic and (ii) follows.
-
-For (i), let $R\ge1$. If $F$ has no zero with $1\le|(a,b)|\le R$, then $(r,v)\mapsto F(rv)/|F(rv)|$ for $r\in[1,R]$ is a homotopy from $f$ to the map $f_R(v)=F(Rv)/|F(Rv)|$, so $\deg f=\deg f_R$. Under the hypothesis of (i) this holds for every $R\ge1$. For $t\in[0,1]$ put $P_t(a)=a^mp_m+t\sum_{k<m}a^kp_k$ and similarly $Q_t$. By \ref{D:norm}, $|a^kp_k|=|a|^k|p_k|$, so
-\[
-|P_t(a)|\ge|a|^m|p_m|-\sum_{k<m}|a|^k|p_k|,
-\]
-which is positive for $|a|\ge R/\sqrt2$ once $R$ is large; the same holds for $Q_t$. Every point of the sphere of radius $R$ has $|a|\ge R/\sqrt2$ or $|b|\ge R/\sqrt2$, so $(P_t,Q_t)$ has no zero on it, and $\deg f_R$ equals the degree of $v\mapsto(a^mp_m,b^nq_n)/|(a^mp_m,b^nq_n)|$ on the sphere of radius $R$, which after the radial homotopy is the same on $S^{2d-1}$. Joining $p_m/|p_m|$ to $1$ and $|p_m|$ to $1$ by paths in $S^{d-1}$ and $(0,\infty)$, and likewise for $q_n$, does not create zeros on $S^{2d-1}$, since $a^mc=0$ forces $a=0$ for $c\neq0$. So $\deg f=\deg e_{m,n}$ with $e_{m,n}(a,b)=(a^m,b^n)/|(a^m,b^n)|$.
-
-It remains to show $\deg e_{m,n}=mn$. By Proposition~\ref{prop:gm} the map $g_m(a,b)=(a^m,b)/|(a^m,b)|$ has degree $m$. The swap $\sigma(a,b)=(b,a)$ is a linear map of $\R^{2d}$ of determinant $(-1)^{d^2}=1$, and $\sigma\circ g_n\circ\sigma(a,b)=(a,b^n)/|(a,b^n)|$, so this map has degree $n$. Its composite with $g_m$ is
-\[
-g_m\Bigl(\frac{(a,b^n)}{N}\Bigr)=\frac{(a^m,\;N^{m-1}b^n)}{|(a^m,\;N^{m-1}b^n)|},\qquad N=|(a,b^n)|>0,
-\]
-using $(a/N)^m=a^m/N^m$. The maps $(a^m,N^{(m-1)s}b^n)/|(a^m,N^{(m-1)s}b^n)|$, $s\in[0,1]$, have no zero denominators, since $a^m=0=b^n$ only at $a=b=0$, and they join $e_{m,n}$ to this composite. Hence $\deg e_{m,n}=mn$.
+Right multiplication $r_B$ by $B\neq0$ multiplies lengths by $|B|$ (by \ref{D:norm}) and preserves orientation, since its determinant does not vanish on the connected set $\K\setminus\{0\}$ and is $1$ at $B=1$. So if $(1,I,e_2,\dots,e_{d-1})$ is a positive orthonormal basis, $(B,IB,e_2B,\dots,e_{d-1}B)/|B|$ is a positive orthonormal basis of the target. By \ref{D:inner} and Lemma~\ref{lem:artin}, $\langle xB,yB\rangle=|B|^2\langle x,y\rangle$. By Lemma~\ref{lem:qdiff}, $DP_q(e_j)=e_jB$ for $j\ge2$, which has coordinates $|B|\delta_{jk}$ in this basis, while $DP_q(1)=A$ and $DP_q(I)=IA$. Left multiplication by $I$ is orthogonal and satisfies $I(IX)=-X$ (Lemma~\ref{lem:artin}), so it is skew-adjoint: $\langle IA,IB\rangle=s$ and $\langle A,IB\rangle=-t$. The matrix of $DP_q$ is therefore block triangular, with the block $\frac1{|B|}\left(\begin{smallmatrix}s&t\\-t&s\end{smallmatrix}\right)$ and the block $|B|\cdot\mathrm{Id}_{d-2}$ on the diagonal, which gives \eqref{eq:qjac}. If $B=0$ the image of $DP_q$ has dimension at most two. At a real point $DP_x=r_{A(x)}$ has determinant $|A(x)|^d$. Finally $\det DP$ is a real polynomial in the coordinates of $q$, and it is positive at large real $x$, where $A(x)\approx mx^{m-1}p_m\neq0$; a non-zero polynomial does not vanish on an open set.
 \end{proof}
 
+\subsubsection{The zero components}
+
+For $z=x+iy\in\C$ let $U(z)=\sum_k\Re(z^k)p_k$ and $V(z)=\sum_k\Imag(z^k)p_k$ in $\K$, so that $P(x+yI)=U+IV$ for every unit imaginary $I$. The \emph{norm polynomial} of $P$ is the real polynomial of degree $2m$
+\begin{equation}\label{eq:normpoly}
+S_P(z)=\sum_{i,j=0}^m\langle p_i,p_j\rangle z^{i+j}=|U|^2-|V|^2+2i\langle U,V\rangle .
+\end{equation}
+On the real axis $S_P(x)=|P(x)|^2$.
+
+\begin{lemma}\label{lem:components}
+The zeros of $P$ form finitely many components, which correspond bijectively to the roots of $S_P$ in the closed upper half-plane: a real root $x$ corresponds to the real zero $x$; a root $z=x+iy$ with $y>0$ corresponds either to the single zero $x+yJ$, $J=-UV^{-1}$, if $V(z)\neq0$, or to the whole sphere $\{x+yI:I\in S^{d-2}\}$ of radius $|z|$ if $V(z)=0$.
+\end{lemma}
+
+\begin{proof}
+If $P(x+yI)=0$ with $y>0$ then $U=-IV$, so $|U|=|V|$ and $\langle U,V\rangle=-\langle IV,V\rangle=0$, and $S_P(z)=0$. Conversely let $S_P(z)=0$ with $y>0$, so $|U|=|V|$ and $\langle U,V\rangle=0$. If $V\neq0$, the equation $IV=-U$ has the unique solution $I=J=-UV^{-1}$ by Lemma~\ref{lem:artin}, with $|J|=1$ and $\Re J=-\langle U,\overline{V^{-1}}\rangle=-\langle U,V\rangle/|V|^2=0$ by \ref{D:inner}; so $J$ is a unit imaginary element and $x+yJ$ is the only zero of the form $x+yI$. If $V=0$ then $U=0$ and every $x+yI$ is a zero. The real case is $S_P(x)=|P(x)|^2$. Since $S_P$ has finitely many roots, there are finitely many components, which are points or $(d-2)$-spheres.
+\end{proof}
+
+\begin{lemma}\label{lem:positiveindex}
+Let $G\colon\R^N\to\R^N$ be a polynomial map with $\det DG\ge0$, not identically zero. Then every compact component of $G^{-1}(0)$ that is open in $G^{-1}(0)$ has strictly positive index.
+\end{lemma}
+
+\begin{proof}
+Let $U$ isolate the component $C$ and put $\delta=\min_{\partial U}|G|>0$. The zero set of the non-zero polynomial $\det DG$ has empty interior, so there is a point $x\in U$ near $C$ with $\det DG_x>0$ and $|G(x)|<\delta/2$. By the inverse function theorem $G$ maps a small neighbourhood of $x$ in $U$ onto an open set $W\subset B_\delta(0)$, and by Sard's theorem $W$ contains a regular value $w$. Its preimages in $U$ are finitely many, there is at least one, and each has $\det DG>0$. Since the segment from $0$ to $w$ avoids $G(\partial U)$, $\operatorname{ind}_CG=\deg(G,U,w)\ge1$.
+\end{proof}
+
+\begin{proposition}\label{prop:normmult}
+Every zero component $C$ of $P$ has positive index, and $\sum_C\operatorname{ind}_CP=m$. If $C$ corresponds to the root $z_0=x_0+iy_0$ of $S_P$ of multiplicity $\ell$, then $\operatorname{ind}_CP=\ell$ if $y_0>0$ and $\operatorname{ind}_CP=\ell/2$ if $y_0=0$; in the second case $\ell$ is even, and for a spherical component $\ell\ge2$.
+\end{proposition}
+
+\begin{proof}
+Positivity follows from Lemma~\ref{lem:positiveindex} and Proposition~\ref{prop:qjac}. By the multiplicativity \ref{D:norm} of the norm, $|P(q)|\ge|q|^m|p_m|-\sum_{k<m}|q|^k|p_k|$, so on a large sphere the maps $q^mp_m+u\sum_{k<m}q^kp_k$, $0\le u\le1$, have no zero; with Proposition~\ref{prop:powerdegree} and the orientation-preserving map $r_{p_m}$ this gives total degree $m$, which is the sum of the indices.
+
+For the multiplicities, let $w\in\K$ be a small regular value of $P$. The coefficients of $S_{P-w}$ are close to those of $S_P$, so by the argument principle a small disc about $z_0$ contains exactly $\ell$ roots of $S_{P-w}$, counted with multiplicity. At a non-real preimage $x+yJ$ of $w$ write $A=U_x+JV_x$, $B=V/y$, where $U$, $V$ are formed for $P-w$; differentiating \eqref{eq:normpoly} with $U=-JV$ gives
+\begin{equation}\label{eq:normderiv}
+S_{P-w}'(x+iy)=2y\bigl(\langle JA,B\rangle+i\langle A,B\rangle\bigr),
+\end{equation}
+which is non-zero by \eqref{eq:qjac}, since $w$ is regular. At a real preimage $x$, $S_{P-w}(z)=|A(x)|^2(z-x)^2+O((z-x)^3)$ with $A(x)\neq0$. So each regular preimage gives a simple root of $S_{P-w}$ in the upper half-plane, or a double real root, and by Lemma~\ref{lem:components} applied to $P-w$ each such root comes from exactly one preimage (a regular value has no spherical preimage). The preimages near $C$ are those whose roots lie in the disc: their parameters $(x,y)$ are close to $z_0$, and conversely a preimage with parameters near $z_0$ but far from $C$ would, in the limit, give a second zero in the conjugacy class of $z_0$, which does not exist when $C$ is a point and is excluded when $C$ is the whole sphere. For $y_0>0$ take the disc in the upper half-plane: the $\ell$ simple roots are the $\ell$ preimages, all of index $+1$. For $y_0=0$ take a disc symmetric about the real axis: non-real roots come in conjugate pairs, each pair giving one preimage, and each real root is double, so $\ell$ is twice the number of preimages. At a spherical component $U=V=0$ at $z_0$, and the derivative of \eqref{eq:normpoly} vanishes there, so $\ell\ge2$.
+\end{proof}
+
+\subsubsection{Split maps}
+
+\begin{theorem}\label{thm:split}
+Let $P$, $Q$ be one-sided polynomials over $\K$ of degrees $m,n\ge1$, with zero components $C_\alpha$ of radius $r_\alpha$ and index $\mu_\alpha$, and $D_\beta$ of radius $s_\beta$ and index $\nu_\beta$, as in Proposition~\ref{prop:normmult}. If $F(a,b)=(P(a),Q(b))$ has no zero on $S^{2d-1}$, then
+\begin{equation}\label{eq:splitformula}
+\deg\frac F{|F|}=\sum_{r_\alpha^2+s_\beta^2<1}\mu_\alpha\nu_\beta,\qquad \Hopf\Bigl(h_\K\circ\frac F{|F|}\Bigr)=\Hopf(h_\K)\sum_{r_\alpha^2+s_\beta^2<1}\mu_\alpha\nu_\beta .
+\end{equation}
+In particular $0\le\deg(F/|F|)\le mn$; the degree is $mn$ exactly when all zeros of $F$ lie in $B^{2d}$ and $0$ exactly when none does.
+\end{theorem}
+
+\begin{proof}
+The zero components of $F$ are the products $C_\alpha\times D_\beta$, on which $|(a,b)|^2=r_\alpha^2+s_\beta^2$ is constant, so each lies inside or outside the unit ball. If $w$, $w'$ are small regular values of $P$ and $Q$, the preimages of $(w,w')$ near $C_\alpha\times D_\beta$ are the products of the preimages, and $DF$ is block diagonal, so $\operatorname{ind}_{C_\alpha\times D_\beta}F=\mu_\alpha\nu_\beta$. Summing over the components in the ball gives the degree, and Proposition~\ref{prop:composition} gives the Hopf invariant. The last assertions follow from $\mu_\alpha,\nu_\beta\ge1$ and $\sum\mu_\alpha\sum\nu_\beta=mn$.
+\end{proof}
+
+All the data in \eqref{eq:splitformula} are read off from the real polynomials $S_P$ and $S_Q$: their roots in the closed upper half-plane, the multiplicities, and the moduli of the roots. For rational coefficients this is a finite exact computation.
+
 \begin{example}\label{ex:split}
-For $\K=\Hq$, $P(a)=a^2+\tfrac14$ vanishes exactly on the sphere $\{a:\ \Re a=0,\ |a|=\tfrac12\}$ of imaginary quaternions of length $\frac12$, so its zero set is not finite. With $Q(b)=b$, the zero set of $F$ is this $2$-sphere times $\{0\}$, which lies in $B^8$, and Proposition~\ref{prop:split}(i) gives $\Hopf=2\,\Hopf(h_\Hq)$. With $P(a)=a^2+4$ the zeros lie outside $\bar B^8$ and $\Hopf=0$. In the first case the zero set is a $2$-sphere, while Theorem~\ref{thm:D} counts points; a local count for quaternionic maps therefore has to assign multiplicities to such spheres.
+Let $P(a)=a^2+\frac14$ and $Q(b)=b^2-\frac94b+\frac12=(b-\frac14)(b-2)$, over $\Hq$ or $\Oc$. Then $S_P(z)=(z^2+\frac14)^2$ has the double root $\frac i2$, and $V(\frac i2)=0$, so the zero set of $P$ is the sphere of imaginary elements of length $\frac12$, of index $2$.\footnote{Every unit imaginary $I$ satisfies $I^2=-1$, so $(\tfrac12I)^2=-\tfrac14$; over $\C$ the same polynomial has the two simple zeros $\pm\tfrac i2$, which the sphere joins together. A small perturbation $a^2+\tfrac14-w$ with $w$ non-real has exactly two zeros, the square roots of $w-\tfrac14$ in the slice of $w$, which is how the index $2$ of Proposition~\ref{prop:normmult} appears.} The norm polynomial $S_Q=Q^2$ has the double real roots $\frac14$ and $2$, of index $1$ each. The two components of the zero set of $F$ have $r^2+s^2=\frac5{16}<1$ and $\frac{17}4>1$, so $\deg(F/|F|)=2$ while $mn=4$. With $P(a)=a^2+4$ the degree is $0$.
 \end{example}
 
+\begin{corollary}\label{cor:splitrange}
+For $\K=\Hq$ or $\Oc$ and $m,n\ge1$, the degrees $\deg(F/|F|)$ of the split maps $F=(P,Q)$ with $\deg P=m$, $\deg Q=n$ and no zero on $S^{2d-1}$ are exactly the integers $0,1,\dots,mn$, and the Hopf invariants of the maps $h_\K\circ F/|F|\colon S^{4d-1}\to S^{2d}$ obtained in this way are exactly $0,\Hopf(h_\K),\dots,mn\,\Hopf(h_\K)$.\footnote{For $\K=\C$ the same set of values is attained by holomorphic maps, by Theorem~\ref{thm:D}; the corollary shows that splitting the variables over $\Hq$ or $\Oc$ loses nothing in the range, although it loses the negative values that the general maps of Proposition~\ref{prop:negative} attain.}
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:split} only the values $0,\dots,mn$ occur. Given $0\le k\le mn$, write $k=c_1+\dots+c_m$ with $n\ge c_1\ge\dots\ge c_m\ge0$. Put $s_\beta=\beta/(n+1)$ for $\beta=1,\dots,n$, and choose real numbers $0<r_1\le\dots\le r_m<1$ with $s_{c_\alpha}^2<1-r_\alpha^2<s_{c_\alpha+1}^2$, where $s_0=0$ and $s_{n+1}=1$; this is possible because $1-r^2$ decreases from $1$ to $0$ as $r$ increases from $0$ to $1$, and the intervals are taken in decreasing order as $\alpha$ increases. Let $P(a)=\prod_\alpha(a-r_\alpha)$ and $Q(b)=\prod_\beta(b-s_\beta)$, with real coefficients. Their norm polynomials are $P(z)^2$ and $Q(z)^2$, whose roots in the closed upper half-plane are the real numbers $r_\alpha$ and $s_\beta$, of multiplicity twice the multiplicity in $P$ or $Q$; by Proposition~\ref{prop:normmult} the zero components are the points $r_\alpha$ and $s_\beta$, of index equal to their multiplicity. The pairs with $r_\alpha^2+s_\beta^2<1$ are those with $\beta\le c_\alpha$, and no pair has $r_\alpha^2+s_\beta^2=1$, so \eqref{eq:splitformula} gives $\deg(F/|F|)=\sum_\alpha c_\alpha=k$. The Hopf invariants follow from Proposition~\ref{prop:composition}.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{fig_split.png}
+\caption{Left: the zero set of $a^2+\frac14$ over $\Hq$, drawn in $\Imag\Hq=\R^3$, is the sphere of imaginary quaternions of length $\frac12$ (Example~\ref{ex:split}); the imaginary parts of the two preimages of a small regular value $w$ are marked, on the line through the unit $J$ of the slice of $w$. Right: the construction in the proof of Corollary~\ref{cor:splitrange} for $m=n=3$ and $(c_1,c_2,c_3)=(3,2,0)$; each point is a zero component $\{r_\alpha\}\times\{s_\beta\}$ of $F=(P,Q)$, and the five inside the unit quarter-circle give $\deg(F/|F|)=5$.}
+\label{fig:split}
+\end{figure}
+
+\begin{theorem}\label{thm:triangular}
+Let $P$, $Q$ be as in Theorem~\ref{thm:split} and let $R\colon\K\to\K$ be any polynomial map in the real coordinates. The map $T(a,b)=(P(a),\,Q(b)+R(a))$ is proper of degree $mn$, its zero set has finitely many components, each of positive index, and if none of them meets $S^{2d-1}$ then $\deg(T/|T|)$ is the sum of the indices of the components in $B^{2d}$, so that $0\le\deg(T/|T|)\le mn$, with equality on the left exactly when $T$ has no zero in the ball.
+\end{theorem}
+
+\begin{proof}
+The differential is block triangular, $\det DT=\det DP\cdot\det DQ\ge0$, and it is not identically zero by Proposition~\ref{prop:qjac}. If $T(a,b)$ is bounded then $a$ is bounded since $P$ is proper, so $R(a)$ is bounded and $b$ is bounded since $Q$ is proper. The zeros of $T_u=(P,Q+uR)$, $0\le u\le1$, have $a$ in the compact set $P^{-1}(0)$ and $b$ bounded uniformly in $u$, so on a large sphere $T$ is homotopic to $P\times Q$, of degree $mn$ by Theorem~\ref{thm:split}. The zero set is real algebraic and compact, so it has finitely many connected components by (I8) \cite[Theorem~2.4.4]{BCR98}, and Lemma~\ref{lem:positiveindex} gives positive indices.
+\end{proof}
+
+\subsubsection{General polynomial maps}
+
+Polynomials with constants between the variable factors are much more general, since they include conjugation. Let $e_1,\dots,e_{d-1}$ be an orthonormal basis of $\Imag\K$ as in Appendix~\ref{app:octonions}. Then
+\begin{equation}\label{eq:conjword}
+\bar a=-\frac1{d-2}\Bigl(a+\sum_{j=1}^{d-1}(e_ja)e_j\Bigr),\qquad \Re a=\frac{(d-3)a-\sum_{j}(e_ja)e_j}{2(d-2)} .
+\end{equation}
+Both sides are real linear in $a$, so it suffices to check them at $a=1$, where $\sum_j(e_j1)e_j=-(d-1)$, and at $a=e_k$, where the term $j=k$ is $-e_k$ and the other $d-2$ terms are $(e_je_k)e_j=e_k$, computed in the associative subalgebra generated by $e_j$ and $e_k$.
+
+\begin{proposition}\label{prop:negative}
+For every integer $k$ there is a polynomial map $G\colon\K^2\to\K^2$, with constants between the variable factors, whose only zero is the origin and with $\deg(G/|G|)=k$. For $k=-1$ one can take $G(a,b)=(\bar a,b)$ or the coupled map $(\bar a+ba,b)$.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:conjword}, $\bar a$ and the real coordinates $x_0=\Re a$, $x_j=\Re(-e_ja)$ of $a$ are polynomials in this sense. The map $(\bar a,b)$ is linear with determinant $(-1)^{d-1}=-1$;\footnote{Conjugation fixes the real axis and reverses the $d-1$ imaginary directions; the second factor is the identity.} for $(\bar a+uba,b)$ the second coordinate forces $b=0$ and then $a=0$, so the degree stays $-1$ for $0\le u\le1$. For $k\ge1$ put $z=x_0+x_1e_1$ and $G^\pm_k(a,b)=(z^k+\sum_{j\ge2}x_je_j,\,b)$, respectively with $\bar z^k$: in real coordinates these are the complex maps $z^k$ and $\bar z^k$ times the identity, of degrees $k$ and $-k$. Finally $G_0(a,b)=(x_0^2+\sum_{j\ge1}x_je_j,\,b)$ has only the zero $0$, and values with negative real part near $0$ are not attained, so its degree is $0$.
+\end{proof}
+
+So there is no formula of the type of Theorem~\ref{thm:D} with positive contributions for general polynomial maps over $\Hq$ or $\Oc$; the positive results above use that each coordinate is a one-sided polynomial in one variable, with at most a triangular coupling. The one-variable results have a long history. That the zeros of a one-sided quaternionic polynomial are isolated points and spheres of imaginary elements is due to Niven \cite{Niv41} and to Gordon and Motzkin \cite{GM65}, and the octonionic case to Ser\^odio \cite{Ser07}; that a polynomial with a single leading term has a zero is the fundamental theorem of algebra of Eilenberg and Niven \cite{EN44}, proved there by the degree argument used in Proposition~\ref{prop:normmult}. One-sided polynomials are the slice regular polynomials of Gentili, Stoppato and Struppa \cite{GSS13}, and the spherical zeros are the phenomenon studied by Ghiloni and Perotti \cite{GP11}; Sakkalis \cite{Sak20} relates the degrees of polynomial maps of normed algebras to their leading terms. In that literature $S_P$ appears as the companion, or symmetrised, polynomial $P*P^c$. The proofs above do not depend on these sources; what the Hopf invariant needs from them is the topological index of each component, the sign of the Jacobian \eqref{eq:qjac}, and the formula \eqref{eq:splitformula} with its triangular extension, and we have not found these stated in the references cited.
+
 \begin{question}\label{q:quaternionic}
-Proposition~\ref{prop:split} treats split maps $F(a,b)=(P(a),Q(b))$ and the two extreme positions of the zeros. Is there a version of Theorem~\ref{thm:D} for general maps $F=(P,Q)\colon\K^2\to\K^2$, $\K=\Hq,\Oc$, given by polynomials in two non-commuting variables (for instance slice regular ones), expressing $\deg(F/|F|)$, and hence $\Hopf(h_\K\circ F/|F|)$, as a sum of positive local contributions of the components of the zero set in $B^{2d}$? Already for split maps this asks whether the local degree of a one-variable quaternionic polynomial at an isolated zero, or at a spherical zero as in Example~\ref{ex:split}, is positive.
+For which classes of polynomial maps $F=(P,Q)\colon\K^2\to\K^2$ in two variables, beyond the triangular maps of Theorem~\ref{thm:triangular} (for instance for a fixed notion of slice regularity in several variables), is $\det DF\ge0$, so that every zero component has positive index and $\deg(F/|F|)$ is a positive count of the zeros in $B^{2d}$?
 \end{question}
-\chapter{The metric geometry of the Hopf fibrations}\label{ch:geometry}
+\section{The metric geometry of the Hopf fibrations}\label{ch:geometry}
 
-This chapter proves Theorem~\ref{thm:F}. In Sections~\ref{sec:matrices} and \ref{sec:submersion}, $\K=\C$ or $\Hq$, $d=\dim_\R\K\in\{2,4\}$; Section~\ref{sec:octsubmersion} treats all four algebras, including $\Oc$. Throughout, $S^{2d-1}$ carries the round metric of radius one. For $u=(a,b)$ and $v=(a',b')$ in $\K^2$ we write $\langle u,v\rangle=\bar aa'+\bar bb'\in\K$, so that $\Re\langle u,v\rangle$ is the Euclidean inner product and $\langle u,u\rangle=|u|^2$.
+This section proves Theorem~\ref{thm:F}. In Sections~\ref{sec:matrices} and \ref{sec:submersion}, $\K=\C$ or $\Hq$, $d=\dim_\R\K\in\{2,4\}$; Section~\ref{sec:octsubmersion} treats all four algebras, including $\Oc$. Throughout, $S^{2d-1}$ carries the round metric of radius one. For $u=(a,b)$ and $v=(a',b')$ in $\K^2$ we write $\langle u,v\rangle=\bar aa'+\bar bb'\in\K$, so that $\Re\langle u,v\rangle$ is the Euclidean inner product and $\langle u,u\rangle=|u|^2$.
 
-\section{The Hopf map as a map of matrices}\label{sec:matrices}
+\subsection{The Hopf map as a map of matrices}\label{sec:matrices}
 
 Regard $u\in\K^2$ as a column vector and let $u^*=(\bar a,\bar b)$. The matrix $uu^*$ is Hermitian, and
 \begin{equation}\label{eq:hmatrix}
@@ -839,7 +959,7 @@ h_\K(u)\cdot h_\K(v)=2\,|\langle u,v\rangle|^2-1 .
 With $A=uu^*$ and $B=vv^*$, the inner product of $2A-I$ and $2B-I$ in $\mathcal H_0$ is $\tfrac12\Re\operatorname{tr}\bigl((2A-I)(2B-I)\bigr)=2\Re\operatorname{tr}(AB)-\operatorname{tr}A-\operatorname{tr}B+1=2\Re\operatorname{tr}(AB)-1$. Moving the column $u$ around the trace, $\Re\operatorname{tr}(u\,u^*vv^*)=\Re\bigl((u^*v)(v^*u)\bigr)=|\langle u,v\rangle|^2$, since $v^*u=\overline{u^*v}$.
 \end{proof}
 
-\section{Riemannian submersion}\label{sec:submersion}
+\subsection{Riemannian submersion}\label{sec:submersion}
 
 \begin{proof}[Proof of Theorem~\ref{thm:F}, first part]
 By Lemma~\ref{lem:equivariance} and the chain rule, $Dh_\K(gu)\circ Dg=\mathrm{Ad}(g)\circ Dh_\K(u)$; since $g$ and $\mathrm{Ad}(g)$ are isometries and $g$ maps fibres to fibres, it suffices to check at $u=(1,0)$ that $Dh_\K$ vanishes on the tangent space of the fibre and multiplies the length of vectors orthogonal to it by $2$. The tangent space to $S^{2d-1}$ at $(1,0)$ is $\{(\alpha,\beta):\Re\alpha=0\}$. The fibre through $(1,0)$ is $\{(q,0):|q|=1\}$, with tangent space $\Imag\K\times0$, and its orthogonal complement is $0\times\K$. From $h_\K(1+\alpha,\beta)=\bigl(2(1+\alpha)\bar\beta,\,|1+\alpha|^2-|\beta|^2\bigr)$,
@@ -857,7 +977,7 @@ Let $u,v\in S^{2d-1}$ and let $\psi\in[0,\pi]$ be the angle between $h_\K(u)$ an
 The fibre through $v$ is $\{vq:|q|=1\}$ (Proposition~\ref{prop:actions}). The spherical distance from $u$ to $vq$ is $\arccos\Re\langle u,vq\rangle=\arccos\Re(\langle u,v\rangle q)$, and the maximum of $\Re(\langle u,v\rangle q)$ over unit $q$ is $|\langle u,v\rangle|$. So the distance from $u$ to the fibre is $\theta=\arccos|\langle u,v\rangle|\in[0,\pi/2]$, which depends only on the fibres. By Proposition~\ref{prop:dotproduct}, $\cos\psi=2\cos^2\theta-1=\cos2\theta$, so $\theta=\psi/2$, which is the distance in the sphere of radius $\frac12$.
 \end{proof}
 
-\section{The octonionic Hopf map}\label{sec:octsubmersion}
+\subsection{The octonionic Hopf map}\label{sec:octsubmersion}
 
 The proof above uses the transitive groups $\U(2)$ and $\Sp(2)$, which have no octonionic analogue: there is no group of $\Oc$-linear maps of $\Oc^2$, since $\Oc$ is not associative. The following argument uses only the lines $L_x$ of Proposition~\ref{prop:lines} and Lemma~\ref{lem:artin}, and it applies to all four algebras.
 
@@ -910,7 +1030,7 @@ For a Riemannian submersion with fibres of constant volume, the volume of the to
 are $\operatorname{vol}S^3=\operatorname{vol}S^1\cdot\operatorname{vol}S^2(\tfrac12)$ and $\operatorname{vol}S^7=\operatorname{vol}S^3\cdot\operatorname{vol}S^4(\tfrac12)$. By Proposition~\ref{prop:octsubmersion} the octonionic identity $\frac{\pi^8}{2520}=\frac{\pi^4}{3}\cdot\frac{\pi^4}{840}$, that is $\operatorname{vol}S^{15}=\operatorname{vol}S^7\cdot\operatorname{vol}S^8(\tfrac12)$, has the same meaning. The full symmetry group of the octonionic Hopf fibration is $\mathrm{Spin}(9)$ \cite{GWZ86}, which acts transitively on $S^{15}$ but not through $\Oc$-linear maps; Proposition~\ref{prop:octsubmersion} does not need it.
 \end{remark}
 
-\section{Clifford tori}\label{sec:clifford}
+\subsection{Clifford tori}\label{sec:clifford}
 
 For $a,b>0$ with $a^2+b^2=1$ let $T_{a,b}=S^1(a)\times S^1(b)=\{(z,w):|z|=a,\ |w|=b\}\subset S^3$. It is the preimage under $h$ of the circle of latitude $\{x_3=a^2-b^2\}$, and every point of $S^3$ with $zw\neq0$ lies on exactly one of these tori.
 
@@ -927,7 +1047,7 @@ At $a=b=1/\sqrt2$ the fibres have slope one; this is the Clifford torus, the pre
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{fig_clifford.png}
-\caption{The flat torus $T_{a,b}$ unrolled in arc-length coordinates, for $a=0.6$, $b=0.8$. The Hopf fibres are the lines of slope $b/a$ (solid), and the fibres of $(z,w)\mapsto h(\bar z,w)$ are the lines of slope $-b/a$ (dashed). After stereographic projection the two families become the two families of Villarceau circles (Chapter~\ref{ch:villarceau}).}
+\caption{The flat torus $T_{a,b}$ unrolled in arc-length coordinates, for $a=0.6$, $b=0.8$. The Hopf fibres are the lines of slope $b/a$ (solid), and the fibres of $(z,w)\mapsto h(\bar z,w)$ are the lines of slope $-b/a$ (dashed). After stereographic projection the two families become the two families of Villarceau circles (Section~\ref{ch:villarceau}).}
 \label{fig:clifford}
 \end{figure}
 
@@ -938,7 +1058,7 @@ At $a=b=1/\sqrt2$ the fibres have slope one; this is the Clifford torus, the pre
 \label{fig:hopftori}
 \end{figure}
 
-\section{The unit tangent bundle of the two-sphere}\label{sec:unittangent}
+\subsection{The unit tangent bundle of the two-sphere}\label{sec:unittangent}
 
 Identify $\R^3$ with $\Imag\Hq$ and $S^3$ with the unit quaternions. The map $\rho(q)(v)=qv\bar q$ is a surjective homomorphism $S^3\to\SO(3)$ with kernel $\{\pm1\}$ \cite[Section~2.3]{Bae02}, so $\SO(3)\cong S^3/\{\pm1\}=\RP^3$.
 
@@ -957,11 +1077,11 @@ which is $h(z,\bar w)=(2zw,|z|^2-|w|^2)$ followed by a linear isometry of $\R^3$
 \begin{remark}
 The Euler number of the Hopf bundle is $\pm1$ and that of $T^1S^2\to S^2$ is $\chi(S^2)=2$, in accordance with the quotient by $\pm1$, which doubles the Euler class of an oriented circle bundle. The total space of $T^1S^2$ is $\RP^3$, not $S^3$; its fundamental group is $\Z/2$, while $S^3$ is simply connected. Theorem~\ref{thm:F} follows from Propositions~\ref{prop:parallel}, \ref{prop:octsubmersion}, \ref{prop:octparallel}, \ref{prop:clifford} and \ref{prop:unittangent}.
 \end{remark}
-\chapter{Villarceau circles and Villarceau spheres}\label{ch:villarceau}
+\section{Villarceau circles and Villarceau spheres}\label{ch:villarceau}
 
-This chapter proves Theorem~\ref{thm:E} and Villarceau's theorem. The argument is the same for $d=2,4,8$: one fibre is computed explicitly, and the others are obtained from it by isometries that commute with stereographic projection. For octonions the only point that needs comment is that these isometries are left multiplications, which are orthogonal by \ref{D:norm}.
+This section proves Theorem~\ref{thm:E} and Villarceau's theorem. The argument is the same for $d=2,4,8$: one fibre is computed explicitly, and the others are obtained from it by isometries that commute with stereographic projection. For octonions the only point that needs comment is that these isometries are left multiplications, which are orthogonal by \ref{D:norm}.
 
-\section{Stereographic projection}\label{sec:stereo}
+\subsection{Stereographic projection}\label{sec:stereo}
 
 Fix $d\in\{2,4,8\}$ and a unit vector $\varepsilon\in\K$ with $\varepsilon\perp1$. For $v\in\K$ write $v_\varepsilon=\langle v,\varepsilon\rangle=\Re(v\bar\varepsilon)$ and $\pi(v)=v-v_\varepsilon\varepsilon\in\varepsilon^\perp$, the orthogonal projection onto the hyperplane $\varepsilon^\perp\subset\K$. Stereographic projection from the point $N=(0,\varepsilon)$ of $S^{2d-1}$ onto its tangent hyperplane at the antipode, translated to the origin, is
 \begin{equation}\label{eq:sigmaN}
@@ -992,7 +1112,7 @@ using $a^2-1=-b^2$ and $a^2+b^2=1$. So $(|x|-R)^2+|y|^2=b^2/a^2=r^2$. The restri
 
 For $d=2$, $T_{R,r}$ is the torus obtained by rotating the circle $(x_1-R)^2+x_3^2=r^2$ of the $(x_1,x_3)$-plane about the $x_3$-axis, a ring torus because $R>r$. For $d=4,8$ it is the boundary of the tubular neighbourhood of radius $r$ of the round sphere $S^{d-1}(R)\subset\R^d\times0$, diffeomorphic to $S^{d-1}\times S^{d-1}$.
 
-\section{The fibres on a product of spheres}\label{sec:villfibres}
+\subsection{The fibres on a product of spheres}\label{sec:villfibres}
 
 By Corollary~\ref{cor:fibration} the fibres of $h_\K$ contained in $\Sigma_a$ are those over the points $s(x)$ with $|x|=a/b$. Writing $x=(a/b)u$ with $|u|=1$ and $c=bc'$, the fibre over $s(x)$ is
 \begin{equation}\label{eq:Fu}
@@ -1050,7 +1170,7 @@ Expanding, $(\mathcal A+2)^2-4(1+r^2)(\xi^2+\eta)=\mathcal A^2-4r^2\xi^2+4\bigl(
 
 For $d=2$ the reflection $\rho_\varepsilon$ with $\varepsilon=i$ is complex conjugation, and the second family consists of the fibres of $(z,w)\mapsto h(\bar z,w)$. For $d=4,8$ the two families are the fibres of $h_\K$ and of $h_\K\circ(\rho_\varepsilon\times\mathrm{id})$ on $\Sigma_a$; the subspaces $\Pi_u$ play the role of the bitangent planes, being tangent to the tube along a unit $(d-2)$-sphere.
 
-\section{Villarceau's theorem}\label{sec:villarceau2}
+\subsection{Villarceau's theorem}\label{sec:villarceau2}
 
 Now let $d=2$, $\varepsilon=i$, and coordinates $(x_1,x_2,x_3)$ on $\R^3=\C\times\R$. Then $\pi(x)=x_1$, the plane $\Pi_1$ is $\{x_3=r\,x_1\}$, and the circles $S_1^\pm$ have centres $(0,\pm r,0)$ and radius $R$.
 
@@ -1078,17 +1198,17 @@ Let $T$ be a ring torus with radii $R>r>0$, and let $\mu=\sqrt{R^2-r^2}$. The si
 \end{proof}
 
 \begin{remark}
-Villarceau's original statement \cite{Vil48} is that the bitangent plane cuts the torus in two circles. Proposition~\ref{prop:bitangent} proves it directly, and the Hopf fibration explains it: each circle is a great circle of $S^3$ lying on a flat torus $T_{a,b}$, and stereographic projection maps circles to circles. The geodesics of slope $\pm b/a$ on $T_{a,b}$ (Proposition~\ref{prop:clifford}) become the two families of Villarceau circles; the meridians and parallels are the images of the coordinate circles $\alpha=\mathrm{const}$ and $\beta=\mathrm{const}$. The Villarceau circles are not the curves $\theta\pm\varphi=\mathrm{const}$ in the usual angular coordinates $(R+r\cos\theta)(\cos\varphi,\sin\varphi)$, $r\sin\theta$ of the torus, which are not circles; they are the curves $\beta\mp\alpha=\mathrm{const}$ in the coordinates of $T_{a,b}$, which differ from the usual angles by a conformal reparametrisation of the meridian.\footnote{Stereographic projection maps the meridian circle $\{\alpha=\alpha_0\}$ of $T_{a,b}$ onto the meridian of the image torus, but not with constant speed: the angle $\beta$ on $T_{a,b}$ and the angle $\theta$ about the centre of the meridian are related by a M\"obius transformation of the circle.}
+Villarceau's original statement \cite{Vil48} is that the bitangent plane cuts the torus in two circles. Proposition~\ref{prop:bitangent} proves it directly, and the Hopf fibration explains it: each circle is a great circle of $S^3$ lying on a flat torus $T_{a,b}$, and stereographic projection maps circles to circles. The geodesics of slope $\pm b/a$ on $T_{a,b}$ (Proposition~\ref{prop:clifford}) become the two families of Villarceau circles; the meridians and parallels are the images of the coordinate circles $\alpha=\mathrm{const}$ and $\beta=\mathrm{const}$. The Villarceau circles are not the curves $\theta\pm\varphi=\mathrm{const}$ in the usual angular coordinates $(R+r\cos\theta)(\cos\varphi,\sin\varphi)$, $r\sin\theta$ of the torus, which are not circles; they are the curves $\beta\mp\alpha=\mathrm{const}$ in the coordinates of $T_{a,b}$, which differ from the usual angles by a conformal reparametrisation of the meridian.\footnote{Stereographic projection maps the meridian circle $\{\alpha=\alpha_0\}$ of $T_{a,b}$ onto the meridian of the image torus, but not with constant speed; the two angles differ by a M\"obius transformation of the circle.}
 \end{remark}
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.92\textwidth]{fig_villarceau.png}
+\includegraphics[width=0.84\textwidth]{fig_villarceau.png}
 \caption{A ring torus with $R^2-r^2=1$, the bitangent plane $\Pi$ through its centre, the two Villarceau circles $\sigma(F_1)$ and its mirror image, of radius $R$ and centres $(0,\pm r,0)$, and the two points of tangency at distance $1$ from the centre.}
 \label{fig:villarceau}
 \end{figure}
 
-\section{The meridians are Apollonian circles}\label{sec:apollonius}
+\subsection{The meridians are Apollonian circles}\label{sec:apollonius}
 
 As $a$ varies in $(0,1)$ the tori $T_{R,r}=\sigma(\Sigma_a)$ fill $\R^3$ minus the $x_3$-axis and the unit circle of the horizontal plane, which are the images of the fibres over the two poles. Their meridians in the half-plane $\{x_2=0,\ x_1>0\}$ are the circles
 \[
@@ -1105,23 +1225,23 @@ On $M_R$ we have $x_1^2+x_3^2=2Rx_1-1$, so $|P-(1,0)|^2=2(R-1)x_1$ and $|P-(-1,0
 
 The limit point $(1,0)$ is the point of the meridian half-plane on the unit circle, the image of the fibre over one pole, and the tori shrink to it as $a\to1$; as $a\to0$ they grow towards the axis. Figure~\ref{fig:meridians} shows the pencil together with the bitangent lines of one meridian.
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.8\textwidth]{fig_meridians.png}
+\includegraphics[width=0.74\textwidth]{fig_meridians.png}
 \caption{Meridians of the tori $\sigma(\Sigma_a)$ in the half-plane $x_2=0$: the Apollonian circles with limit points $(\pm1,0)$. The line through the origin tangent to one meridian is the trace of a bitangent plane, and its point of tangency lies on the unit circle.}
 \label{fig:meridians}
 \end{figure}
 
 The point of tangency of every bitangent plane lies at distance $\sqrt{R^2-r^2}=1$ from the centre, by Proposition~\ref{prop:bitangent}. So in the meridian half-plane the points of tangency of all the tori $\sigma(\Sigma_a)$ lie on the unit circle, which is the circle through the two limit points orthogonal to all the meridians; in higher dimensions Proposition~\ref{prop:twofamilies}(iii) gives the same statement with the unit $(d-2)$-sphere.
-\chapter{Stable stems, the image of \texorpdfstring{$J$}{J} and the Kervaire invariant}\label{ch:stable}
+\section{Stable stems, the image of \texorpdfstring{$J$}{J} and the Kervaire invariant}\label{ch:stable}
 
-This chapter surveys what is known about the stable stems in the range where the Hopf maps are visible. Nothing here is new; the purpose is to state the results precisely, with their sources, and to separate the proved from the announced. Section~\ref{sec:parallel} contains the one elementary proof of the chapter.
+This section surveys what is known about the stable stems in the range where the Hopf maps are visible. Nothing here is new; the purpose is to state the results precisely, with their sources, and to separate the proved from the announced. Section~\ref{sec:parallel} contains the one elementary proof of the section.
 
-\section{The stable stems through dimension nineteen}\label{sec:stems}
+\subsection{The stable stems through dimension nineteen}\label{sec:stems}
 
 By Theorem~\ref{thm:freudenthal}, $\pi_k^s=\pi_{n+k}(S^n)$ for $n\ge k+2$. Table~\ref{tab:stable} lists $\pi_k^s$ for $k\le19$, after Toda \cite{Tod62} and Ravenel \cite[Table~A3.3]{Rav86}; the computations have since been extended far beyond this range by Isaksen, Wang and Xu \cite{IWX23}.
 
-\begin{table}[ht]
+\begin{table}[htbp]
 \centering
 \small
 \begin{tabular}{@{}c|cccccccccc@{}}
@@ -1139,7 +1259,7 @@ $\pi_k^s$ & $6$ & $504$ & $0$ & $3$ & $2^2$ & $480{\oplus}2$ & $2^2$ & $2^4$ & $
 
 The groups in degrees $1$, $3$ and $7$ are generated by the suspensions $\eta$, $\nu$, $\sigma$ of the three Hopf maps, and in degrees $2$, $6$ and $14$ the squares $\eta^2$, $\nu^2$ and $\sigma^2$ are nonzero \cite{Tod62}. The cyclic summands of orders $24$, $240$, $504$, $480$ and $264$ in degrees $3,7,11,15,19$ form the image of the $J$-homomorphism, described next.
 
-\section{The \texorpdfstring{$J$}{J}-homomorphism}\label{sec:J}
+\subsection{The \texorpdfstring{$J$}{J}-homomorphism}\label{sec:J}
 
 An element of $\pi_k(\SO(n))$, represented by $\alpha\colon S^k\to\SO(n)$, defines a map $S^k\times S^{n-1}\to S^{n-1}$, $(x,v)\mapsto\alpha(x)v$, and the Hopf construction turns it into a map $S^{k+n}=S^k*S^{n-1}\to\Sigma S^{n-1}=S^n$. This defines Whitehead's homomorphism $J\colon\pi_k(\SO(n))\to\pi_{n+k}(S^n)$ \cite{Whi42}, compatible with suspension, and in the limit the stable homomorphism
 \[
@@ -1161,7 +1281,7 @@ For $k\ge1$ the image of $J$ in $\pi_{4k-1}^s$ is a cyclic direct summand whose 
 
 Adams \cite{Ada66} proved the lower bounds and the upper bound for the odd part, and reduced the rest to the \emph{Adams conjecture}: for a real vector bundle $\xi$ over a finite CW complex $X$ and an integer $\ell$, there is $e\ge0$ such that $\ell^e(\psi^\ell\xi-\xi)$ is fibre homotopy trivial, that is, maps to zero in $J(X)$, where $\psi^\ell$ is the Adams operation. The conjecture was proved by Quillen \cite{Qui71}, by Sullivan \cite{Sul74}, and by Becker and Gottlieb \cite{BG75}.\footnote{The statement of the conjecture in the earlier version of this work was garbled; the formulation here is that of \cite{Ada66}.}
 
-\begin{table}[ht]
+\begin{table}[htbp]
 \centering
 \small
 \begin{tabular}{@{}c|cccccccccc@{}}
@@ -1187,14 +1307,14 @@ which gives $m(2)=2^3\cdot3=24$, $m(4)=2^4\cdot3\cdot5=240$, $m(6)=2^3\cdot3^2\c
 
 Figure~\ref{fig:imJ} shows the orders on a logarithmic scale.
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{fig_imageJ.png}
 \caption{$\log_2|\im J|$ in the stems $4k-1$, $k=1,\dots,10$. The order is $24$ for $k=1$ and $k=7$, when $2$ and $3$ are the only primes $p$ with $(p-1)\mid2k$, and it is large when many such primes occur, as for $k=6$ (the primes $2,3,5,7,13$).}
 \label{fig:imJ}
 \end{figure}
 
-\section{Division algebras and parallelisable spheres}\label{sec:parallel}
+\subsection{Division algebras and parallelisable spheres}\label{sec:parallel}
 
 \begin{proposition}\label{prop:parallelisable}
 The spheres $S^1$, $S^3$ and $S^7$ are parallelisable: if $e_1,\dots,e_{d-1}$ is an orthonormal basis of $\Imag\K$, then $x\mapsto xe_j$, $j=1,\dots,d-1$, are $d-1$ vector fields on $S^{d-1}$ that are orthonormal at every point.
@@ -1206,7 +1326,7 @@ By \ref{D:inner} and Lemma~\ref{lem:artin}, $\langle xa,xb\rangle=\langle a,\bar
 
 The converse is deep: $S^{n-1}$ is parallelisable only for $n=1,2,4,8$, by Bott--Milnor \cite{BM58} and Kervaire, and Adams determined the maximal number of linearly independent vector fields on every sphere \cite{Ada62}. Together with Corollary~\ref{cor:spherebundles} and Adams' theorem (I4), this is the topological form of the statement that $\R,\C,\Hq,\Oc$ are the only real normed division algebras.
 
-\section{The Kervaire invariant}\label{sec:kervaire}
+\subsection{The Kervaire invariant}\label{sec:kervaire}
 
 A framed manifold of dimension $4j+2$ has a Kervaire invariant in $\Z/2$, the Arf invariant of a quadratic refinement of its intersection form on middle-dimensional homology with $\Z/2$ coefficients; through the Pontryagin--Thom construction it becomes a homomorphism $\pi_{4j+2}^s\to\Z/2$. Browder proved that it vanishes unless the dimension has the form $2^{j+1}-2$ \cite{Bro69}. Let $\theta_j$ denote an element of Kervaire invariant one in $\pi_{2^{j+1}-2}^s$, when one exists.
 
@@ -1217,16 +1337,16 @@ A framed manifold of dimension $4j+2$ has a Kervaire invariant in $\Z/2$, the Ar
 \end{enumerate}
 \end{theorem}
 
-The only remaining case is $j=6$, the stem $126$. Lin, Wang and Xu \cite{LWX24} have announced a proof that $\theta_6$ exists; at the time of writing this is a preprint, and we record it as such. The first three cases show that the Hopf maps of the three non-commutative division algebras produce, through their squares, the first three elements of Kervaire invariant one.
+The only remaining case is $j=6$, the stem $126$. Lin, Wang and Xu \cite{LWX24} have announced a proof that $\theta_6$ exists, resting on the machine computations of Adams differentials in \cite{LWX24b}; at the time of writing both papers are preprints, and we record the result as such and do not use it. The first three cases show that the Hopf maps of the three non-commutative division algebras produce, through their squares, the first three elements of Kervaire invariant one.
 
 \begin{remark}
 Theorem~\ref{thm:kervaire} has a geometric meaning: for $j\neq6$ there is a closed smooth framed manifold of dimension $2^{j+1}-2$ with Kervaire invariant one exactly when $j\le5$ \cite{Bro69}, \cite{HHR16}.
 \end{remark}
-\chapter{Torus fibrations, Calabi--Yau geometry and exotic spheres}\label{ch:cy}
+\section{Torus fibrations, Calabi--Yau geometry and exotic spheres}\label{ch:cy}
 
-The Hopf fibration is the simplest example of several structures that appear in geometry and physics. This chapter states three of them precisely and proves what is elementary: the Clifford tori are special Lagrangian (Section~\ref{sec:syz}), the O'Neill tensor of the Hopf submersions is determined by Theorem~\ref{thm:F} (Section~\ref{sec:oneill}), and the quaternionic Hopf bundle is the first member of Milnor's family of $S^3$-bundles over $S^4$ (Section~\ref{sec:milnor}).
+The Hopf fibration is the simplest example of several structures that appear in geometry and physics. This section states three of them precisely and proves what is elementary: the Clifford tori are special Lagrangian (Section~\ref{sec:syz}), the O'Neill tensor of the Hopf submersions is determined by Theorem~\ref{thm:F} (Section~\ref{sec:oneill}), and the quaternionic Hopf bundle is the first member of Milnor's family of $S^3$-bundles over $S^4$ (Section~\ref{sec:milnor}).
 
-\section{Special Lagrangian tori and the SYZ picture}\label{sec:syz}
+\subsection{Special Lagrangian tori and the SYZ picture}\label{sec:syz}
 
 Let $X$ be a Calabi--Yau manifold of complex dimension $n$, with K\"ahler form $\omega$ and holomorphic volume form $\Omega$, with $\omega^n$ a constant multiple of $i^{n^2}\Omega\wedge\bar\Omega$. A real $n$-dimensional submanifold $L$ is \emph{special Lagrangian} of phase $\theta$ if $\omega|_L=0$ and $\Imag(e^{-i\theta}\Omega)|_L=0$. The conjecture of Strominger, Yau and Zaslow \cite{SYZ96} proposes that a Calabi--Yau manifold near a large complex structure limit admits a fibration by special Lagrangian $n$-tori, possibly with singular fibres, and that its mirror is obtained by dualising the tori. The conjecture concerns the existence of such a fibration; it does not prescribe the base.\footnote{For a simply connected Calabi--Yau threefold the base is expected to be a homology $3$-sphere, and Gross constructed topological $T^3$-fibrations of the quintic threefold and its mirror over $S^3$ \cite{Gro01}. This is a theorem about topological fibrations; the existence of special Lagrangian fibrations of compact Calabi--Yau threefolds remains open in general.}
 
@@ -1246,7 +1366,7 @@ On a fibre $s_1$ and $s_2$ are constant, so $\omega_0|=0$ and $\Omega_0|=(i\,d\a
 
 Thus the Hopf fibration restricted to $S^3\cap(\C^*)^2$ is the composite of a special Lagrangian torus fibration with the quotient of each torus by a circle. Hopf-like fibrations of Calabi--Yau manifolds in this sense are the subject of \cite{BFS26}; the results there are not used here.
 
-\section{The O'Neill tensor of the Hopf submersions}\label{sec:oneill}
+\subsection{The O'Neill tensor of the Hopf submersions}\label{sec:oneill}
 
 For a Riemannian submersion $\pi\colon M\to B$ O'Neill \cite{ONe66} defined the tensors $T$, measuring the second fundamental form of the fibres, and $A$, measuring the non-integrability of the horizontal distribution; for horizontal vector fields $X,Y$, $A_XY=\tfrac12\mathcal V[X,Y]$. For orthonormal horizontal $X,Y$ the sectional curvatures satisfy
 \begin{equation}\label{eq:oneill}
@@ -1263,7 +1383,7 @@ The fibres are great spheres, which are totally geodesic, so $T=0$. The total sp
 
 Bounds for the O'Neill tensors of Riemannian submersions in fibred Calabi--Yau manifolds are studied in \cite{GBN26}; Proposition~\ref{prop:oneill} is the equality case of the simplest instance, a submersion of a round sphere with totally geodesic fibres.
 
-\section{Milnor's spheres}\label{sec:milnor}
+\subsection{Milnor's spheres}\label{sec:milnor}
 
 For integers $h,j$ let $\xi_{h,j}$ be the real vector bundle of rank $4$ over $S^4$ obtained by clutching two trivial bundles over the hemispheres along
 \[
@@ -1281,7 +1401,7 @@ By Theorem~\ref{thm:A} the clutching function of $L_\Hq$ is $\tau(x)=\ell_x=f_{1
 
 So the Hopf fibration $S^3\to S^7\to S^4$ is the standard member $(h,j)=(1,0)$ of the family that contains Milnor's exotic spheres, for instance $(h,j)=(2,-1)$, where $(h-j)^2-1=8\not\equiv0\pmod7$. Hopf-like fibrations of exotic spheres are studied in \cite{Bha26b}.
 \appendix
-\chapter{The octonions}\label{app:octonions}
+\section{The octonions}\label{app:octonions}
 
 We use the Cayley--Dickson model $\Oc=\Hq\oplus\Hq$ with the product \eqref{eq:cd}, and the basis $e_0=1$, $e_1=i$, $e_2=j$, $e_3=k$ of the first summand and $e_{4+m}=(0,e_m)$, $m=0,1,2,3$, of the second. Table~\ref{tab:octonions} is the resulting multiplication table, computed from \eqref{eq:cd}. Equivalently, $e_a^2=-1$ for $a\ge1$, $e_ae_b=-e_be_a$ for $a\neq b$, and $e_ae_b=e_c$ (together with its cyclic permutations) for the seven oriented triples
 \[
@@ -1325,16 +1445,16 @@ Applied to $A=\C$ and $A=\Hq$, the proposition gives \ref{D:norm} for $\Hq$ and 
 
 The octonion identities used in the text are:
 \begin{enumerate}[label=(O\arabic*)]
-\item $(xy)y^{-1}=x=(xy^{-1})y$ and $x^{-1}(xy)=y$ (Lemma~\ref{lem:artin}), used for the bundle charts in Chapter~\ref{ch:hopf};
+\item $(xy)y^{-1}=x=(xy^{-1})y$ and $x^{-1}(xy)=y$ (Lemma~\ref{lem:artin}), used for the bundle charts in Section~\ref{ch:hopf};
 \item $(xc)\bar c=|c|^2x$, used to identify the bundle projection with $h_\Oc$;
-\item $\langle xa,xb\rangle=|x|^2\langle a,b\rangle$, used for the parallelisations of Proposition~\ref{prop:parallelisable} and the isometries $\Lambda_u$ of Chapter~\ref{ch:villarceau};
+\item $\langle xa,xb\rangle=|x|^2\langle a,b\rangle$, used for the parallelisations of Proposition~\ref{prop:parallelisable} and the isometries $\Lambda_u$ of Section~\ref{ch:villarceau};
 \item $wx=\bar xw$ for $w\perp1$, $w\perp u$, $x\in\C_u$, used in Lemma~\ref{lem:powerderiv}.
 \end{enumerate}
 All of them involve at most two independent octonions, which is why they hold although $\Oc$ is not associative. An identity that involves three octonions can fail: $(e_1e_4)(e_2e_4)^{-1}=e_3$ but $e_1e_2^{-1}=-e_3$, which is the explicit triple of Proposition~\ref{prop:actions}.
 
-\chapter{The algebra of Villarceau's theorem}\label{app:villarceau}
+\section{The algebra of Villarceau's theorem}\label{app:villarceau}
 
-\section{The image of a Hopf fibre}
+\subsection{The image of a Hopf fibre}
 
 For $d=2$, $0<a<1$, $b=\sqrt{1-a^2}$, the base fibre is $(ae^{it},be^{it})$ and its stereographic image is
 \[
@@ -1350,7 +1470,7 @@ a^2(a^2+b^2)\cos^2t+(\varsigma-b)^2-(1-b\varsigma)^2=a^2(1-\varsigma^2)+(1-b^2)(
 \]
 So $|X(t)-(0,\tfrac ba,0)|=1/a=R$. This is the case $d=2$ of Proposition~\ref{prop:basefibre}.
 
-\section{The bitangent factorisation}
+\subsection{The bitangent factorisation}
 
 Let $x=(\upsilon\cos\phi,\ v,\ \upsilon\sin\phi)$ and $s=\upsilon^2+v^2=|x|^2$. Then
 \begin{align*}
@@ -1360,7 +1480,7 @@ Let $x=(\upsilon\cos\phi,\ v,\ \upsilon\sin\phi)$ and $s=\upsilon^2+v^2=|x|^2$. 
 \end{align*}
 where the first step uses $(s+R^2-r^2)^2-(s+r^2-R^2)^2=4s(R^2-r^2)$ and the second uses $(s+r^2-R^2)^2-4r^2v^2=\bigl(s+r^2-R^2-2rv\bigr)\bigl(s+r^2-R^2+2rv\bigr)$. Since $R^2-r^2-R^2\cos^2\phi=R^2\sin^2\phi-r^2$, this is the identity used in Proposition~\ref{prop:bitangent}.
 
-\section{The higher-dimensional factorisation}
+\subsection{The higher-dimensional factorisation}
 
 In the notation of Proposition~\ref{prop:twofamilies}, with $\mathcal A=\xi^2+(1+r^2)\eta-1$ and $G_\pm=\mathcal A\mp2r\xi$,
 \[
@@ -1368,9 +1488,9 @@ In the notation of Proposition~\ref{prop:twofamilies}, with $\mathcal A=\xi^2+(1
 \]
 because $4\mathcal A+4-4(1+r^2)\xi^2-4(1+r^2)\eta+4r^2\xi^2=4\bigl(\mathcal A+1-\xi^2-(1+r^2)\eta\bigr)=0$. For $d=2$, $\xi=x_2$ and $\eta=x_1^2$, and the identity reduces to the previous one with $\tan\phi=r$.
 
-\chapter{Verification programs}\label{app:checks}
+\section{Verification programs}\label{app:checks}
 
-Every statement of this monograph is proved in the text or quoted from the literature, and no proof depends on a computer. The programs described here, which accompany the monograph in the repository named in the Data availability statement, recompute independently the finite identities and the numerical values that appear in the text. The program \texttt{code/checks.py} uses NumPy and SymPy and runs in about twenty seconds; it ends with the line \texttt{54 checks passed, 0 failed}. It checks:
+Every statement of this paper is proved in the text or quoted from the literature, and no proof depends on a computer. The programs described here, which accompany the paper in the repository named in the Data availability statement, recompute independently the finite identities and the numerical values that appear in the text. The program \texttt{code/checks.py} uses NumPy and SymPy and runs in about twenty seconds; it ends with the line \texttt{58 checks passed, 0 failed}. It checks:
 \begin{enumerate}[label=(\arabic*)]
 \item the octonion identities: non-associativity, the alternative laws, the multiplicativity of the norm, the identities of Lemma~\ref{lem:artin}, the Moufang identity $(xy)^{-1}=y^{-1}x^{-1}$, and the triple $(e_1,e_2,e_4)$ of Proposition~\ref{prop:actions};
 \item for $d=2,4,8$, that $|h_\K|=1$ on the unit sphere, that $h_\K$ is constant on each subspace $L_x$, and that $h_\K(L_x)$ is the stereographic image of $x$ (Theorem~\ref{thm:A});
@@ -1379,26 +1499,32 @@ Every statement of this monograph is proved in the text or quoted from the liter
 \item for $d=4,8$ and $m=2,3,5$, the roots of $x^m=y$ and the signs of the Jacobian at them, and the derivative formula of Lemma~\ref{lem:powerderiv};
 \item Gauss integrals \eqref{eq:gauss}: two Hopf fibres link once, and two fibres of $[z^p:w^q]$ link $pq$ times for six pairs $(p,q)$;
 \item the Hopf invariants $2,0,0,4,6$ of the maps $[z^2-\tfrac14:w]$, $[z^2-4:w]$, $[z^2:zw+1]$, $[z^2+w^2:zw]$ and $[z^2:w^3]$ of Example~\ref{ex:holoexamples}, computed as degrees by integrating the pull-back of the volume form of $S^3$;
-\item the degrees $2$, $6$, $0$ of $F/|F|$ for the split quaternionic maps $(a^2+c,b)$ and $(a^2+c,b^3+c/2)$ with a small non-real $c$, and $(a^2+c',b^3+c')$ with a large one (Proposition~\ref{prop:split}), as signed counts of the preimages of a regular value;
+\item the degrees $2$, $6$, $0$ of $F/|F|$ for the split quaternionic maps $(a^2+c,b)$ and $(a^2+c,b^3+c/2)$ with a small non-real $c$, and $(a^2+c',b^3+c')$ with a large one (Theorem~\ref{thm:split}), as signed counts of the preimages of a regular value;
+\item the Jacobian formula \eqref{eq:qjac} for random one-sided cubics over $\Hq$ and $\Oc$, and the zeros $x+yJ$, $J=-UV^{-1}$, read off from the roots of $S_P$ (Lemma~\ref{lem:components});
+\item for the map of Example~\ref{ex:split}, two preimages of a small regular value in the unit ball, both with positive Jacobian;
+\item the conjugation formula \eqref{eq:conjword} and the determinant $-1$ of conjugation;
 \item the Villarceau identities of Appendix~\ref{app:villarceau}, symbolically, and Theorem~\ref{thm:E} for $d=4,8$ numerically: the images of the fibres $F_u$ are spheres of radius $R$ about $(ur\varepsilon,0)$ in $\Pi_u$, on the tube, and the mirror family gives the spheres about $(-r\varepsilon,0)$;
 \item the denominators of $B_{2k}/4k$ in Table~\ref{tab:imJ}, and the formula of Remark~\ref{rem:vonstaudt} for $k\le60$;
 \item the consistency of Table~\ref{tab:unstable} with Theorem~\ref{thm:C} and with Freudenthal's theorem, as abelian groups.
 \end{enumerate}
 The figures are produced by \texttt{figures/make\_figures.py} with Matplotlib.
-\backmatter
-\chapter*{Declarations}
+\section*{Declarations}
+
+\subsection*{Ethics statement}
+This article is a work of pure mathematics. It involves no studies with human participants or animals and no personal data, and it required no approval from an ethics committee.
 
 \subsection*{Funding}
 This research received no external funding.
 
-\subsection*{Data availability}
-The verification programs of Appendix~\ref{app:checks} and the programs that produce the figures are available in the repository \url{https://github.com/creelie/Paper_6}. The programs were written and run with the assistance of Claude Code, an AI system of Anthropic; all mathematical statements and proofs were checked by the author.
-
 \subsection*{Conflicts of interest}
-The author declares no conflicts of interest.
+The authors declare no conflicts of interest.
+
+\subsection*{Data availability}
+No data were generated or analysed. The verification programs of Appendix~\ref{app:checks} and the programs that produce the figures are available in the repository \url{https://github.com/creelie/Paper_6}. AI-assisted software was used to write and run these programs and to check computations; every statement and proof was checked by the authors, who take full responsibility for the content.
 
 \subsection*{Acknowledgements}
-The author thanks Sanjeevan Singha Roy and Riddhima Sadhu, coauthors of the first version of this work \cite{BSS22}, and Onwuka Frederick for discussions.
+The authors thank Sanjeevan Singha Roy and Riddhima Sadhu, coauthors of the first version of this work \cite{BSS22}, and Onwuka Frederick for discussions. The paper rests on the work of many others, and we wish to record our debt to them: to Heinz Hopf, whose maps and invariant are its subject \cite{Hop31}, \cite{Hop35}; to J.~Frank Adams and Michael Atiyah for the solution of the Hopf invariant one problem \cite{Ada60}, \cite{AA66}; to Hiroshi Toda for the tables of homotopy groups that we quote \cite{Tod62}; to John Milnor for the topology from the differentiable viewpoint that underlies the degree arguments \cite{Mil65} and for his exotic spheres \cite{Mil56}; to Niven, Eilenberg, Gordon and Motzkin, Ser\^odio, Gentili, Stoppato and Struppa, Ghiloni and Perotti, and Sakkalis for the theory of quaternionic and octonionic polynomials \cite{Niv41}, \cite{EN44}, \cite{GM65}, \cite{Ser07}, \cite{GSS13}, \cite{GP11}, \cite{Sak20}; and to Weinan Lin, Guozhen Wang and Zhouli Xu, whose work on the last Kervaire invariant problem is recorded in Section~\ref{ch:stable} \cite{LWX24}, \cite{LWX24b}.
+\begingroup\raggedright
 \begin{thebibliography}{IWX23}
 
 \bibitem[AA66]{AA66} J.~F. Adams and M.~F. Atiyah, \emph{K-theory and the Hopf invariant}, Quart. J. Math. Oxford Ser. (2) \textbf{17} (1966), 31--38, \href{https://doi.org/10.1093/qmath/17.1.31}{doi:10.1093/qmath/17.1.31}.
@@ -1413,6 +1539,7 @@ The author thanks Sanjeevan Singha Roy and Riddhima Sadhu, coauthors of the firs
 
 \bibitem[Bae02]{Bae02} J.~C. Baez, \emph{The octonions}, Bull. Amer. Math. Soc. (N.S.) \textbf{39} (2002), 145--205, \href{https://doi.org/10.1090/S0273-0979-01-00934-X}{doi:10.1090/S0273-0979-01-00934-X}.
 
+\bibitem[BCR98]{BCR98} J.~Bochnak, M.~Coste and M.-F.~Roy, \emph{Real Algebraic Geometry}, Ergeb. Math. Grenzgeb. (3) \textbf{36}, Springer, Berlin, 1998, \href{https://doi.org/10.1007/978-3-662-03718-8}{doi:10.1007/978-3-662-03718-8}.
 \bibitem[BFS26]{BFS26} D.~Bhattacharjee, O.~Frederick, R.~Sadhu, S.~Bhattacharjee, S.~Bhattacharya, S.~N. Thakur, P.~Samal, P.~Nandi, T.~Bhattacharjee, S.~Singha Roy, R.~Ghora and R.~Patra, \emph{Hopf-like fibrations on Calabi--Yau manifolds}, Preprints.org, 2026, version~4, \href{https://doi.org/10.20944/preprints202504.2581.v4}{doi:10.20944/preprints202504.2581.v4}.
 
 \bibitem[BG75]{BG75} J.~C. Becker and D.~H. Gottlieb, \emph{The transfer map and fiber bundles}, Topology \textbf{14} (1975), 1--12, \href{https://doi.org/10.1016/0040-9383(75)90029-4}{doi:10.1016/0040-9383(75)90029-4}.
@@ -1435,6 +1562,8 @@ The author thanks Sanjeevan Singha Roy and Riddhima Sadhu, coauthors of the firs
 
 \bibitem[BT82]{BT82} R.~Bott and L.~W. Tu, \emph{Differential Forms in Algebraic Topology}, Graduate Texts in Mathematics~82, Springer, New York, 1982, \href{https://doi.org/10.1007/978-1-4757-3951-0}{doi:10.1007/978-1-4757-3951-0}.
 
+\bibitem[EN44]{EN44} S.~Eilenberg and I.~Niven, \emph{The ``fundamental theorem of algebra'' for quaternions}, Bull. Amer. Math. Soc. \textbf{50} (1944), 246--248, \href{https://doi.org/10.1090/S0002-9904-1944-08125-1}{doi:10.1090/S0002-9904-1944-08125-1}.
+
 \bibitem[Fre38]{Fre38} H.~Freudenthal, \emph{\"Uber die Klassen der Sph\"arenabbildungen I. Gro\ss e Dimensionen}, Compositio Math. \textbf{5} (1938), 299--314.
 
 \bibitem[Ful69]{Ful69} W.~Fulton, \emph{Algebraic Curves}, W.~A. Benjamin, New York, 1969.
@@ -1443,7 +1572,12 @@ The author thanks Sanjeevan Singha Roy and Riddhima Sadhu, coauthors of the firs
 
 \bibitem[GH78]{GH78} P.~Griffiths and J.~Harris, \emph{Principles of Algebraic Geometry}, Wiley, New York, 1978.
 
+\bibitem[GM65]{GM65} B.~Gordon and T.~S. Motzkin, \emph{On the zeros of polynomials over division rings}, Trans. Amer. Math. Soc. \textbf{116} (1965), 218--226, \href{https://doi.org/10.1090/S0002-9947-1965-0195853-2}{doi:10.1090/S0002-9947-1965-0195853-2}.
+
+\bibitem[GP11]{GP11} R.~Ghiloni and A.~Perotti, \emph{Zeros of regular functions of quaternionic and octonionic variable: a division lemma and the camshaft effect}, Ann. Mat. Pura Appl. (4) \textbf{190} (2011), 539--551, \href{https://doi.org/10.1007/s10231-010-0162-1}{doi:10.1007/s10231-010-0162-1}.
 \bibitem[Gro01]{Gro01} M.~Gross, \emph{Topological mirror symmetry}, Invent. Math. \textbf{144} (2001), 75--137, \href{https://doi.org/10.1007/s002220000119}{doi:10.1007/s002220000119}.
+
+\bibitem[GSS13]{GSS13} G.~Gentili, C.~Stoppato and D.~C. Struppa, \emph{Regular Functions of a Quaternionic Variable}, Springer Monogr. Math., Springer, Heidelberg, 2013, \href{https://doi.org/10.1007/978-3-642-33871-7}{doi:10.1007/978-3-642-33871-7}.
 
 \bibitem[GWZ86]{GWZ86} H.~Gluck, F.~Warner and W.~Ziller, \emph{The geometry of the Hopf fibrations}, Enseign. Math. (2) \textbf{32} (1986), 173--198.
 
@@ -1457,7 +1591,8 @@ The author thanks Sanjeevan Singha Roy and Riddhima Sadhu, coauthors of the firs
 
 \bibitem[IWX23]{IWX23} D.~C. Isaksen, G.~Wang and Z.~Xu, \emph{Stable homotopy groups of spheres: from dimension $0$ to $90$}, Publ. Math. Inst. Hautes \'Etudes Sci. \textbf{137} (2023), 107--243, \href{https://doi.org/10.1007/s10240-023-00139-1}{doi:10.1007/s10240-023-00139-1}.
 
-\bibitem[LWX24]{LWX24} W.~Lin, G.~Wang and Z.~Xu, \emph{On the last Kervaire invariant problem}, preprint, 2024, \href{https://arxiv.org/abs/2412.10879}{arXiv:2412.10879}.
+\bibitem[LWX24a]{LWX24} W.~Lin, G.~Wang and Z.~Xu, \emph{On the last Kervaire invariant problem}, preprint, version~2 of 22 February 2025, \href{https://arxiv.org/abs/2412.10879}{arXiv:2412.10879}.
+\bibitem[LWX24b]{LWX24b} W.~Lin, G.~Wang and Z.~Xu, \emph{Machine proofs for Adams differentials and extension problems among CW spectra}, preprint, version~2 of 22 February 2025, \href{https://arxiv.org/abs/2412.10876}{arXiv:2412.10876}.
 
 \bibitem[Lyo03]{Lyo03} D.~W. Lyons, \emph{An elementary introduction to the Hopf fibration}, Math. Mag. \textbf{76} (2003), 87--98, \href{https://doi.org/10.2307/3219300}{doi:10.2307/3219300}.
 
@@ -1467,15 +1602,20 @@ The author thanks Sanjeevan Singha Roy and Riddhima Sadhu, coauthors of the firs
 
 \bibitem[Mum76]{Mum76} D.~Mumford, \emph{Algebraic Geometry I: Complex Projective Varieties}, Grundlehren der Mathematischen Wissenschaften~221, Springer, Berlin, 1976.
 
+\bibitem[Niv41]{Niv41} I.~Niven, \emph{Equations in quaternions}, Amer. Math. Monthly \textbf{48} (1941), 654--661, \href{https://doi.org/10.1080/00029890.1941.11991158}{doi:10.1080/00029890.1941.11991158}.
+
 \bibitem[ONe66]{ONe66} B.~O'Neill, \emph{The fundamental equations of a submersion}, Michigan Math. J. \textbf{13} (1966), 459--469, \href{https://doi.org/10.1307/mmj/1028999604}{doi:10.1307/mmj/1028999604}.
 
 \bibitem[Qui71]{Qui71} D.~Quillen, \emph{The Adams conjecture}, Topology \textbf{10} (1971), 67--80, \href{https://doi.org/10.1016/0040-9383(71)90018-8}{doi:10.1016/0040-9383(71)90018-8}.
 
 \bibitem[Rav86]{Rav86} D.~C. Ravenel, \emph{Complex Cobordism and Stable Homotopy Groups of Spheres}, Academic Press, Orlando, 1986.
 
+\bibitem[Sak20]{Sak20} T.~Sakkalis, \emph{Polynomials and degrees of maps in real normed algebras}, Commun. Math. \textbf{28} (2020), 43--54, \href{https://doi.org/10.2478/cm-2020-0004}{doi:10.2478/cm-2020-0004}.
 \bibitem[Sch66]{Sch66} R.~D. Schafer, \emph{An Introduction to Nonassociative Algebras}, Academic Press, New York, 1966.
 
 \bibitem[Ser53]{Ser53} J.-P. Serre, \emph{Groupes d'homotopie et classes de groupes ab\'eliens}, Ann. of Math. (2) \textbf{58} (1953), 258--294, \href{https://doi.org/10.2307/1969789}{doi:10.2307/1969789}.
+
+\bibitem[Ser07]{Ser07} R.~Ser\^odio, \emph{On octonionic polynomials}, Adv. Appl. Clifford Algebr. \textbf{17} (2007), 245--258, \href{https://doi.org/10.1007/s00006-007-0026-y}{doi:10.1007/s00006-007-0026-y}.
 
 \bibitem[Sul74]{Sul74} D.~Sullivan, \emph{Genetics of homotopy theory and the Adams conjecture}, Ann. of Math. (2) \textbf{100} (1974), 1--79, \href{https://doi.org/10.2307/1970841}{doi:10.2307/1970841}.
 
@@ -1488,4 +1628,5 @@ The author thanks Sanjeevan Singha Roy and Riddhima Sadhu, coauthors of the firs
 \bibitem[Whi42]{Whi42} G.~W. Whitehead, \emph{On the homotopy groups of spheres and rotation groups}, Ann. of Math. (2) \textbf{43} (1942), 634--640, \href{https://doi.org/10.2307/1968956}{doi:10.2307/1968956}.
 
 \end{thebibliography}
+\endgroup
 \end{document}

@@ -1,18 +1,36 @@
 {
-  "title": "LaTeX source and verification code for the paper Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II",
+  "title": "LaTeX source and verification code for the paper Hopf Invariants of Polynomial Maps and Villarceau Spheres",
   "upload_type": "software",
-  "description": "LaTeX source (paper/), compiled PDF and verification code (code/checks.py, 54 checks; figures/make_figures.py) for the monograph Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II, version 2 of the preprint doi:10.20944/preprints202602.2038.v1.",
+  "description": "LaTeX source (paper/), compiled PDF and verification code (code/checks.py, 58 checks; figures/make_figures.py) for the paper Hopf Invariants of Polynomial Maps and Villarceau Spheres, version 2 of the preprint Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II, doi:10.20944/preprints202602.2038.v1.",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
       "orcid": "0000-0003-0466-750X",
       "affiliation": "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India"
+    },
+    {
+      "name": "Bhattacharya, Ushashi",
+      "orcid": "0009-0002-2254-3914",
+      "affiliation": "National Taiwan University, Taipei, Taiwan"
     }
   ],
   "license": "MIT",
-  "keywords": ["Hopf fibration", "Hopf invariant", "Villarceau circles", "homotopy groups of spheres"],
+  "keywords": [
+    "Hopf fibration",
+    "Hopf invariant",
+    "Villarceau circles",
+    "quaternionic polynomials"
+  ],
   "related_identifiers": [
-    {"identifier": "10.20944/preprints202602.2038.v1", "relation": "isSupplementTo", "scheme": "doi"},
-    {"identifier": "10.36713/epra11212", "relation": "references", "scheme": "doi"}
+    {
+      "identifier": "10.20944/preprints202602.2038.v1",
+      "relation": "isSupplementTo",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.36713/epra11212",
+      "relation": "references",
+      "scheme": "doi"
+    }
   ]
 }
