@@ -32,5 +32,6 @@
       "relation": "references",
       "scheme": "doi"
     }
-  ]
+  ],
+  "version": "2.0.0"
 }

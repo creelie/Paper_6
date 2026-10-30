@@ -1,0 +1,64 @@
+name: release
+
+# Run by hand from the Actions tab after the pull request is merged. It runs the
+# checks of code/checks.py, then publishes a GitHub release with the paper PDF
+# and the MDPI source zip and the notes in .github/RELEASE_NOTES.md.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag, e.g. v2.0.0"
+        required: true
+        default: "v2.0.0"
+      target:
+        description: "Branch or commit to tag"
+        required: true
+        default: "main"
+      title:
+        description: "Release title"
+        required: true
+        default: "Hopf Invariants of Polynomial Maps and Villarceau Spheres"
+
+permissions:
+  contents: write
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.target }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install NumPy and SymPy
+        run: python -m pip install numpy sympy
+      - name: Checks
+        run: cd code && python checks.py
+
+  release:
+    needs: checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.target }}
+      - name: Collect the paper files
+        run: |
+          mkdir dist
+          cp paper/main.pdf dist/HopfInvariantsVillarceauSpheres.pdf
+          cd paper && zip -X -D -q ../dist/HopfInvariantsVillarceauSpheres-tex.zip manuscript.tex figures/*.png
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+          TARGET: ${{ inputs.target }}
+          TITLE: ${{ inputs.title }}
+        run: |
+          gh release create "$TAG" dist/* \
+            --target "$TARGET" \
+            --title "$TAG: $TITLE" \
+            --notes-file .github/RELEASE_NOTES.md
