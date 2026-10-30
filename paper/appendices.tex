@@ -87,14 +87,16 @@ because $4\mathcal A+4-4(1+r^2)\xi^2-4(1+r^2)\eta+4r^2\xi^2=4\bigl(\mathcal A+1-
 
 \chapter{Verification programs}\label{app:checks}
 
-Every statement of this monograph is proved in the text or quoted from the literature, and no proof depends on a computer. The programs described here, which accompany the monograph in the repository named in the Data availability statement, recompute independently the finite identities and the numerical values that appear in the text. The program \texttt{code/checks.py} uses NumPy and SymPy and runs in about fifteen seconds; it ends with the line \texttt{51 checks passed, 0 failed}. It checks:
+Every statement of this monograph is proved in the text or quoted from the literature, and no proof depends on a computer. The programs described here, which accompany the monograph in the repository named in the Data availability statement, recompute independently the finite identities and the numerical values that appear in the text. The program \texttt{code/checks.py} uses NumPy and SymPy and runs in about twenty seconds; it ends with the line \texttt{54 checks passed, 0 failed}. It checks:
 \begin{enumerate}[label=(\arabic*)]
 \item the octonion identities: non-associativity, the alternative laws, the multiplicativity of the norm, the identities of Lemma~\ref{lem:artin}, the Moufang identity $(xy)^{-1}=y^{-1}x^{-1}$, and the triple $(e_1,e_2,e_4)$ of Proposition~\ref{prop:actions};
 \item for $d=2,4,8$, that $|h_\K|=1$ on the unit sphere, that $h_\K$ is constant on each subspace $L_x$, and that $h_\K(L_x)$ is the stereographic image of $x$ (Theorem~\ref{thm:A});
 \item the identity $h(u)\cdot h(v)=2|\langle u,v\rangle|^2-1$ for $\C$ and $\Hq$ (Proposition~\ref{prop:dotproduct});
+\item for $d=2,4,8$, that $Dh_\K$ has $d$ singular values $2$ and $d-1$ zeros on the tangent space of $S^{2d-1}$, at random points (Proposition~\ref{prop:octsubmersion}), and the decomposition of Lemma~\ref{lem:lineperp};
 \item for $d=4,8$ and $m=2,3,5$, the roots of $x^m=y$ and the signs of the Jacobian at them, and the derivative formula of Lemma~\ref{lem:powerderiv};
 \item Gauss integrals \eqref{eq:gauss}: two Hopf fibres link once, and two fibres of $[z^p:w^q]$ link $pq$ times for six pairs $(p,q)$;
 \item the Hopf invariants $2,0,0,4,6$ of the maps $[z^2-\tfrac14:w]$, $[z^2-4:w]$, $[z^2:zw+1]$, $[z^2+w^2:zw]$ and $[z^2:w^3]$ of Example~\ref{ex:holoexamples}, computed as degrees by integrating the pull-back of the volume form of $S^3$;
+\item the degrees $2$, $6$, $0$ of $F/|F|$ for the split quaternionic maps $(a^2+c,b)$ and $(a^2+c,b^3+c/2)$ with a small non-real $c$, and $(a^2+c',b^3+c')$ with a large one (Proposition~\ref{prop:split}), as signed counts of the preimages of a regular value;
 \item the Villarceau identities of Appendix~\ref{app:villarceau}, symbolically, and Theorem~\ref{thm:E} for $d=4,8$ numerically: the images of the fibres $F_u$ are spheres of radius $R$ about $(ur\varepsilon,0)$ in $\Pi_u$, on the tube, and the mirror family gives the spheres about $(-r\varepsilon,0)$;
 \item the denominators of $B_{2k}/4k$ in Table~\ref{tab:imJ}, and the formula of Remark~\ref{rem:vonstaudt} for $k\le60$;
 \item the consistency of Table~\ref{tab:unstable} with Theorem~\ref{thm:C} and with Freudenthal's theorem, as abelian groups.

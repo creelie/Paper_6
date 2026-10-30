@@ -1,7 +1,7 @@
 {
   "title": "LaTeX source and verification code for the paper Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II",
   "upload_type": "software",
-  "description": "LaTeX source (paper/), compiled PDF and verification code (code/checks.py, 51 checks; figures/make_figures.py) for the monograph Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II, version 2 of the preprint doi:10.20944/preprints202602.2038.v1.",
+  "description": "LaTeX source (paper/), compiled PDF and verification code (code/checks.py, 54 checks; figures/make_figures.py) for the monograph Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II, version 2 of the preprint doi:10.20944/preprints202602.2038.v1.",
   "creators": [
     {
       "name": "Bhattacharjee, Deep",
