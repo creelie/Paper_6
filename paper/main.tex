@@ -1,4 +1,4 @@
-\documentclass[11pt]{amsbook}
+\documentclass[11pt]{amsart}
 \usepackage[margin=1.1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{graphicx}
@@ -10,12 +10,11 @@
 \usepackage{url}
 
 \graphicspath{{figures/}}
-\setcounter{tocdepth}{1}
-\numberwithin{equation}{chapter}
+\numberwithin{equation}{section}
 \allowdisplaybreaks
 
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -51,28 +50,31 @@
 \raggedbottom
 \begin{document}
 
-\frontmatter
-\title[Homotopy groups of spheres, Hopf fibrations and Villarceau circles II]{Homotopy Groups of Spheres, Hopf Fibrations\\ and Villarceau Circles II}
+\title[Hopf invariants of polynomial maps and Villarceau spheres]{Hopf Invariants of Polynomial Maps\\ and Villarceau Spheres}
+
 \author{Deep Bhattacharjee}
-\address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India}
-\address{Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India}
-\email{d.bhattacharjee@erl-forschung.de}
-\email{itsdeep@live.com}
-\email{egspl@proton.me}
+\address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India\\
+Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India}
+\email{d.bhattacharjee@erl-forschung.de, itsdeep@live.com, egspl@proton.me}
 \urladdr{https://orcid.org/0000-0003-0466-750X}
-\thanks{This is version 2 of the preprint ``Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II'', Preprints.org, 28 February 2026, \texttt{doi:10.20944/preprints202602.2038.v1}, which it revises and replaces. An earlier version of the work appeared as D.~Bhattacharjee, S.~Singha Roy and R.~Sadhu, ``Homotopy group of spheres, Hopf fibrations and Villarceau circles'', EPRA International Journal of Research \& Development (IJRD) \textbf{7} (2022), no.~9, \texttt{doi:10.36713/epra11212}. Corresponding author: Deep Bhattacharjee, \texttt{d.bhattacharjee@erl-forschung.de}; contact for the accompanying repository \url{https://github.com/creelie/Paper_6}: \texttt{egspl@proton.me}.}
-\subjclass[2020]{55Q05, 55Q25, 55R10, 53A05}
-\keywords{Hopf fibration, Hopf invariant, Villarceau circles, homotopy groups of spheres}
+
+\author{Ushashi Bhattacharya}
+\address{National Taiwan University, Taipei, Taiwan}
+\email{rai.bhattacharya.in@gmail.com}
+\urladdr{https://orcid.org/0009-0002-2254-3914}
+
+\thanks{This is version 2 of the preprint ``Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II'' by D.~Bhattacharjee, Preprints.org, 28 February 2026, \texttt{doi:10.20944/preprints202602.2038.v1}, which it revises and replaces under a new title and with a second author. An earlier version of the work appeared as D.~Bhattacharjee, S.~Singha Roy and R.~Sadhu, ``Homotopy group of spheres, Hopf fibrations and Villarceau circles'', EPRA International Journal of Research \& Development (IJRD) \textbf{7} (2022), no.~9, \texttt{doi:10.36713/epra11212}. Corresponding author: Deep Bhattacharjee, \texttt{d.bhattacharjee@erl-forschung.de}. Contact for the accompanying repository \url{https://github.com/creelie/Paper_6} (GitHub account \texttt{creelie}): \texttt{egspl@proton.me}.}
+
+\subjclass[2020]{55Q25, 55R10, 53A05, 30G35}
+\keywords{Hopf fibration, Hopf invariant, Villarceau circles, quaternionic polynomials}
 \date{}
 
 \begin{abstract}
-We prove that the stereographic images of the fibres of the complex, quaternionic and octonionic Hopf fibrations lying on a product of two round spheres are the Villarceau spheres of a tube, which gives Villarceau's theorem for every ring torus, and that the Hopf invariant of a holomorphic polynomial map $[P:Q]\colon S^3\to S^2$ is the number of common zeros of $P$ and $Q$ in the open four-ball, hence at most $\deg P\cdot\deg Q$. Along the way we give complete proofs that the three Hopf maps are sphere bundles of vector bundles with Hopf invariant one, realise every Hopf invariant by explicit polynomial maps, and derive the homotopy groups of $S^2$, $S^4$ and $S^8$ from those of $S^3$ and $S^7$.
+We prove that the stereographic images of the fibres of the complex, quaternionic and octonionic Hopf fibrations that lie on a product of two round spheres are the Villarceau spheres of a tube, which gives Villarceau's theorem for every ring torus and its analogues in dimensions four and eight. We prove that the Hopf invariant of a holomorphic polynomial map from the three-sphere to the two-sphere is the number of common zeros of its two coordinates in the open four-ball, counted with multiplicity. For quaternionic and octonionic maps whose coordinates are one-sided polynomials in separate variables, we prove that the Hopf invariant is a sum of positive contributions of the zero points and zero spheres in the ball, read off from two real polynomials; every value from zero to the product of the degrees occurs, the formula extends to triangular maps, and positivity fails for general polynomial maps, which realise every integer. Along the way we prove that the three Hopf maps are Riemannian submersions and sphere bundles of vector bundles with Hopf invariant one, and we derive the homotopy groups of the spheres of dimensions two, four and eight from those of the spheres of dimensions three and seven.
 \end{abstract}
 
 \maketitle
-\tableofcontents
 
-\mainmatter
 \input{ch1_intro}
 \input{ch2_foundations}
 \input{ch3_hopf}
@@ -85,7 +87,6 @@ We prove that the stereographic images of the fibres of the complex, quaternioni
 \input{ch10_cy}
 \appendix
 \input{appendices}
-\backmatter
 \input{declarations}
 \input{bibliography}
 \end{document}

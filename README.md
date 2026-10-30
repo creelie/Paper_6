@@ -1,12 +1,12 @@
-# Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II
+# Hopf Invariants of Polynomial Maps and Villarceau Spheres
 
-LaTeX source and verification code for the monograph of this title by Deep Bhattacharjee, version 2 of the preprint doi:10.20944/preprints202602.2038.v1.
+LaTeX source and verification code for the paper of this title by Deep Bhattacharjee and Ushashi Bhattacharya, version 2 of the preprint "Homotopy Groups of Spheres, Hopf Fibrations and Villarceau Circles II" (doi:10.20944/preprints202602.2038.v1).
 
 ## Layout
 
-- `paper/`: the LaTeX source (`main.tex` and one file per chapter), the figures in `paper/figures/`, and the compiled `paper/main.pdf`. `paper/merge.py` writes `paper/manuscript.tex`, a single file with every chapter inlined, for submission.
-- `code/checks.py`: 54 independent numerical and symbolic checks of the identities and values in the text (Appendix C). Run `cd code && python3 checks.py`; it needs NumPy and SymPy, takes about twenty seconds and ends with `54 checks passed, 0 failed`.
-- `figures/make_figures.py`: produces the eight figures with Matplotlib.
+- `paper/`: the LaTeX source (`main.tex`, amsart, and one file per section), the figures in `paper/figures/`, and the compiled `paper/main.pdf`. `paper/merge.py` writes `paper/manuscript.tex`, a single file with every section inlined, for submission.
+- `code/checks.py`: 58 independent numerical and symbolic checks of the identities and values in the text (Appendix C). Run `cd code && python3 checks.py`; it needs NumPy and SymPy, takes about twenty seconds and ends with `58 checks passed, 0 failed`.
+- `figures/make_figures.py`: produces the nine figures with Matplotlib.
 
 ## Build
 

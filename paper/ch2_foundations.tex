@@ -1,8 +1,8 @@
-\chapter{Homotopy groups and fibrations}\label{ch:foundations}
+\section{Homotopy groups and fibrations}\label{ch:foundations}
 
-This chapter collects the facts from homotopy theory used later. Most are standard; we give proofs where the argument is short or where the precise form matters, and we prove one splitting lemma, Lemma~\ref{lem:split}, on which Chapter~\ref{ch:groups} rests.
+This section collects the facts from homotopy theory used later. Most are standard; we give proofs where the argument is short or where the precise form matters, and we prove one splitting lemma, Lemma~\ref{lem:split}, on which Section~\ref{ch:groups} rests.
 
-\section{Homotopy groups}
+\subsection{Homotopy groups}
 
 Let $X$ be a space with basepoint $x_0$. For $i\ge1$ the group $\pi_i(X,x_0)$ is the set of homotopy classes of maps $f\colon(I^i,\partial I^i)\to(X,x_0)$, the homotopies being through maps of the same kind, with the product
 \[
@@ -46,7 +46,7 @@ Let $X$ be a space, $i\ge1$, $\alpha\in\pi_i(X)$, and let $g\colon S^i\to S^i$ b
 For a fixed map $f\colon S^i\to X$, composition $[g]\mapsto[f\circ g]$ is a homomorphism $f_*\colon\pi_i(S^i)\to\pi_i(X)$, because the sum in $\pi_i$ is formed in the source coordinate. By Proposition~\ref{prop:degree} the class of $g$ is $m[\mathrm{id}]$, so $[f\circ g]=f_*(m[\mathrm{id}])=m[f]$.
 \end{proof}
 
-\section{Fibrations and the long exact sequence}
+\subsection{Fibrations and the long exact sequence}
 
 A map $p\colon E\to B$ has the \emph{homotopy lifting property} for a space $Y$ if for every homotopy $F\colon Y\times I\to B$ and every lift $\tilde F_0\colon Y\to E$ of $F_0$ there is a homotopy $\tilde F$ lifting $F$ and starting at $\tilde F_0$. It is a \emph{Serre fibration} if it has this property for all cubes $Y=I^k$, and a \emph{Hurewicz fibration} if it has it for all spaces. Every fibre bundle is a Serre fibration, and a fibre bundle over a paracompact base is a Hurewicz fibration \cite[Proposition~4.48 and the remarks after it]{Hat02}.\footnote{Covering spaces are fibre bundles with discrete fibre; for them the lift is unique, which is the path lifting property of covering space theory. The projection $B\times F\to B$ is the trivial bundle: a lift of $F_t$ is $(F_t,\mathrm{pr}_F\circ\tilde F_0)$.}
 
@@ -95,7 +95,7 @@ where the third equality is the naturality of boundary maps for the map of pairs
 In words: a class $\beta\in\pi_{i-1}(F)$ is represented by $\beta\colon S^{i-1}\to F$; the cone on $\beta$ followed by $G$ is a disc in $E$ with boundary $\beta$ in $F$, and $\sigma(\beta)$ is the image of that disc in $B$, a sphere because its boundary collapses to $b_0$.
 \end{remark}
 
-\section{Suspension}
+\subsection{Suspension}
 
 The reduced suspension of a based space $(X,x_0)$ is $\Sigma X=X\times I/(X\times\partial I\cup x_0\times I)$, and $\Sigma S^n\cong S^{n+1}$. A based map $f$ induces $\Sigma f[x,t]=[f(x),t]$, and $f\mapsto\Sigma f$ induces the suspension homomorphism $E\colon\pi_i(S^n)\to\pi_{i+1}(S^{n+1})$.
 
@@ -107,6 +107,6 @@ Equivalently, the adjoint inclusion $S^n\to\Omega S^{n+1}$ of $S^n$ into the bas
 
 The path fibration $\Omega X\to PX\to X$, where $PX$ is the contractible space of paths starting at $x_0$ and the map evaluates at the endpoint, gives $\pi_i(\Omega X)\cong\pi_{i+1}(X)$ by Theorem~\ref{thm:les}.
 
-\section{Whitehead products}
+\subsection{Whitehead products}
 
 Let $\iota_1,\iota_2\colon S^n\to S^n\vee S^n$ be the inclusions of the two wedge summands. The product $S^n\times S^n$ is obtained from $S^n\vee S^n$ by attaching one $2n$-cell along a map $w\colon S^{2n-1}\to S^n\vee S^n$, the attaching map of the top cell.\footnote{Write $S^n=D^n/\partial D^n$. Then $S^n\times S^n$ is the quotient of $D^n\times D^n$, whose boundary $\partial(D^n\times D^n)=\partial D^n\times D^n\cup D^n\times\partial D^n\cong S^{2n-1}$ is mapped onto $S^n\vee S^n$. This boundary map is $w$.} For $\alpha,\beta\in\pi_n(X)$ represented by $f,g$, the \emph{Whitehead product} $[\alpha,\beta]\in\pi_{2n-1}(X)$ is the class of $(f\vee g)\circ w$. We need only the square $[\iota_n,\iota_n]\in\pi_{2n-1}(S^n)$ of the identity, the class of $\nabla\circ w$ with $\nabla\colon S^n\vee S^n\to S^n$ the fold map.

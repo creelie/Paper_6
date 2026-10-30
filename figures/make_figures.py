@@ -1,5 +1,5 @@
-"""Figures of "Homotopy Groups of Spheres, Hopf Fibrations and Villarceau
-Circles II".  Every curve is computed from the formulas proved in the text.
+"""Figures of "Hopf Invariants of Polynomial Maps and Villarceau Spheres".
+Every curve is computed from the formulas proved in the text.
 Run:  python3 make_figures.py   (writes PNG files next to this script)
 """
 import math
@@ -304,6 +304,56 @@ def fig_clifford():
     save(fig, "fig_clifford.png")
 
 
+# ------------------------------- 9. zero spheres and the split degree formula
+def fig_split():
+    fig = plt.figure(figsize=(9.6, 4.4))
+    ax = fig.add_subplot(1, 2, 1, projection="3d")
+    u, v = np.meshgrid(np.linspace(0, 2 * math.pi, 60), np.linspace(0, math.pi, 30))
+    R0 = 0.5
+    ax.plot_surface(R0 * np.cos(u) * np.sin(v), R0 * np.sin(u) * np.sin(v), R0 * np.cos(v),
+                    color="tab:blue", alpha=0.18, linewidth=0, shade=True)
+    J = np.array([0.6, 0.0, 0.8])
+    t = np.linspace(0, 2 * math.pi, 300)
+    e2 = np.array([0.0, 1.0, 0.0])
+    circ = R0 * (np.outer(np.cos(t), J) + np.outer(np.sin(t), e2))
+    ax.plot(*circ.T, color="tab:blue", lw=1.0)
+    # zeros of a^2 + 1/4 - w for w = 0.02 + 0.03 J: the square roots of w - 1/4 in C_J
+    z = np.sqrt(complex(0.02 - 0.25, 0.03))
+    for sgn in (1, -1):
+        pt = sgn * z.imag * J
+        ax.scatter(*pt, color="tab:red", s=28, depthshade=False)
+    ax.plot(*np.array([-0.8 * J, 0.8 * J]).T, color="0.35", lw=0.8, ls="--")
+    ax.text(*(0.84 * J), r"$J$", fontsize=10)
+    ax.text(0.05, -0.75, -0.62, r"zeros of $a^2+\frac{1}{4}$: the sphere $|\mathrm{Im}\,a|=\frac{1}{2}$", fontsize=8.5)
+    clean3d(ax, 0.62)
+    ax.view_init(elev=18, azim=-58)
+    ax.set_title(r"Imaginary part of $\mathbb{H}$", fontsize=10)
+
+    ax2 = fig.add_subplot(1, 2, 2)
+    th = np.linspace(0, math.pi / 2, 200)
+    ax2.fill_between(np.cos(th), 0, np.sin(th), color="tab:blue", alpha=0.08)
+    ax2.plot(np.cos(th), np.sin(th), color="tab:blue", lw=1.2)
+    r = [0.4, math.sqrt(0.6), math.sqrt(0.97)]
+    s_ = [0.25, 0.5, 0.75]
+    for ra in r:
+        for sb in s_:
+            inside = ra ** 2 + sb ** 2 < 1
+            ax2.scatter(ra, sb, s=40, color="tab:red" if inside else "white",
+                        edgecolors="tab:red", zorder=3)
+    for ra in r:
+        ax2.axvline(ra, color="0.8", lw=0.6, zorder=0)
+    for sb in s_:
+        ax2.axhline(sb, color="0.8", lw=0.6, zorder=0)
+    ax2.set_xlim(0, 1.08)
+    ax2.set_ylim(0, 1.08)
+    ax2.set_aspect("equal")
+    ax2.set_xlabel(r"radius $r_\alpha$ of a zero of $P$")
+    ax2.set_ylabel(r"radius $s_\beta$ of a zero of $Q$")
+    ax2.text(0.6, 0.98, r"five pairs inside: degree $5$", fontsize=8.5)
+    ax2.set_title(r"$\deg(F/|F|)=\sum_{r_\alpha^2+s_\beta^2<1}\mu_\alpha\nu_\beta$", fontsize=10)
+    save(fig, "fig_split.png")
+
+
 if __name__ == "__main__":
     fig_hopf_tori()
     fig_villarceau()
@@ -313,4 +363,5 @@ if __name__ == "__main__":
     fig_table()
     fig_imageJ()
     fig_clifford()
+    fig_split()
     print("figures written to", OUT)

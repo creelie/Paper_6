@@ -1,8 +1,8 @@
-\chapter{The metric geometry of the Hopf fibrations}\label{ch:geometry}
+\section{The metric geometry of the Hopf fibrations}\label{ch:geometry}
 
-This chapter proves Theorem~\ref{thm:F}. In Sections~\ref{sec:matrices} and \ref{sec:submersion}, $\K=\C$ or $\Hq$, $d=\dim_\R\K\in\{2,4\}$; Section~\ref{sec:octsubmersion} treats all four algebras, including $\Oc$. Throughout, $S^{2d-1}$ carries the round metric of radius one. For $u=(a,b)$ and $v=(a',b')$ in $\K^2$ we write $\langle u,v\rangle=\bar aa'+\bar bb'\in\K$, so that $\Re\langle u,v\rangle$ is the Euclidean inner product and $\langle u,u\rangle=|u|^2$.
+This section proves Theorem~\ref{thm:F}. In Sections~\ref{sec:matrices} and \ref{sec:submersion}, $\K=\C$ or $\Hq$, $d=\dim_\R\K\in\{2,4\}$; Section~\ref{sec:octsubmersion} treats all four algebras, including $\Oc$. Throughout, $S^{2d-1}$ carries the round metric of radius one. For $u=(a,b)$ and $v=(a',b')$ in $\K^2$ we write $\langle u,v\rangle=\bar aa'+\bar bb'\in\K$, so that $\Re\langle u,v\rangle$ is the Euclidean inner product and $\langle u,u\rangle=|u|^2$.
 
-\section{The Hopf map as a map of matrices}\label{sec:matrices}
+\subsection{The Hopf map as a map of matrices}\label{sec:matrices}
 
 Regard $u\in\K^2$ as a column vector and let $u^*=(\bar a,\bar b)$. The matrix $uu^*$ is Hermitian, and
 \begin{equation}\label{eq:hmatrix}
@@ -29,7 +29,7 @@ h_\K(u)\cdot h_\K(v)=2\,|\langle u,v\rangle|^2-1 .
 With $A=uu^*$ and $B=vv^*$, the inner product of $2A-I$ and $2B-I$ in $\mathcal H_0$ is $\tfrac12\Re\operatorname{tr}\bigl((2A-I)(2B-I)\bigr)=2\Re\operatorname{tr}(AB)-\operatorname{tr}A-\operatorname{tr}B+1=2\Re\operatorname{tr}(AB)-1$. Moving the column $u$ around the trace, $\Re\operatorname{tr}(u\,u^*vv^*)=\Re\bigl((u^*v)(v^*u)\bigr)=|\langle u,v\rangle|^2$, since $v^*u=\overline{u^*v}$.
 \end{proof}
 
-\section{Riemannian submersion}\label{sec:submersion}
+\subsection{Riemannian submersion}\label{sec:submersion}
 
 \begin{proof}[Proof of Theorem~\ref{thm:F}, first part]
 By Lemma~\ref{lem:equivariance} and the chain rule, $Dh_\K(gu)\circ Dg=\mathrm{Ad}(g)\circ Dh_\K(u)$; since $g$ and $\mathrm{Ad}(g)$ are isometries and $g$ maps fibres to fibres, it suffices to check at $u=(1,0)$ that $Dh_\K$ vanishes on the tangent space of the fibre and multiplies the length of vectors orthogonal to it by $2$. The tangent space to $S^{2d-1}$ at $(1,0)$ is $\{(\alpha,\beta):\Re\alpha=0\}$. The fibre through $(1,0)$ is $\{(q,0):|q|=1\}$, with tangent space $\Imag\K\times0$, and its orthogonal complement is $0\times\K$. From $h_\K(1+\alpha,\beta)=\bigl(2(1+\alpha)\bar\beta,\,|1+\alpha|^2-|\beta|^2\bigr)$,
@@ -47,7 +47,7 @@ Let $u,v\in S^{2d-1}$ and let $\psi\in[0,\pi]$ be the angle between $h_\K(u)$ an
 The fibre through $v$ is $\{vq:|q|=1\}$ (Proposition~\ref{prop:actions}). The spherical distance from $u$ to $vq$ is $\arccos\Re\langle u,vq\rangle=\arccos\Re(\langle u,v\rangle q)$, and the maximum of $\Re(\langle u,v\rangle q)$ over unit $q$ is $|\langle u,v\rangle|$. So the distance from $u$ to the fibre is $\theta=\arccos|\langle u,v\rangle|\in[0,\pi/2]$, which depends only on the fibres. By Proposition~\ref{prop:dotproduct}, $\cos\psi=2\cos^2\theta-1=\cos2\theta$, so $\theta=\psi/2$, which is the distance in the sphere of radius $\frac12$.
 \end{proof}
 
-\section{The octonionic Hopf map}\label{sec:octsubmersion}
+\subsection{The octonionic Hopf map}\label{sec:octsubmersion}
 
 The proof above uses the transitive groups $\U(2)$ and $\Sp(2)$, which have no octonionic analogue: there is no group of $\Oc$-linear maps of $\Oc^2$, since $\Oc$ is not associative. The following argument uses only the lines $L_x$ of Proposition~\ref{prop:lines} and Lemma~\ref{lem:artin}, and it applies to all four algebras.
 
@@ -100,7 +100,7 @@ For a Riemannian submersion with fibres of constant volume, the volume of the to
 are $\operatorname{vol}S^3=\operatorname{vol}S^1\cdot\operatorname{vol}S^2(\tfrac12)$ and $\operatorname{vol}S^7=\operatorname{vol}S^3\cdot\operatorname{vol}S^4(\tfrac12)$. By Proposition~\ref{prop:octsubmersion} the octonionic identity $\frac{\pi^8}{2520}=\frac{\pi^4}{3}\cdot\frac{\pi^4}{840}$, that is $\operatorname{vol}S^{15}=\operatorname{vol}S^7\cdot\operatorname{vol}S^8(\tfrac12)$, has the same meaning. The full symmetry group of the octonionic Hopf fibration is $\mathrm{Spin}(9)$ \cite{GWZ86}, which acts transitively on $S^{15}$ but not through $\Oc$-linear maps; Proposition~\ref{prop:octsubmersion} does not need it.
 \end{remark}
 
-\section{Clifford tori}\label{sec:clifford}
+\subsection{Clifford tori}\label{sec:clifford}
 
 For $a,b>0$ with $a^2+b^2=1$ let $T_{a,b}=S^1(a)\times S^1(b)=\{(z,w):|z|=a,\ |w|=b\}\subset S^3$. It is the preimage under $h$ of the circle of latitude $\{x_3=a^2-b^2\}$, and every point of $S^3$ with $zw\neq0$ lies on exactly one of these tori.
 
@@ -117,7 +117,7 @@ At $a=b=1/\sqrt2$ the fibres have slope one; this is the Clifford torus, the pre
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{fig_clifford.png}
-\caption{The flat torus $T_{a,b}$ unrolled in arc-length coordinates, for $a=0.6$, $b=0.8$. The Hopf fibres are the lines of slope $b/a$ (solid), and the fibres of $(z,w)\mapsto h(\bar z,w)$ are the lines of slope $-b/a$ (dashed). After stereographic projection the two families become the two families of Villarceau circles (Chapter~\ref{ch:villarceau}).}
+\caption{The flat torus $T_{a,b}$ unrolled in arc-length coordinates, for $a=0.6$, $b=0.8$. The Hopf fibres are the lines of slope $b/a$ (solid), and the fibres of $(z,w)\mapsto h(\bar z,w)$ are the lines of slope $-b/a$ (dashed). After stereographic projection the two families become the two families of Villarceau circles (Section~\ref{ch:villarceau}).}
 \label{fig:clifford}
 \end{figure}
 
@@ -128,7 +128,7 @@ At $a=b=1/\sqrt2$ the fibres have slope one; this is the Clifford torus, the pre
 \label{fig:hopftori}
 \end{figure}
 
-\section{The unit tangent bundle of the two-sphere}\label{sec:unittangent}
+\subsection{The unit tangent bundle of the two-sphere}\label{sec:unittangent}
 
 Identify $\R^3$ with $\Imag\Hq$ and $S^3$ with the unit quaternions. The map $\rho(q)(v)=qv\bar q$ is a surjective homomorphism $S^3\to\SO(3)$ with kernel $\{\pm1\}$ \cite[Section~2.3]{Bae02}, so $\SO(3)\cong S^3/\{\pm1\}=\RP^3$.
 

@@ -1,6 +1,6 @@
-\chapter{Introduction}\label{ch:intro}
+\section{Introduction}\label{ch:intro}
 
-\section{The objects}
+\subsection{The objects}
 
 A continuous map between spheres is determined up to homotopy by remarkably little, and yet the groups $\pi_i(S^n)$ of such maps are among the hardest invariants in mathematics to compute. Below the dimension of the target nothing happens: $\pi_i(S^n)=0$ for $i<n$. In the dimension of the target the degree is a complete invariant, $\pi_n(S^n)\cong\Z$. The first surprise is $\pi_3(S^2)\cong\Z$, found by Hopf in 1931 \cite{Hop31}: a map from a three-sphere onto a two-sphere can wrap in infinitely many essentially different ways, and the generator is the map
 \begin{equation}\label{eq:intro-hopf}
@@ -10,9 +10,9 @@ whose fibres are the great circles $\{(\lambda z,\lambda w):|\lambda|=1\}$. Any 
 
 Hopf's construction has exactly two more analogues, built from the quaternions and the octonions, with fibres $S^3$ and $S^7$ \cite{Hop35}. Adams' theorem on the Hopf invariant \cite{Ada60} says that there are no others, and that no sphere bundle $S^{d-1}\to S^{2d-1}\to S^d$ exists unless $d\in\{1,2,4,8\}$.
 
-This monograph gives a complete account of these objects with proofs, and it adds results that make the connection between homotopy and geometry precise. We have aimed at a text in which every statement is either proved here or is a published theorem quoted with its source; the deep inputs that are quoted, and not reproved, are listed in Section~\ref{sec:inputs}. Nothing below depends on a conjecture. The text replaces the earlier versions \cite{BSS22}, \cite{Bha26a} of this work, which were expository, corrects their errors, and adds Theorems~\ref{thm:D} and \ref{thm:E}, Proposition~\ref{prop:twofamilies} and the results of Chapter~\ref{ch:villarceau} on Villarceau spheres.
+This paper gives a complete account of these objects with proofs, and it adds results that make the connection between homotopy and geometry precise. We have aimed at a text in which every statement is either proved here or is a published theorem quoted with its source; the deep inputs that are quoted, and not reproved, are listed in Section~\ref{sec:inputs}. Nothing below depends on a conjecture. The text replaces the earlier versions \cite{BSS22}, \cite{Bha26a} of this work, which were expository, corrects their errors, and adds Theorems~\ref{thm:D} and \ref{thm:E}, Proposition~\ref{prop:twofamilies}, the results of Section~\ref{ch:villarceau} on Villarceau spheres, the Riemannian submersion of Proposition~\ref{prop:octsubmersion} for every division algebra, and the local formula for the Hopf invariant of split and triangular quaternionic and octonionic polynomial maps in Section~\ref{sec:split} (Theorems~\ref{thm:split}, \ref{thm:triangular} and Corollary~\ref{cor:splitrange}).
 
-\section{Results}
+\subsection{Results}
 
 Throughout, $\K$ is one of the four normed division algebras $\R,\C,\Hq,\Oc$ and $d=\dim_\R\K\in\{1,2,4,8\}$. We write $\bar x$ for the conjugate of $x\in\K$ and $|x|^2=x\bar x$. The \emph{Hopf map} of $\K$ is
 \begin{equation}\label{eq:intro-hk}
@@ -65,7 +65,7 @@ where $I_u(P,Q)=\dim_\C\mathcal O_u/(P,Q)$ is the intersection multiplicity. Bot
 
 Theorem~\ref{thm:D} turns the Hopf invariant, a homotopy invariant, into an algebraic count, and turns the linking of fibres into an intersection number of plane curves inside the ball.
 
-The last two results are geometric. Let $0<a<1$ and $b=\sqrt{1-a^2}$, and let $\varepsilon\in\K$ be a unit with $\varepsilon\perp1$. Stereographic projection from $N=(0,\varepsilon)$ identifies $S^{2d-1}\setminus\{N\}$ with $\K\times\varepsilon^\perp=\R^d\times\R^{d-1}$.
+The next two results are geometric. Let $0<a<1$ and $b=\sqrt{1-a^2}$, and let $\varepsilon\in\K$ be a unit with $\varepsilon\perp1$. Stereographic projection from $N=(0,\varepsilon)$ identifies $S^{2d-1}\setminus\{N\}$ with $\K\times\varepsilon^\perp=\R^d\times\R^{d-1}$.
 
 \begin{maintheorem}[Villarceau spheres]\label{thm:E}
 Let $d\in\{2,4,8\}$ and put $R=1/a$, $r=b/a$, so that $R^2-r^2=1$. Stereographic projection maps the product $S^{d-1}(a)\times S^{d-1}(b)$ onto the tube
@@ -83,9 +83,23 @@ Let $T$ be a ring torus with radii $R>r>0$. Every plane through the centre of $T
 For $\K=\C,\Hq,\Oc$ the Hopf map is a Riemannian submersion from the unit sphere $S^{2d-1}$ onto the sphere $S^d(\tfrac12)$ of radius $\tfrac12$. The fibres are parallel great spheres: the distance between the fibres over $p,q\in S^d$ is half the angle between $p$ and $q$. For $\K=\C$ the fibres over a circle of latitude form a flat torus $S^1(a)\times S^1(b)$ on which they are the closed geodesics of slope $b/a$, and the unit tangent bundle of $S^2$ is the quotient of the Hopf bundle by $\pm1$, a circle bundle over $S^2$ with total space $\RP^3$.
 \end{maintheorem}
 
-Chapters~\ref{ch:stable} and \ref{ch:cy} place these results in their wider setting: the stable stems through dimension $19$, the image of the $J$-homomorphism and its Bernoulli denominators, the Kervaire invariant problem, and the torus fibrations of the Strominger--Yau--Zaslow picture, of which the Clifford tori of the Hopf fibration are the simplest example. We state precisely what is known there, prove what is elementary, and separate both from the conjectural.
+We return to polynomial maps. Over $\Hq$ and $\Oc$ there is no intersection theory, and Theorem~\ref{thm:D} survives only in a restricted form. A \emph{one-sided polynomial} of degree $m$ over $\K$ is $P(q)=\sum_{k=0}^mq^kp_k$ with $p_k\in\K$, $p_m\neq0$; its \emph{norm polynomial} is the real polynomial $S_P(z)=\sum_{i,j}\langle p_i,p_j\rangle z^{i+j}$ of degree $2m$.
 
-\section{Inputs taken from the literature}\label{sec:inputs}
+\begin{maintheorem}[Quaternionic and octonionic maps]\label{thm:G}
+Let $\K=\Hq$ or $\Oc$, let $P$, $Q$ be one-sided polynomials of degrees $m,n\ge1$, and suppose that $F(a,b)=(P(a),Q(b))$ has no zero on $S^{2d-1}$.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The zero set of $P$ consists of finitely many points and round $(d-2)$-spheres, one for each root of $S_P$ in the closed upper half-plane; the component of a root of multiplicity $\ell$ has index $\ell$, or $\ell/2$ if the root is real, and the indices add up to $m$.
+\item $\Hopf(h_\K\circ F/|F|)=\Hopf(h_\K)\sum\mu_\alpha\nu_\beta$, the sum over the pairs of zero components of $P$ and $Q$, of radii $r_\alpha$, $s_\beta$ and indices $\mu_\alpha$, $\nu_\beta$, with $r_\alpha^2+s_\beta^2<1$. Every value $0,1,\dots,mn$ of the sum occurs.
+\item The same bounds $0\le\deg(F/|F|)\le mn$ hold for the triangular maps $(P(a),Q(b)+R(a))$ with $R$ an arbitrary polynomial, while polynomial maps with constants between the variable factors attain every integer degree.
+\end{enumerate}
+\end{maintheorem}
+
+The proofs are in Section~\ref{sec:split}. The positivity behind (i) and (ii) is a Jacobian identity, $\det DP=|B|^{d-4}(s^2+t^2)\ge0$ (Proposition~\ref{prop:qjac}), which replaces the complex identity $\det_\R DF=|\det_\C DF|^2$.
+
+
+Sections~\ref{ch:stable} and \ref{ch:cy} place these results in their wider setting: the stable stems through dimension $19$, the image of the $J$-homomorphism and its Bernoulli denominators, the Kervaire invariant problem, and the torus fibrations of the Strominger--Yau--Zaslow picture, of which the Clifford tori of the Hopf fibration are the simplest example. We state precisely what is known there, prove what is elementary, and separate both from the conjectural.
+
+\subsection{Inputs taken from the literature}\label{sec:inputs}
 
 The following theorems are used without proof. Each is a published result with a complete proof in the cited source.
 \begin{enumerate}[label=(I\arabic*)]
@@ -96,13 +110,14 @@ The following theorems are used without proof. Each is a published result with a
 \item The degree of the boundary map of a vector field with isolated zeros equals the sum of their indices \cite[Section~6]{Mil65}; the index of an isolated zero of a holomorphic map germ $(\C^2,u)\to(\C^2,0)$ is its intersection multiplicity \cite[Chapter~5]{GH78}, \cite[Chapter~5]{AGV85}; B\'ezout's theorem \cite[Chapter~5]{Ful69}; an irreducible complex algebraic curve is connected in the classical topology \cite[Corollary~(4.16)]{Mum76}.
 \item The values of $\pi_{n+k}(S^n)$ for $k\le 7$ and of the stable stems for $k\le19$ \cite{Tod62}, \cite{Rav86}, \cite{IWX23}; the image of $J$ \cite{Ada66}, \cite{Qui71}, \cite{Sul74}, \cite{BG75}; the Kervaire invariant results \cite{Bro69}, \cite{HHR16}.
 \item Hopf's description of the Hopf invariant of a map $S^3\to S^2$ as the linking number of two fibres \cite{Hop31}, \cite[Section~17]{BT82}.
+\item A real algebraic subset of $\R^N$ has finitely many connected components \cite[Theorem~2.4.4]{BCR98}.
 \end{enumerate}
 Items (I4) and (I6) are deep, and their proofs are not reproduced. The rest of the text is self-contained modulo standard algebraic topology.
 
-\section{Plan}
+\subsection{Plan}
 
-Chapter~\ref{ch:foundations} fixes conventions and proves the elementary facts about homotopy groups of spheres that are needed, together with a splitting lemma for fibrations whose fibre inclusion is null-homotopic. Chapter~\ref{ch:hopf} constructs the Hopf bundles and proves Theorem~\ref{thm:A}. Chapter~\ref{ch:invariant} treats the Hopf invariant and proves Theorem~\ref{thm:B}; Chapter~\ref{ch:groups} proves Theorem~\ref{thm:C} and derives the table of unstable groups. Chapter~\ref{ch:linking} is about linking numbers and proves Theorem~\ref{thm:D}, together with its analogue for split quaternionic and octonionic maps (Proposition~\ref{prop:split}). Chapter~\ref{ch:geometry} proves Theorem~\ref{thm:F}, and Chapter~\ref{ch:villarceau} proves Theorem~\ref{thm:E} and Villarceau's theorem. The appendices collect the octonion identities, the algebra behind Villarceau's theorem, the tables of stable stems and the numerical checks.
+Section~\ref{ch:foundations} fixes conventions and proves the elementary facts about homotopy groups of spheres that are needed, together with a splitting lemma for fibrations whose fibre inclusion is null-homotopic. Section~\ref{ch:hopf} constructs the Hopf bundles and proves Theorem~\ref{thm:A}. Section~\ref{ch:invariant} treats the Hopf invariant and proves Theorem~\ref{thm:B}; Section~\ref{ch:groups} proves Theorem~\ref{thm:C} and derives the table of unstable groups. Section~\ref{ch:linking} is about linking numbers and proves Theorem~\ref{thm:D}, together with its analogues for split and triangular quaternionic and octonionic maps (Theorem~\ref{thm:G}), and the failure of positivity for general ones. Section~\ref{ch:geometry} proves Theorem~\ref{thm:F}, and Section~\ref{ch:villarceau} proves Theorem~\ref{thm:E} and Villarceau's theorem. The appendices collect the octonion identities, the algebra behind Villarceau's theorem, the tables of stable stems and the numerical checks.
 
-\section{Conventions}
+\subsection{Conventions}
 
 Spheres are $S^n=\{x\in\R^{n+1}:|x|=1\}$ and $S^n(\rho)$ is the sphere of radius $\rho$. Homotopy groups are based, and we drop basepoints from the notation when the space is path connected. A map $f\colon S^n\to S^n$ has a degree $\deg f\in\Z$, defined by $f_*[S^n]=(\deg f)[S^n]$ in $H_n(S^n;\Z)$. We write $\Z/m$ for the cyclic group of order $m$, and in tables a cyclic group is denoted by its order. The words \emph{fibration} and \emph{fibre bundle} are used in their standard senses \cite[Section~4.2]{Hat02}; all fibre bundles below are locally trivial over spheres and therefore Hurewicz fibrations.
